@@ -74,15 +74,13 @@ class User(models.Model):
     @classmethod
     def set_status(cls, userid, status, time):
         try:
-            print 'THIS IS THE USER ID'
-            print userid
             curuser = User.objects.get(facebook_id=userid)
             #user exists
             curuser.status = status
             status_time = curuser.parse_date(time)
             curuser.status_time = status_time
             curuser.save()
-            statuses = myuser.get_friend_statuses()
+            statuses = curuser.get_friend_statuses()
             out = []
             for key in statuses:
                 if curuser.matches(status, status[key]):

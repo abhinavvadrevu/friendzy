@@ -80,7 +80,7 @@ class User(models.Model):
             status_time = curuser.parse_date(time)
             curuser.status_time = status_time
             curuser.save()
-            statuses = myuser.get_friend_statuses()
+            statuses = curuser.get_friend_statuses()
             out = []
             for key in statuses:
                 if curuser.matches(status, status[key]):
