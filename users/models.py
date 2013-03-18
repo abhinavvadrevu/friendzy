@@ -81,10 +81,10 @@ class User(models.Model):
             curuser.status_time = status_time
             curuser.save()
             statuses = curuser.get_friend_statuses()
-            out = []
+            out = {}
             for key in statuses:
-                if curuser.matches(status, status[key]):
-                    out.append([status, status[key]])
+                if curuser.matches(status, statuses[key]):
+                    out[key] = statuses[key]
             return out
         except User.DoesNotExist:
             print ('user does not exist!')
