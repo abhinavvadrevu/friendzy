@@ -1,8 +1,8 @@
 import json
 import urllib2
 
-#burl = "http://friendzy.herokuapp.com"
-burl = "http://127.0.0.1:8000"
+burl = "http://friendzy.herokuapp.com"
+#burl = "http://127.0.0.1:8000"
 
 def login(user, friends):
     data = json.dumps({"userID":user, "facebookFriends":friends})
@@ -41,16 +41,16 @@ def set_status(user, status):
 
 
 fid = '588985867'
-fid = '1'
-login(fid, ['b','c','d'])
+fid = '666900613'
+#fid = '1'
+login(fid, ['588985867','c','d'])
 set_status(fid, 'this is a test status1')
 
-print '2'
 
-
+"""
 fid = 'b'
 login(fid, ['1','c','d'])
 set_status(fid, 'this is a test status1')
-
+"""
 
 

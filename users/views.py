@@ -11,6 +11,8 @@ import datetime
 
 @csrf_exempt
 def login(request):
+    print 'request here'
+    print request.body
     postrequest = json.loads(request.body)
     userID = postrequest['userID']
     facebookFriends = postrequest['facebookFriends']
@@ -19,6 +21,8 @@ def login(request):
 
 @csrf_exempt
 def set_status(request):
+    print 'request here'
+    print request.body
     time = datetime.datetime.now()
     postrequest = json.loads(request.body)
     userID = postrequest['userID']
