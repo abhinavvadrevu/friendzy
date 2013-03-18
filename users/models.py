@@ -54,6 +54,8 @@ class User(models.Model):
     def get_friend_statuses(self):
         statuses = {}
         for friendid in self.friends:
+            print 'id:'
+            print friendid
             try:
                 userid = friendid
                 myuser = User.objects.filter(facebook_id=userid)
@@ -62,7 +64,7 @@ class User(models.Model):
                 else:
                     print("friend " + str(userid) + " not found in friendzy database!")
                     break
-                if and myuser.get_status() != None:
+                if myuser.get_status() != None:
                     statuses[myuser.facebook_id] = myuser.get_status()
             except User.DoesNotExist: #this except clause is only used when .filter is changed to .get
                 #do nothing
@@ -71,18 +73,13 @@ class User(models.Model):
     
     @classmethod
     def set_status(cls, userid, status, time):
-        curuser=None
         try:
             curuser = User.objects.get(facebook_id=userid)
-        except User.DoesNotExist:
-            curuser = User()
-            curuser.status_time = datetime.datetime.now() - datetime.timedelta(minutes=16)
-        #user exists
-        curuser.status = status
-        status_time = curuser.parse_date(time)
-        try:
-            myuser = User.objects.get(facebook_id=userid)
-            # return matching statuses
+            #user exists
+            curuser.status = status
+            status_time = curuser.parse_date(time)
+            curuser.status_time = status_time
+            curuser.save()
             statuses = myuser.get_friend_statuses()
             out = []
             for key in statuses:
@@ -90,9 +87,8 @@ class User(models.Model):
                     out.append([status, status[key]])
             return out
         except User.DoesNotExist:
-            #do nothing
-            print("user " + str(userid) + " not found - status not set")
-    
+            print ('user does not exist!')
+
     def get_status(self):
         """
         returns status if valid, else returns None

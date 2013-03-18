@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="NONE,NOARCHIVE">
-  <title>KeyError at /login/set_status</title>
+  <title>NameError at /set_status</title>
   <style type="text/css">
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -118,8 +118,8 @@
 </head>
 <body>
 <div id="summary">
-  <h1>KeyError at /login/set_status</h1>
-  <pre class="exception_value">&#39;facebookFriends&#39;</pre>
+  <h1>NameError at /set_status</h1>
+  <pre class="exception_value">global name &#39;myuser&#39; is not defined</pre>
   <table class="meta">
 
     <tr>
@@ -128,34 +128,34 @@
     </tr>
     <tr>
       <th>Request URL:</th>
-      <td>http://friendzy.herokuapp.com/login/set_status</td>
+      <td>http://127.0.0.1:8000/set_status</td>
     </tr>
 
     <tr>
       <th>Django Version:</th>
-      <td>1.5</td>
+      <td>1.4.3</td>
     </tr>
 
     <tr>
       <th>Exception Type:</th>
-      <td>KeyError</td>
+      <td>NameError</td>
     </tr>
 
 
     <tr>
       <th>Exception Value:</th>
-      <td><pre>&#39;facebookFriends&#39;</pre></td>
+      <td><pre>global name &#39;myuser&#39; is not defined</pre></td>
     </tr>
 
 
     <tr>
       <th>Exception Location:</th>
-      <td>/app/users/views.py in login, line 16</td>
+      <td>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users/models.py in set_status, line 85</td>
     </tr>
 
     <tr>
       <th>Python Executable:</th>
-      <td>/app/.heroku/python/bin/python</td>
+      <td>/usr/bin/python</td>
     </tr>
     <tr>
       <th>Python Version:</th>
@@ -163,22 +163,27 @@
     </tr>
     <tr>
       <th>Python Path:</th>
-      <td><pre>[&#39;/app&#39;,
- &#39;/app/.heroku/python/lib/python2.7/site-packages/distribute-0.6.34-py2.7.egg&#39;,
- &#39;/app/.heroku/python/lib/python2.7/site-packages/pip-1.1-py2.7.egg&#39;,
- &#39;/app&#39;,
- &#39;/app/.heroku/python/lib/python27.zip&#39;,
- &#39;/app/.heroku/python/lib/python2.7&#39;,
- &#39;/app/.heroku/python/lib/python2.7/plat-linux2&#39;,
- &#39;/app/.heroku/python/lib/python2.7/lib-tk&#39;,
- &#39;/app/.heroku/python/lib/python2.7/lib-old&#39;,
- &#39;/app/.heroku/python/lib/python2.7/lib-dynload&#39;,
- &#39;/app/.heroku/python/lib/python2.7/site-packages&#39;,
- &#39;/app/.heroku/python/lib/python2.7/site-packages/setuptools-0.6c11-py2.7.egg-info&#39;]</pre></td>
+      <td><pre>[&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy&#39;,
+ &#39;/usr/lib/python2.7&#39;,
+ &#39;/usr/lib/python2.7/plat-linux2&#39;,
+ &#39;/usr/lib/python2.7/lib-tk&#39;,
+ &#39;/usr/lib/python2.7/lib-old&#39;,
+ &#39;/usr/lib/python2.7/lib-dynload&#39;,
+ &#39;/usr/local/lib/python2.7/dist-packages&#39;,
+ &#39;/usr/lib/python2.7/dist-packages&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/PIL&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/gst-0.10&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/gtk-2.0&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/ubuntu-sso-client&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/ubuntuone-client&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/ubuntuone-control-panel&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/ubuntuone-couch&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/ubuntuone-installer&#39;,
+ &#39;/usr/lib/python2.7/dist-packages/ubuntuone-storage-protocol&#39;]</pre></td>
     </tr>
     <tr>
       <th>Server time:</th>
-      <td>Fri, 15 Mar 2013 19:43:22 -0500</td>
+      <td>Mon, 18 Mar 2013 16:08:53 -0500</td>
     </tr>
   </table>
 </div>
@@ -193,16 +198,16 @@
     <ul class="traceback">
       
         <li class="frame django">
-          <code>/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py</code> in <code>get_response</code>
+          <code>/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py</code> in <code>get_response</code>
 
           
-            <div class="context" id="c41141312">
+            <div class="context" id="c139967548931248">
               
-                <ol start="108" class="pre-context" id="pre41141312"><li onclick="toggle('pre41141312', 'post41141312')"><pre>                    for middleware_method in self._view_middleware:</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                        response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                        if response:</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                            break</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre></pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                if response is None:</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                    try:</pre></li></ol>
+                <ol start="104" class="pre-context" id="pre139967548931248"><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                    for middleware_method in self._view_middleware:</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                        response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                        if response:</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                            break</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre></pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                if response is None:</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                    try:</pre></li></ol>
               
-              <ol start="115" class="context-line"><li onclick="toggle('pre41141312', 'post41141312')"><pre>                        response = callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              <ol start="111" class="context-line"><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                        response = callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='116' class="post-context" id="post41141312"><li onclick="toggle('pre41141312', 'post41141312')"><pre>                    except Exception as e:</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                        # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                        # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                        # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                        for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre41141312', 'post41141312')"><pre>                            response = middleware_method(request, e)</pre></li></ol>
+                <ol start='112' class="post-context" id="post139967548931248"><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                    except Exception, e:</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                        # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                        # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                        # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                        for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre139967548931248', 'post139967548931248')"><pre>                            response = middleware_method(request, e)</pre></li></ol>
               
             </div>
           
@@ -210,10 +215,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '41141312')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139967548931248')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v41141312">
+            <table class="vars" id="v139967548931248">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -223,13 +228,13 @@
               <tbody>
                 
                   <tr>
-                    <td>e</td>
-                    <td class="code"><pre>KeyError(&#39;facebookFriends&#39;,)</pre></td>
+                    <td>exceptions</td>
+                    <td class="code"><pre>&lt;module &#39;django.core.exceptions&#39; from &#39;/usr/local/lib/python2.7/dist-packages/django/core/exceptions.pyc&#39;&gt;</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>callback</td>
-                    <td class="code"><pre>&lt;function login at 0x24718c0&gt;</pre></td>
+                    <td>e</td>
+                    <td class="code"><pre>NameError(&quot;global name &#39;myuser&#39; is not defined&quot;,)</pre></td>
                   </tr>
                 
                   <tr>
@@ -238,8 +243,38 @@
                   </tr>
                 
                   <tr>
-                    <td>response</td>
-                    <td class="code"><pre>None</pre></td>
+                    <td>settings</td>
+                    <td class="code"><pre>&lt;django.conf.LazySettings object at 0x11c2c50&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>middleware_method</td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x1c9cb90&gt;&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x1c71110&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/set_status,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;status&quot;: &quot;this is a status&quot;, &quot;userID&quot;: &quot;b&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;45\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;gAF8BT0NLURP3JlupUAAbd2vSzaqXVsT\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-lG94HK2A1s,guid=57a33d235bb286c34c6be59600000023\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-EbCGZH\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1622\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-EbCGZH/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;OLDPWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/set_status\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1633,unix/ubuntu:/tmp/.ICE-unix/1633\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;1668\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-EbCGZH/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;54525958\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1363638408.487457-728003358\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7f4cce96d270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x17213f8&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x7f4cc4069b50&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>callback</td>
+                    <td class="code"><pre>&lt;function set_status at 0x7f4cc4058cf8&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>resolver</td>
+                    <td class="code"><pre>&lt;RegexURLResolver friendzy.urls (None:None) ^/&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>urlresolvers</td>
+                    <td class="code"><pre>&lt;module &#39;django.core.urlresolvers&#39; from &#39;/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.pyc&#39;&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -248,33 +283,13 @@
                   </tr>
                 
                   <tr>
-                    <td>middleware_method</td>
-                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x24c96d0&gt;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>resolver_match</td>
-                    <td class="code"><pre>ResolverMatch(func=&lt;function login at 0x24718c0&gt;, args=(), kwargs={}, url_name=&#39;users.views.login&#39;, app_name=&#39;None&#39;, namespace=&#39;&#39;)</pre></td>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
                   </tr>
                 
                   <tr>
                     <td>urlconf</td>
                     <td class="code"><pre>&#39;friendzy.urls&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/login/set_status,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;52&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;rJhz0X3HkBdwmT6OieU3YRAEECmN3M6V&#39;,\n &#39;DATABASE_URL&#39;: &#39;postgres://lbszeyqxwktuuj:-lfYlQIP19R0pOAxLaHmJkJmxb@ec2-23-21-91-29.compute-1.amazonaws.com:5432/d8grsgiqqfv8dv&#39;,\n &#39;DJANGO_SETTINGS_MODULE&#39;: &#39;friendzy.settings&#39;,\n &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,\n &#39;HEROKU_POSTGRESQL_RED_URL&#39;: &#39;postgres://lbszeyqxwktuuj:-lfYlQIP19R0pOAxLaHmJkJmxb@ec2-23-21-91-29.compute-1.amazonaws.com:5432/d8grsgiqqfv8dv&#39;,\n &#39;HOME&#39;: &#39;/app&#39;,\n &#39;HTTP_ACCEPT_ENCODING&#39;: &#39;identity&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_HOST&#39;: &#39;friendzy.herokuapp.com&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;Python-urllib/2.7&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;24.130.120.61&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;80&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;http&#39;,\n &#39;HTTP_X_HEROKU_DYNOS_IN_USE&#39;: &#39;1&#39;,\n &#39;HTTP_X_HEROKU_QUEUE_DEPTH&#39;: &#39;0&#39;,\n &#39;HTTP_X_HEROKU_QUEUE_WAIT_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1363394602307&#39;,\n &#39;LANG&#39;: &#39;en_US.UTF-8&#39;,\n &#39;LD_LIBRARY_PATH&#39;: &#39;/app/.heroku/vendor/lib&#39;,\n &#39;LIBRARY_PATH&#39;: &#39;/app/.heroku/vendor/lib&#39;,\n &#39;PATH&#39;: &#39;/app/.heroku/python/bin:/usr/local/bin:/usr/bin:/bin&#39;,\n &#39;PATH_INFO&#39;: u&#39;/login/set_status&#39;,\n &#39;PORT&#39;: &#39;26543&#39;,\n &#39;PS&#39;: &#39;web.1&#39;,\n &#39;PS1&#39;: &#39;\\\\[\\\\033[01;34m\\\\]\\\\w\\\\[\\\\033[00m\\\\] \\\\[\\\\033[01;32m\\\\]$ \\\\[\\\\033[00m\\\\]&#39;,\n &#39;PWD&#39;: &#39;/app&#39;,\n &#39;PYTHONHASHSEED&#39;: &#39;random&#39;,\n &#39;PYTHONHOME&#39;: &#39;/app/.heroku/python&#39;,\n &#39;PYTHONPATH&#39;: &#39;/app/&#39;,\n &#39;PYTHONUNBUFFERED&#39;: &#39;true&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.76.62.27&#39;,\n &#39;REMOTE_HOST&#39;: &#39;&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;d73856c2-8e46-475d-9fd7-11e6063dfdd4.private.dyno.runtime.heroku.com&#39;,\n &#39;SERVER_PORT&#39;: &#39;26543&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.7.3&#39;,\n &#39;SHLVL&#39;: &#39;1&#39;,\n &#39;TZ&#39;: &#39;America/Chicago&#39;,\n &#39;_&#39;: &#39;/app/.heroku/python/bin/python&#39;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f172d5b5270&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0x1cedce8&gt;,\n &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x25c58d0&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: True,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>resolver</td>
-                    <td class="code"><pre>&lt;RegexURLResolver &#39;friendzy.urls&#39; (None:None) ^/&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x7f172d503bd0&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -283,16 +298,16 @@
         </li>
       
         <li class="frame django">
-          <code>/app/.heroku/python/lib/python2.7/site-packages/django/views/decorators/csrf.py</code> in <code>wrapped_view</code>
+          <code>/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py</code> in <code>wrapped_view</code>
 
           
-            <div class="context" id="c38342880">
+            <div class="context" id="c139967548931032">
               
-                <ol start="70" class="pre-context" id="pre38342880"><li onclick="toggle('pre38342880', 'post38342880')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre38342880', 'post38342880')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre38342880', 'post38342880')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre38342880', 'post38342880')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre38342880', 'post38342880')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre38342880', 'post38342880')"><pre>    # function.</pre></li><li onclick="toggle('pre38342880', 'post38342880')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
+                <ol start="70" class="pre-context" id="pre139967548931032"><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    # function.</pre></li><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
               
-              <ol start="77" class="context-line"><li onclick="toggle('pre38342880', 'post38342880')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              <ol start="77" class="context-line"><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='78' class="post-context" id="post38342880"><li onclick="toggle('pre38342880', 'post38342880')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre38342880', 'post38342880')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
+                <ol start='78' class="post-context" id="post139967548931032"><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre139967548931032', 'post139967548931032')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
               
             </div>
           
@@ -300,10 +315,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '38342880')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139967548931032')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v38342880">
+            <table class="vars" id="v139967548931032">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -313,74 +328,89 @@
               <tbody>
                 
                   <tr>
-                    <td>kwargs</td>
-                    <td class="code"><pre>{}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>view_func</td>
-                    <td class="code"><pre>&lt;function login at 0x2471848&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
                     <td>args</td>
                     <td class="code"><pre>(&lt;WSGIRequest
-path:/login/set_status,
+path:/set_status,
 GET:&lt;QueryDict: {}&gt;,
-POST:&lt;QueryDict: {}&gt;,
+POST:&lt;QueryDict: {u&#39;{&quot;status&quot;: &quot;this is a status&quot;, &quot;userID&quot;: &quot;b&quot;}&#39;: [u&#39;&#39;]}&gt;,
 COOKIES:{},
-META:{&#39;CONTENT_LENGTH&#39;: &#39;52&#39;,
+META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
+ &#39;COMPIZ_CONFIG_PROFILE&#39;: &#39;ubuntu&#39;,
+ &#39;CONTENT_LENGTH&#39;: &#39;45&#39;,
  &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,
- u&#39;CSRF_COOKIE&#39;: u&#39;rJhz0X3HkBdwmT6OieU3YRAEECmN3M6V&#39;,
- &#39;DATABASE_URL&#39;: &#39;postgres://lbszeyqxwktuuj:-lfYlQIP19R0pOAxLaHmJkJmxb@ec2-23-21-91-29.compute-1.amazonaws.com:5432/d8grsgiqqfv8dv&#39;,
+ &#39;CSRF_COOKIE&#39;: &#39;gAF8BT0NLURP3JlupUAAbd2vSzaqXVsT&#39;,
+ &#39;DBUS_SESSION_BUS_ADDRESS&#39;: &#39;unix:abstract=/tmp/dbus-lG94HK2A1s,guid=57a33d235bb286c34c6be59600000023&#39;,
+ &#39;DEFAULTS_PATH&#39;: &#39;/usr/share/gconf/ubuntu.default.path&#39;,
+ &#39;DESKTOP_SESSION&#39;: &#39;ubuntu&#39;,
+ &#39;DISPLAY&#39;: &#39;:0&#39;,
  &#39;DJANGO_SETTINGS_MODULE&#39;: &#39;friendzy.settings&#39;,
  &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,
- &#39;HEROKU_POSTGRESQL_RED_URL&#39;: &#39;postgres://lbszeyqxwktuuj:-lfYlQIP19R0pOAxLaHmJkJmxb@ec2-23-21-91-29.compute-1.amazonaws.com:5432/d8grsgiqqfv8dv&#39;,
- &#39;HOME&#39;: &#39;/app&#39;,
+ &#39;GDMSESSION&#39;: &#39;ubuntu&#39;,
+ &#39;GNOME_DESKTOP_SESSION_ID&#39;: &#39;this-is-deprecated&#39;,
+ &#39;GNOME_KEYRING_CONTROL&#39;: &#39;/tmp/keyring-EbCGZH&#39;,
+ &#39;GNOME_KEYRING_PID&#39;: &#39;1622&#39;,
+ &#39;GPG_AGENT_INFO&#39;: &#39;/tmp/keyring-EbCGZH/gpg:0:1&#39;,
+ &#39;HOME&#39;: &#39;/home/abhinav&#39;,
  &#39;HTTP_ACCEPT_ENCODING&#39;: &#39;identity&#39;,
  &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,
- &#39;HTTP_HOST&#39;: &#39;friendzy.herokuapp.com&#39;,
+ &#39;HTTP_HOST&#39;: &#39;127.0.0.1:8000&#39;,
  &#39;HTTP_USER_AGENT&#39;: &#39;Python-urllib/2.7&#39;,
- &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;24.130.120.61&#39;,
- &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;80&#39;,
- &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;http&#39;,
- &#39;HTTP_X_HEROKU_DYNOS_IN_USE&#39;: &#39;1&#39;,
- &#39;HTTP_X_HEROKU_QUEUE_DEPTH&#39;: &#39;0&#39;,
- &#39;HTTP_X_HEROKU_QUEUE_WAIT_TIME&#39;: &#39;0&#39;,
- &#39;HTTP_X_REQUEST_START&#39;: &#39;1363394602307&#39;,
  &#39;LANG&#39;: &#39;en_US.UTF-8&#39;,
- &#39;LD_LIBRARY_PATH&#39;: &#39;/app/.heroku/vendor/lib&#39;,
- &#39;LIBRARY_PATH&#39;: &#39;/app/.heroku/vendor/lib&#39;,
- &#39;PATH&#39;: &#39;/app/.heroku/python/bin:/usr/local/bin:/usr/bin:/bin&#39;,
- &#39;PATH_INFO&#39;: u&#39;/login/set_status&#39;,
- &#39;PORT&#39;: &#39;26543&#39;,
- &#39;PS&#39;: &#39;web.1&#39;,
- &#39;PS1&#39;: &#39;\\[\\033[01;34m\\]\\w\\[\\033[00m\\] \\[\\033[01;32m\\]$ \\[\\033[00m\\]&#39;,
- &#39;PWD&#39;: &#39;/app&#39;,
- &#39;PYTHONHASHSEED&#39;: &#39;random&#39;,
- &#39;PYTHONHOME&#39;: &#39;/app/.heroku/python&#39;,
- &#39;PYTHONPATH&#39;: &#39;/app/&#39;,
- &#39;PYTHONUNBUFFERED&#39;: &#39;true&#39;,
+ &#39;LESSCLOSE&#39;: &#39;/usr/bin/lesspipe %s %s&#39;,
+ &#39;LESSOPEN&#39;: &#39;| /usr/bin/lesspipe %s&#39;,
+ &#39;LOGNAME&#39;: &#39;abhinav&#39;,
+ &#39;LS_COLORS&#39;: &#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:&#39;,
+ &#39;MANDATORY_PATH&#39;: &#39;/usr/share/gconf/ubuntu.mandatory.path&#39;,
+ &#39;OLDPWD&#39;: &#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users&#39;,
+ &#39;PATH&#39;: &#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games&#39;,
+ &#39;PATH_INFO&#39;: u&#39;/set_status&#39;,
+ &#39;PWD&#39;: &#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy&#39;,
  &#39;QUERY_STRING&#39;: &#39;&#39;,
- &#39;REMOTE_ADDR&#39;: &#39;10.76.62.27&#39;,
+ &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,
  &#39;REMOTE_HOST&#39;: &#39;&#39;,
  &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,
+ &#39;RUN_MAIN&#39;: &#39;true&#39;,
  &#39;SCRIPT_NAME&#39;: u&#39;&#39;,
- &#39;SERVER_NAME&#39;: &#39;d73856c2-8e46-475d-9fd7-11e6063dfdd4.private.dyno.runtime.heroku.com&#39;,
- &#39;SERVER_PORT&#39;: &#39;26543&#39;,
+ &#39;SERVER_NAME&#39;: &#39;localhost&#39;,
+ &#39;SERVER_PORT&#39;: &#39;8000&#39;,
  &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,
  &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.7.3&#39;,
+ &#39;SESSION_MANAGER&#39;: &#39;local/ubuntu:@/tmp/.ICE-unix/1633,unix/ubuntu:/tmp/.ICE-unix/1633&#39;,
+ &#39;SHELL&#39;: &#39;/bin/bash&#39;,
  &#39;SHLVL&#39;: &#39;1&#39;,
+ &#39;SSH_AGENT_PID&#39;: &#39;1668&#39;,
+ &#39;SSH_AUTH_SOCK&#39;: &#39;/tmp/keyring-EbCGZH/ssh&#39;,
+ &#39;TERM&#39;: &#39;xterm&#39;,
  &#39;TZ&#39;: &#39;America/Chicago&#39;,
- &#39;_&#39;: &#39;/app/.heroku/python/bin/python&#39;,
- &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f172d5b5270&gt;,
- &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0x1cedce8&gt;,
- &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x25c58d0&gt;,
+ &#39;UBUNTU_MENUPROXY&#39;: &#39;libappmenu.so&#39;,
+ &#39;USER&#39;: &#39;abhinav&#39;,
+ &#39;WINDOWID&#39;: &#39;54525958&#39;,
+ &#39;XAUTHORITY&#39;: &#39;/home/abhinav/.Xauthority&#39;,
+ &#39;XDG_CONFIG_DIRS&#39;: &#39;/etc/xdg/xdg-ubuntu:/etc/xdg&#39;,
+ &#39;XDG_CURRENT_DESKTOP&#39;: &#39;Unity&#39;,
+ &#39;XDG_DATA_DIRS&#39;: &#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/&#39;,
+ &#39;XDG_SEAT_PATH&#39;: &#39;/org/freedesktop/DisplayManager/Seat0&#39;,
+ &#39;XDG_SESSION_COOKIE&#39;: &#39;5c0342bcc257d015b715503f00000029-1363638408.487457-728003358&#39;,
+ &#39;XDG_SESSION_PATH&#39;: &#39;/org/freedesktop/DisplayManager/Session0&#39;,
+ &#39;_&#39;: &#39;/usr/bin/python&#39;,
+ &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f4cce96d270&gt;,
+ &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0x17213f8&gt;,
+ &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x7f4cc4069b50&gt;,
  &#39;wsgi.multiprocess&#39;: False,
  &#39;wsgi.multithread&#39;: True,
  &#39;wsgi.run_once&#39;: False,
  &#39;wsgi.url_scheme&#39;: &#39;http&#39;,
  &#39;wsgi.version&#39;: (1, 0)}&gt;,)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>view_func</td>
+                    <td class="code"><pre>&lt;function set_status at 0x7f4cc4058c80&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>kwargs</td>
+                    <td class="code"><pre>{}</pre></td>
                   </tr>
                 
               </tbody>
@@ -389,16 +419,16 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;52&#39;,
         </li>
       
         <li class="frame user">
-          <code>/app/users/views.py</code> in <code>login</code>
+          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users/views.py</code> in <code>set_status</code>
 
           
-            <div class="context" id="c38345832">
+            <div class="context" id="c139967548930960">
               
-                <ol start="9" class="pre-context" id="pre38345832"><li onclick="toggle('pre38345832', 'post38345832')"><pre>import datetime</pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre></pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre></pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre>def login(request):</pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre>    postrequest = json.loads(request.body)</pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre>    userID = postrequest[&#39;userID&#39;]</pre></li></ol>
+                <ol start="19" class="pre-context" id="pre139967548930960"><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre></pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>def set_status(request):</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>    time = datetime.datetime.now()</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>    postrequest = json.loads(request.body)</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>    userID = postrequest[&#39;userID&#39;]</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>    status = postrequest[&#39;status&#39;]</pre></li></ol>
               
-              <ol start="16" class="context-line"><li onclick="toggle('pre38345832', 'post38345832')"><pre>    facebookFriends = postrequest[&#39;facebookFriends&#39;]</pre> <span>...</span></li></ol>
+              <ol start="26" class="context-line"><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>    matchingStatuses = User.set_status(userID, status, time)</pre> <span>...</span></li></ol>
               
-                <ol start='17' class="post-context" id="post38345832"><li onclick="toggle('pre38345832', 'post38345832')"><pre>    friendStatuses = User.login(userID, facebookFriends)</pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre>    return HttpResponse(simplejson.dumps(friendStatuses), mimetype=&#39;application/json&#39;)</pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre></pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre>def set_status(request):</pre></li><li onclick="toggle('pre38345832', 'post38345832')"><pre>    time = datetime.datetime.now()</pre></li></ol>
+                <ol start='27' class="post-context" id="post139967548930960"><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>    return HttpResponse(simplejson.dumps(matchingStatuses), mimetype=&#39;application/json&#39;)</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre></pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>def TESTAPI_resetFixture(request):</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>    User.TESTAPI_resetFixture()</pre></li><li onclick="toggle('pre139967548930960', 'post139967548930960')"><pre>    return HttpResponse(simplejson.dumps({&#39;worked&#39;:&#39;1&#39;}), mimetype=&#39;application/json&#39;)</pre></li></ol>
               
             </div>
           
@@ -406,10 +436,10 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;52&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '38345832')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139967548930960')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v38345832">
+            <table class="vars" id="v139967548930960">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -419,18 +449,93 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;52&#39;,
               <tbody>
                 
                   <tr>
-                    <td>postrequest</td>
-                    <td class="code"><pre>{u&#39;status&#39;: u&#39;this is a status&#39;, u&#39;userID&#39;: u&#39;1234test&#39;}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>userID</td>
-                    <td class="code"><pre>u&#39;1234test&#39;</pre></td>
+                    <td>status</td>
+                    <td class="code"><pre>u&#39;this is a status&#39;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&quot;&lt;WSGIRequest\npath:/login/set_status,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{&#39;CONTENT_LENGTH&#39;: &#39;52&#39;,\n &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,\n u&#39;CSRF_COOKIE&#39;: u&#39;rJhz0X3HkBdwmT6OieU3YRAEECmN3M6V&#39;,\n &#39;DATABASE_URL&#39;: &#39;postgres://lbszeyqxwktuuj:-lfYlQIP19R0pOAxLaHmJkJmxb@ec2-23-21-91-29.compute-1.amazonaws.com:5432/d8grsgiqqfv8dv&#39;,\n &#39;DJANGO_SETTINGS_MODULE&#39;: &#39;friendzy.settings&#39;,\n &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,\n &#39;HEROKU_POSTGRESQL_RED_URL&#39;: &#39;postgres://lbszeyqxwktuuj:-lfYlQIP19R0pOAxLaHmJkJmxb@ec2-23-21-91-29.compute-1.amazonaws.com:5432/d8grsgiqqfv8dv&#39;,\n &#39;HOME&#39;: &#39;/app&#39;,\n &#39;HTTP_ACCEPT_ENCODING&#39;: &#39;identity&#39;,\n &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,\n &#39;HTTP_HOST&#39;: &#39;friendzy.herokuapp.com&#39;,\n &#39;HTTP_USER_AGENT&#39;: &#39;Python-urllib/2.7&#39;,\n &#39;HTTP_X_FORWARDED_FOR&#39;: &#39;24.130.120.61&#39;,\n &#39;HTTP_X_FORWARDED_PORT&#39;: &#39;80&#39;,\n &#39;HTTP_X_FORWARDED_PROTO&#39;: &#39;http&#39;,\n &#39;HTTP_X_HEROKU_DYNOS_IN_USE&#39;: &#39;1&#39;,\n &#39;HTTP_X_HEROKU_QUEUE_DEPTH&#39;: &#39;0&#39;,\n &#39;HTTP_X_HEROKU_QUEUE_WAIT_TIME&#39;: &#39;0&#39;,\n &#39;HTTP_X_REQUEST_START&#39;: &#39;1363394602307&#39;,\n &#39;LANG&#39;: &#39;en_US.UTF-8&#39;,\n &#39;LD_LIBRARY_PATH&#39;: &#39;/app/.heroku/vendor/lib&#39;,\n &#39;LIBRARY_PATH&#39;: &#39;/app/.heroku/vendor/lib&#39;,\n &#39;PATH&#39;: &#39;/app/.heroku/python/bin:/usr/local/bin:/usr/bin:/bin&#39;,\n &#39;PATH_INFO&#39;: u&#39;/login/set_status&#39;,\n &#39;PORT&#39;: &#39;26543&#39;,\n &#39;PS&#39;: &#39;web.1&#39;,\n &#39;PS1&#39;: &#39;\\\\[\\\\033[01;34m\\\\]\\\\w\\\\[\\\\033[00m\\\\] \\\\[\\\\033[01;32m\\\\]$ \\\\[\\\\033[00m\\\\]&#39;,\n &#39;PWD&#39;: &#39;/app&#39;,\n &#39;PYTHONHASHSEED&#39;: &#39;random&#39;,\n &#39;PYTHONHOME&#39;: &#39;/app/.heroku/python&#39;,\n &#39;PYTHONPATH&#39;: &#39;/app/&#39;,\n &#39;PYTHONUNBUFFERED&#39;: &#39;true&#39;,\n &#39;QUERY_STRING&#39;: &#39;&#39;,\n &#39;REMOTE_ADDR&#39;: &#39;10.76.62.27&#39;,\n &#39;REMOTE_HOST&#39;: &#39;&#39;,\n &#39;REQUEST_METHOD&#39;: &#39;POST&#39;,\n &#39;SCRIPT_NAME&#39;: u&#39;&#39;,\n &#39;SERVER_NAME&#39;: &#39;d73856c2-8e46-475d-9fd7-11e6063dfdd4.private.dyno.runtime.heroku.com&#39;,\n &#39;SERVER_PORT&#39;: &#39;26543&#39;,\n &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,\n &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.7.3&#39;,\n &#39;SHLVL&#39;: &#39;1&#39;,\n &#39;TZ&#39;: &#39;America/Chicago&#39;,\n &#39;_&#39;: &#39;/app/.heroku/python/bin/python&#39;,\n &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f172d5b5270&gt;,\n &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0x1cedce8&gt;,\n &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x25c58d0&gt;,\n &#39;wsgi.multiprocess&#39;: False,\n &#39;wsgi.multithread&#39;: True,\n &#39;wsgi.run_once&#39;: False,\n &#39;wsgi.url_scheme&#39;: &#39;http&#39;,\n &#39;wsgi.version&#39;: (1, 0)}&gt;&quot;</pre></td>
+                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/set_status,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;status&quot;: &quot;this is a status&quot;, &quot;userID&quot;: &quot;b&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;45\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;gAF8BT0NLURP3JlupUAAbd2vSzaqXVsT\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-lG94HK2A1s,guid=57a33d235bb286c34c6be59600000023\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-EbCGZH\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1622\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-EbCGZH/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;OLDPWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/set_status\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1633,unix/ubuntu:/tmp/.ICE-unix/1633\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;1668\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-EbCGZH/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;54525958\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1363638408.487457-728003358\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7f4cce96d270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x17213f8&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x7f4cc4069b50&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>userID</td>
+                    <td class="code"><pre>u&#39;b&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>postrequest</td>
+                    <td class="code"><pre>{u&#39;status&#39;: u&#39;this is a status&#39;, u&#39;userID&#39;: u&#39;b&#39;}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>time</td>
+                    <td class="code"><pre>datetime.datetime(2013, 3, 18, 16, 8, 52, 871559)</pre></td>
+                  </tr>
+                
+              </tbody>
+            </table>
+          
+        </li>
+      
+        <li class="frame user">
+          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users/models.py</code> in <code>set_status</code>
+
+          
+            <div class="context" id="c139967548842136">
+              
+                <ol start="78" class="pre-context" id="pre139967548842136"><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            print userid</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            curuser = User.objects.get(facebook_id=userid)</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            #user exists</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            curuser.status = status</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            status_time = curuser.parse_date(time)</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            curuser.status_time = status_time</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            curuser.save()</pre></li></ol>
+              
+              <ol start="85" class="context-line"><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            statuses = myuser.get_friend_statuses()</pre> <span>...</span></li></ol>
+              
+                <ol start='86' class="post-context" id="post139967548842136"><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            out = []</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            for key in statuses:</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>                if curuser.matches(status, status[key]):</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>                    out.append([status, status[key]])</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>            return out</pre></li><li onclick="toggle('pre139967548842136', 'post139967548842136')"><pre>        except User.DoesNotExist:</pre></li></ol>
+              
+            </div>
+          
+
+          
+            <div class="commands">
+                
+                    <a href="#" onclick="return varToggle(this, '139967548842136')"><span>&#x25b6;</span> Local vars</a>
+                
+            </div>
+            <table class="vars" id="v139967548842136">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  <tr>
+                    <td>status</td>
+                    <td class="code"><pre>u&#39;this is a status&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>userid</td>
+                    <td class="code"><pre>u&#39;b&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>curuser</td>
+                    <td class="code"><pre>&lt;User: User object&gt;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>time</td>
+                    <td class="code"><pre>datetime.datetime(2013, 3, 18, 16, 8, 52, 871559)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>status_time</td>
+                    <td class="code"><pre>datetime.datetime(2013, 3, 18, 16, 8, 52, 871559)</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>cls</td>
+                    <td class="code"><pre>&lt;class &#39;users.models.User&#39;&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -445,7 +550,7 @@ META:{&#39;CONTENT_LENGTH&#39;: &#39;52&#39;,
 
   <div id="pastebinTraceback" class="pastebin">
     <input type="hidden" name="language" value="PythonConsole">
-    <input type="hidden" name="title" value="KeyError at /login/set_status">
+    <input type="hidden" name="title" value="NameError at /set_status">
     <input type="hidden" name="source" value="Django Dpaste Agent">
     <input type="hidden" name="poster" value="Django">
     <textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -453,9 +558,9 @@ Environment:
 
 
 Request Method: POST
-Request URL: http://friendzy.herokuapp.com/login/set_status
+Request URL: http://127.0.0.1:8000/set_status
 
-Django Version: 1.5
+Django Version: 1.4.3
 Python Version: 2.7.3
 Installed Applications:
 (&#39;django.contrib.auth&#39;,
@@ -476,15 +581,17 @@ Installed Middleware:
 
 
 Traceback:
-File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py" in get_response
-  115.                         response = callback(request, *callback_args, **callback_kwargs)
-File "/app/.heroku/python/lib/python2.7/site-packages/django/views/decorators/csrf.py" in wrapped_view
+File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py" in get_response
+  111.                         response = callback(request, *callback_args, **callback_kwargs)
+File "/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py" in wrapped_view
   77.         return view_func(*args, **kwargs)
-File "/app/users/views.py" in login
-  16.     facebookFriends = postrequest[&#39;facebookFriends&#39;]
+File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users/views.py" in set_status
+  26.     matchingStatuses = User.set_status(userID, status, time)
+File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users/models.py" in set_status
+  85.             statuses = myuser.get_friend_statuses()
 
-Exception Type: KeyError at /login/set_status
-Exception Value: &#39;facebookFriends&#39;
+Exception Type: NameError at /set_status
+Exception Value: global name &#39;myuser&#39; is not defined
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public Web site">
@@ -505,7 +612,22 @@ Exception Value: &#39;facebookFriends&#39;
 
   <h3 id="post-info">POST</h3>
   
-    <p>No POST data</p>
+    <table class="req">
+      <thead>
+        <tr>
+          <th>Variable</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+          <tr>
+            <td>{&quot;status&quot;: &quot;this is a status&quot;, &quot;userID&quot;: &quot;b&quot;}</td>
+            <td class="code"><pre>u&#39;&#39;</pre></td>
+          </tr>
+        
+      </tbody>
+    </table>
   
   <h3 id="files-info">FILES</h3>
   
@@ -529,233 +651,8 @@ Exception Value: &#39;facebookFriends&#39;
     <tbody>
       
         <tr>
-          <td>wsgi.multithread</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_PORT</td>
-          <td class="code"><pre>&#39;26543&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_FORWARDED_PORT</td>
-          <td class="code"><pre>&#39;80&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_ACCEPT_ENCODING</td>
-          <td class="code"><pre>&#39;identity&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_SOFTWARE</td>
-          <td class="code"><pre>&#39;WSGIServer/0.1 Python/2.7.3&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HOME</td>
-          <td class="code"><pre>&#39;/app&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.run_once</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_PROTOCOL</td>
-          <td class="code"><pre>&#39;HTTP/1.1&#39;</pre></td>
-        </tr>
-      
-        <tr>
           <td>wsgi.version</td>
           <td class="code"><pre>(1, 0)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.file_wrapper</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_NAME</td>
-          <td class="code"><pre>&#39;d73856c2-8e46-475d-9fd7-11e6063dfdd4.private.dyno.runtime.heroku.com&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PORT</td>
-          <td class="code"><pre>&#39;26543&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_CONNECTION</td>
-          <td class="code"><pre>&#39;close&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_USER_AGENT</td>
-          <td class="code"><pre>&#39;Python-urllib/2.7&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f172d5b5270&gt;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_REQUEST_START</td>
-          <td class="code"><pre>&#39;1363394602307&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>REMOTE_HOST</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_HEROKU_QUEUE_DEPTH</td>
-          <td class="code"><pre>&#39;0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.input</td>
-          <td class="code"><pre>&lt;socket._fileobject object at 0x25c58d0&gt;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATABASE_URL</td>
-          <td class="code"><pre>&#39;postgres://lbszeyqxwktuuj:-lfYlQIP19R0pOAxLaHmJkJmxb@ec2-23-21-91-29.compute-1.amazonaws.com:5432/d8grsgiqqfv8dv&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>REMOTE_ADDR</td>
-          <td class="code"><pre>&#39;10.76.62.27&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DJANGO_SETTINGS_MODULE</td>
-          <td class="code"><pre>&#39;friendzy.settings&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.url_scheme</td>
-          <td class="code"><pre>&#39;http&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LD_LIBRARY_PATH</td>
-          <td class="code"><pre>&#39;/app/.heroku/vendor/lib&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_FORWARDED_PROTO</td>
-          <td class="code"><pre>&#39;http&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>QUERY_STRING</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LIBRARY_PATH</td>
-          <td class="code"><pre>&#39;/app/.heroku/vendor/lib&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HEROKU_POSTGRESQL_RED_URL</td>
-          <td class="code"><pre>&#39;postgres://lbszeyqxwktuuj:-lfYlQIP19R0pOAxLaHmJkJmxb@ec2-23-21-91-29.compute-1.amazonaws.com:5432/d8grsgiqqfv8dv&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_HOST</td>
-          <td class="code"><pre>&#39;friendzy.herokuapp.com&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SCRIPT_NAME</td>
-          <td class="code"><pre>u&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PYTHONHASHSEED</td>
-          <td class="code"><pre>&#39;random&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CONTENT_LENGTH</td>
-          <td class="code"><pre>&#39;52&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TZ</td>
-          <td class="code"><pre>&#39;America/Chicago&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PYTHONUNBUFFERED</td>
-          <td class="code"><pre>&#39;true&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PATH_INFO</td>
-          <td class="code"><pre>u&#39;/login/set_status&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PWD</td>
-          <td class="code"><pre>&#39;/app&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PS</td>
-          <td class="code"><pre>&#39;web.1&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_HEROKU_DYNOS_IN_USE</td>
-          <td class="code"><pre>&#39;1&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_FORWARDED_FOR</td>
-          <td class="code"><pre>&#39;24.130.120.61&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CONTENT_TYPE</td>
-          <td class="code"><pre>&#39;application/json&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_X_HEROKU_QUEUE_WAIT_TIME</td>
-          <td class="code"><pre>&#39;0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE</td>
-          <td class="code"><pre>u&#39;rJhz0X3HkBdwmT6OieU3YRAEECmN3M6V&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PS1</td>
-          <td class="code"><pre>&#39;\\[\\033[01;34m\\]\\w\\[\\033[00m\\] \\[\\033[01;32m\\]$ \\[\\033[00m\\]&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PATH</td>
-          <td class="code"><pre>&#39;/app/.heroku/python/bin:/usr/local/bin:/usr/bin:/bin&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PYTHONPATH</td>
-          <td class="code"><pre>&#39;/app/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANG</td>
-          <td class="code"><pre>&#39;en_US.UTF-8&#39;</pre></td>
         </tr>
       
         <tr>
@@ -764,18 +661,33 @@ Exception Value: &#39;facebookFriends&#39;
         </tr>
       
         <tr>
-          <td>GATEWAY_INTERFACE</td>
-          <td class="code"><pre>&#39;CGI/1.1&#39;</pre></td>
+          <td>RUN_MAIN</td>
+          <td class="code"><pre>&#39;true&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>PYTHONHOME</td>
-          <td class="code"><pre>&#39;/app/.heroku/python&#39;</pre></td>
+          <td>GNOME_DESKTOP_SESSION_ID</td>
+          <td class="code"><pre>&#39;this-is-deprecated&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>SHLVL</td>
-          <td class="code"><pre>&#39;1&#39;</pre></td>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>&#39;HTTP/1.1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#39;WSGIServer/0.1 Python/2.7.3&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>u&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LESSOPEN</td>
+          <td class="code"><pre>&#39;| /usr/bin/lesspipe %s&#39;</pre></td>
         </tr>
       
         <tr>
@@ -784,8 +696,293 @@ Exception Value: &#39;facebookFriends&#39;
         </tr>
       
         <tr>
+          <td>LOGNAME</td>
+          <td class="code"><pre>&#39;abhinav&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USER</td>
+          <td class="code"><pre>&#39;abhinav&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH</td>
+          <td class="code"><pre>&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GNOME_KEYRING_CONTROL</td>
+          <td class="code"><pre>&#39;/tmp/keyring-EbCGZH&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISPLAY</td>
+          <td class="code"><pre>&#39;:0&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SSH_AGENT_PID</td>
+          <td class="code"><pre>&#39;1668&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANG</td>
+          <td class="code"><pre>&#39;en_US.UTF-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TERM</td>
+          <td class="code"><pre>&#39;xterm&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHELL</td>
+          <td class="code"><pre>&#39;/bin/bash&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SESSION_PATH</td>
+          <td class="code"><pre>&#39;/org/freedesktop/DisplayManager/Session0&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XAUTHORITY</td>
+          <td class="code"><pre>&#39;/home/abhinav/.Xauthority&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>&#39;localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_MANAGER</td>
+          <td class="code"><pre>&#39;local/ubuntu:@/tmp/.ICE-unix/1633,unix/ubuntu:/tmp/.ICE-unix/1633&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHLVL</td>
+          <td class="code"><pre>&#39;1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANDATORY_PATH</td>
+          <td class="code"><pre>&#39;/usr/share/gconf/ubuntu.mandatory.path&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>&#39;http&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COMPIZ_CONFIG_PROFILE</td>
+          <td class="code"><pre>&#39;ubuntu&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WINDOWID</td>
+          <td class="code"><pre>&#39;54525958&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_PORT</td>
+          <td class="code"><pre>&#39;8000&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GPG_AGENT_INFO</td>
+          <td class="code"><pre>&#39;/tmp/keyring-EbCGZH/gpg:0:1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HOME</td>
+          <td class="code"><pre>&#39;/home/abhinav&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>&#39;127.0.0.1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_LENGTH</td>
+          <td class="code"><pre>&#39;45&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CONTENT_TYPE</td>
+          <td class="code"><pre>&#39;application/json&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SSH_AUTH_SOCK</td>
+          <td class="code"><pre>&#39;/tmp/keyring-EbCGZH/ssh&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GDMSESSION</td>
+          <td class="code"><pre>&#39;ubuntu&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULTS_PATH</td>
+          <td class="code"><pre>&#39;/usr/share/gconf/ubuntu.default.path&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>&#39;Python-urllib/2.7&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>&#39;127.0.0.1:8000&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SEAT_PATH</td>
+          <td class="code"><pre>&#39;/org/freedesktop/DisplayManager/Seat0&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LESSCLOSE</td>
+          <td class="code"><pre>&#39;/usr/bin/lesspipe %s %s&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_CURRENT_DESKTOP</td>
+          <td class="code"><pre>&#39;Unity&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DBUS_SESSION_BUS_ADDRESS</td>
+          <td class="code"><pre>&#39;unix:abstract=/tmp/dbus-lG94HK2A1s,guid=57a33d235bb286c34c6be59600000023&#39;</pre></td>
+        </tr>
+      
+        <tr>
           <td>_</td>
-          <td class="code"><pre>&#39;/app/.heroku/python/bin/python&#39;</pre></td>
+          <td class="code"><pre>&#39;/usr/bin/python&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_SESSION_COOKIE</td>
+          <td class="code"><pre>&#39;5c0342bcc257d015b715503f00000029-1363638408.487457-728003358&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_CONNECTION</td>
+          <td class="code"><pre>&#39;close&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DESKTOP_SESSION</td>
+          <td class="code"><pre>&#39;ubuntu&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.file_wrapper</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_CONFIG_DIRS</td>
+          <td class="code"><pre>&#39;/etc/xdg/xdg-ubuntu:/etc/xdg&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GNOME_KEYRING_PID</td>
+          <td class="code"><pre>&#39;1622&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>UBUNTU_MENUPROXY</td>
+          <td class="code"><pre>&#39;libappmenu.so&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.run_once</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE</td>
+          <td class="code"><pre>&#39;gAF8BT0NLURP3JlupUAAbd2vSzaqXVsT&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>OLDPWD</td>
+          <td class="code"><pre>&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy/users&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>GATEWAY_INTERFACE</td>
+          <td class="code"><pre>&#39;CGI/1.1&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;socket._fileobject object at 0x7f4cc4069b50&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f4cce96d270&gt;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>XDG_DATA_DIRS</td>
+          <td class="code"><pre>&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PWD</td>
+          <td class="code"><pre>&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration1/draft2/friendzy&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DJANGO_SETTINGS_MODULE</td>
+          <td class="code"><pre>&#39;friendzy.settings&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TZ</td>
+          <td class="code"><pre>&#39;America/Chicago&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>COLORTERM</td>
+          <td class="code"><pre>&#39;gnome-terminal&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LS_COLORS</td>
+          <td class="code"><pre>&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>REMOTE_HOST</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>HTTP_ACCEPT_ENCODING</td>
+          <td class="code"><pre>&#39;identity&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>u&#39;/set_status&#39;</pre></td>
         </tr>
       
     </tbody>
@@ -804,43 +1001,69 @@ Exception Value: &#39;facebookFriends&#39;
     <tbody>
       
         <tr>
-          <td>EMAIL_HOST</td>
-          <td class="code"><pre>&#39;localhost&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_TABLESPACE</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEBUG</td>
+          <td>USE_L10N</td>
           <td class="code"><pre>True</pre></td>
         </tr>
       
         <tr>
-          <td>MEDIA_URL</td>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>&#39;en-us&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>&#39;friendzy.urls&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>((&#39;Abhinav Vadrevu&#39;, &#39;vadrevu@berkeley.edu&#39;),)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_ROOT</td>
           <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>EMAIL_BACKEND</td>
-          <td class="code"><pre>&#39;django.core.mail.backends.smtp.EmailBackend&#39;</pre></td>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>&#39;django.contrib.messages.storage.fallback.FallbackStorage&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>DATABASE_ROUTERS</td>
-          <td class="code"><pre>[]</pre></td>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>&#39;[Django] &#39;</pre></td>
         </tr>
       
         <tr>
-          <td>SERVER_EMAIL</td>
-          <td class="code"><pre>&#39;root@localhost&#39;</pre></td>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
         </tr>
       
         <tr>
-          <td>EMAIL_HOST_USER</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
+          <td>URL_VALIDATOR_USER_AGENT</td>
+          <td class="code"><pre>&#39;Django/1.4.3 (https://www.djangoproject.com)&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>(&#39;django.contrib.staticfiles.finders.FileSystemFinder&#39;,
+ &#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&#39;)</pre></td>
         </tr>
       
         <tr>
@@ -849,8 +1072,91 @@ Exception Value: &#39;facebookFriends&#39;
         </tr>
       
         <tr>
-          <td>ROOT_URLCONF</td>
-          <td class="code"><pre>&#39;friendzy.urls&#39;</pre></td>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;sessionid&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMIN_FOR</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%H:%M:%S&#39;, &#39;%H:%M&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASES</td>
+          <td class="code"><pre>{&#39;default&#39;: {&#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
+             &#39;HOST&#39;: &#39;&#39;,
+             &#39;NAME&#39;: &#39;main.db&#39;,
+             &#39;OPTIONS&#39;: {},
+             &#39;PASSWORD&#39;: u&#39;********************&#39;,
+             &#39;PORT&#39;: &#39;&#39;,
+             &#39;TEST_CHARSET&#39;: None,
+             &#39;TEST_COLLATION&#39;: None,
+             &#39;TEST_MIRROR&#39;: None,
+             &#39;TEST_NAME&#39;: None,
+             &#39;TIME_ZONE&#39;: &#39;UTC&#39;,
+             &#39;USER&#39;: &#39;&#39;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>&#39;root@localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>(&#39;django.core.files.uploadhandler.MemoryFileUploadHandler&#39;,
+ &#39;django.core.files.uploadhandler.TemporaryFileUploadHandler&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_CONTENT_TYPE</td>
+          <td class="code"><pre>&#39;text/html&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+      
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>&#39;F Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>&#39;django.contrib.staticfiles.storage.StaticFilesStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHES</td>
+          <td class="code"><pre>{&#39;default&#39;: {&#39;BACKEND&#39;: &#39;django.core.cache.backends.locmem.LocMemCache&#39;,
+             &#39;LOCATION&#39;: &#39;&#39;}}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
@@ -863,49 +1169,135 @@ Exception Value: &#39;facebookFriends&#39;
         </tr>
       
         <tr>
-          <td>PROFANITIES_LIST</td>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>&#39;,&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SECRET_KEY</td>
           <td class="code"><pre>u&#39;********************&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>STATIC_URL</td>
-          <td class="code"><pre>&#39;/static/&#39;</pre></td>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;django_language&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>CACHE_MIDDLEWARE_SECONDS</td>
-          <td class="code"><pre>600</pre></td>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>AUTH_USER_MODEL</td>
-          <td class="code"><pre>&#39;auth.User&#39;</pre></td>
+          <td>TRANSACTIONS_MANAGED</td>
+          <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
-          <td>LOCALE_PATHS</td>
-          <td class="code"><pre>()</pre></td>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>&#39;django.utils.log.dictConfig&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>FORMAT_MODULE_PATH</td>
+          <td>SEND_BROKEN_LINK_EMAILS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_LOADERS</td>
+          <td class="code"><pre>(&#39;django.template.loaders.filesystem.Loader&#39;,
+ &#39;django.template.loaders.app_directories.Loader&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>&#39;friendzy.wsgi.application&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>&#39;SAMEORIGIN&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth.backends.ModelBackend&#39;,)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
           <td class="code"><pre>None</pre></td>
         </tr>
       
         <tr>
-          <td>MONTH_DAY_FORMAT</td>
-          <td class="code"><pre>&#39;F j&#39;</pre></td>
+          <td>CACHE_BACKEND</td>
+          <td class="code"><pre>&#39;locmem://&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>&#39;django.core.signing.TimestampSigner&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_CHARSET</td>
+          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>&#39;django.core.files.storage.FileSystemStorage&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth&#39;,
+ &#39;django.contrib.contenttypes&#39;,
+ &#39;django.contrib.sessions&#39;,
+ &#39;django.contrib.sites&#39;,
+ &#39;django.contrib.messages&#39;,
+ &#39;django.contrib.staticfiles&#39;,
+ &#39;django.contrib.admin&#39;,
+ &#39;django.contrib.admindocs&#39;,
+ &#39;users&#39;)</pre></td>
         </tr>
       
         <tr>
           <td>LANGUAGES</td>
-          <td class="code"><pre>((&#39;af&#39;, &#39;Afrikaans&#39;),
- (&#39;ar&#39;, &#39;Arabic&#39;),
+          <td class="code"><pre>((&#39;ar&#39;, &#39;Arabic&#39;),
  (&#39;az&#39;, &#39;Azerbaijani&#39;),
  (&#39;bg&#39;, &#39;Bulgarian&#39;),
- (&#39;be&#39;, &#39;Belarusian&#39;),
  (&#39;bn&#39;, &#39;Bengali&#39;),
- (&#39;br&#39;, &#39;Breton&#39;),
  (&#39;bs&#39;, &#39;Bosnian&#39;),
  (&#39;ca&#39;, &#39;Catalan&#39;),
  (&#39;cs&#39;, &#39;Czech&#39;),
@@ -920,7 +1312,6 @@ Exception Value: &#39;facebookFriends&#39;
  (&#39;es-ar&#39;, &#39;Argentinian Spanish&#39;),
  (&#39;es-mx&#39;, &#39;Mexican Spanish&#39;),
  (&#39;es-ni&#39;, &#39;Nicaraguan Spanish&#39;),
- (&#39;es-ve&#39;, &#39;Venezuelan Spanish&#39;),
  (&#39;et&#39;, &#39;Estonian&#39;),
  (&#39;eu&#39;, &#39;Basque&#39;),
  (&#39;fa&#39;, &#39;Persian&#39;),
@@ -933,7 +1324,6 @@ Exception Value: &#39;facebookFriends&#39;
  (&#39;hi&#39;, &#39;Hindi&#39;),
  (&#39;hr&#39;, &#39;Croatian&#39;),
  (&#39;hu&#39;, &#39;Hungarian&#39;),
- (&#39;ia&#39;, &#39;Interlingua&#39;),
  (&#39;id&#39;, &#39;Indonesian&#39;),
  (&#39;is&#39;, &#39;Icelandic&#39;),
  (&#39;it&#39;, &#39;Italian&#39;),
@@ -943,7 +1333,6 @@ Exception Value: &#39;facebookFriends&#39;
  (&#39;km&#39;, &#39;Khmer&#39;),
  (&#39;kn&#39;, &#39;Kannada&#39;),
  (&#39;ko&#39;, &#39;Korean&#39;),
- (&#39;lb&#39;, &#39;Luxembourgish&#39;),
  (&#39;lt&#39;, &#39;Lithuanian&#39;),
  (&#39;lv&#39;, &#39;Latvian&#39;),
  (&#39;mk&#39;, &#39;Macedonian&#39;),
@@ -971,7 +1360,6 @@ Exception Value: &#39;facebookFriends&#39;
  (&#39;th&#39;, &#39;Thai&#39;),
  (&#39;tr&#39;, &#39;Turkish&#39;),
  (&#39;tt&#39;, &#39;Tatar&#39;),
- (&#39;udm&#39;, &#39;Udmurt&#39;),
  (&#39;uk&#39;, &#39;Ukrainian&#39;),
  (&#39;ur&#39;, &#39;Urdu&#39;),
  (&#39;vi&#39;, &#39;Vietnamese&#39;),
@@ -980,145 +1368,18 @@ Exception Value: &#39;facebookFriends&#39;
         </tr>
       
         <tr>
-          <td>CACHES</td>
-          <td class="code"><pre>{&#39;default&#39;: {&#39;BACKEND&#39;: &#39;django.core.cache.backends.locmem.LocMemCache&#39;}}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_SECURE</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_DIRS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DISALLOWED_USER_AGENTS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_LOADERS</td>
-          <td class="code"><pre>(&#39;django.template.loaders.filesystem.Loader&#39;,
- &#39;django.template.loaders.app_directories.Loader&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MANAGERS</td>
-          <td class="code"><pre>((&#39;Abhinav Vadrevu&#39;, &#39;vadrevu@berkeley.edu&#39;),)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
-          <td class="code"><pre>2621440</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_HTTPONLY</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGOUT_URL</td>
-          <td class="code"><pre>&#39;/accounts/logout/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ALLOWED_INCLUDE_ROOTS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>YEAR_MONTH_FORMAT</td>
-          <td class="code"><pre>&#39;F Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGIN_REDIRECT_URL</td>
-          <td class="code"><pre>&#39;/accounts/profile/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_PORT</td>
-          <td class="code"><pre>25</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATABASES</td>
-          <td class="code"><pre>{&#39;default&#39;: {&#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
-             &#39;HOST&#39;: &#39;&#39;,
-             &#39;NAME&#39;: &#39;main.db&#39;,
-             &#39;OPTIONS&#39;: {},
-             &#39;PASSWORD&#39;: u&#39;********************&#39;,
-             &#39;PORT&#39;: &#39;&#39;,
-             &#39;TEST_CHARSET&#39;: None,
-             &#39;TEST_COLLATION&#39;: None,
-             &#39;TEST_MIRROR&#39;: None,
-             &#39;TEST_NAME&#39;: None,
-             &#39;TIME_ZONE&#39;: &#39;UTC&#39;,
-             &#39;USER&#39;: &#39;&#39;}}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_AGE</td>
-          <td class="code"><pre>1209600</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_SAVE_EVERY_REQUEST</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>WSGI_APPLICATION</td>
-          <td class="code"><pre>&#39;friendzy.wsgi.application&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGIN_URL</td>
-          <td class="code"><pre>&#39;/accounts/login/&#39;</pre></td>
-        </tr>
-      
-        <tr>
           <td>COMMENTS_ALLOW_PROFANITIES</td>
           <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
-          <td>APPEND_SLASH</td>
-          <td class="code"><pre>True</pre></td>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>()</pre></td>
         </tr>
       
         <tr>
-          <td>CSRF_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;csrftoken&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_STRING_IF_INVALID</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TRANSACTIONS_MANAGED</td>
+          <td>PREPEND_WWW</td>
           <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_SECURE</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATE_FORMAT</td>
-          <td class="code"><pre>&#39;N j, Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATETIME_FORMAT</td>
-          <td class="code"><pre>&#39;N j, Y, P&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1127,26 +1388,63 @@ Exception Value: &#39;facebookFriends&#39;
         </tr>
       
         <tr>
-          <td>INSTALLED_APPS</td>
-          <td class="code"><pre>(&#39;django.contrib.auth&#39;,
- &#39;django.contrib.contenttypes&#39;,
- &#39;django.contrib.sessions&#39;,
- &#39;django.contrib.sites&#39;,
- &#39;django.contrib.messages&#39;,
- &#39;django.contrib.staticfiles&#39;,
- &#39;django.contrib.admin&#39;,
- &#39;django.contrib.admindocs&#39;,
- &#39;users&#39;)</pre></td>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>True</pre></td>
         </tr>
       
         <tr>
-          <td>EMAIL_USE_TLS</td>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
           <td class="code"><pre>False</pre></td>
         </tr>
       
         <tr>
-          <td>SESSION_ENGINE</td>
-          <td class="code"><pre>&#39;django.contrib.sessions.backends.db&#39;</pre></td>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>&#39;F j&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>&#39;/accounts/login/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>&#39;P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>(&#39;%Y-%m-%d&#39;,
+ &#39;%m/%d/%Y&#39;,
+ &#39;%m/%d/%y&#39;,
+ &#39;%b %d %Y&#39;,
+ &#39;%b %d, %Y&#39;,
+ &#39;%d %b %Y&#39;,
+ &#39;%d %b, %Y&#39;,
+ &#39;%B %d %Y&#39;,
+ &#39;%B %d, %Y&#39;,
+ &#39;%d %B %Y&#39;,
+ &#39;%d %B, %Y&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>&#39;csrftoken&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1155,18 +1453,257 @@ Exception Value: &#39;facebookFriends&#39;
         </tr>
       
         <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>&#39;django.contrib.sessions.backends.db&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>&#39;django.views.csrf.csrf_failure&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CSRF_COOKIE_PATH</td>
+          <td class="code"><pre>&#39;/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>&#39;/accounts/profile/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{&#39;disable_existing_loggers&#39;: False,
+ &#39;filters&#39;: {&#39;require_debug_false&#39;: {&#39;()&#39;: &#39;django.utils.log.RequireDebugFalse&#39;}},
+ &#39;handlers&#39;: {&#39;mail_admins&#39;: {&#39;class&#39;: &#39;django.utils.log.AdminEmailHandler&#39;,
+                              &#39;filters&#39;: [&#39;require_debug_false&#39;],
+                              &#39;level&#39;: &#39;ERROR&#39;}},
+ &#39;loggers&#39;: {&#39;django.request&#39;: {&#39;handlers&#39;: [&#39;mail_admins&#39;],
+                                &#39;level&#39;: &#39;ERROR&#39;,
+                                &#39;propagate&#39;: True}},
+ &#39;version&#39;: 1}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>IGNORABLE_404_URLS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_STRING_IF_INVALID</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LOGOUT_URL</td>
+          <td class="code"><pre>&#39;/accounts/logout/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_HOST</td>
+          <td class="code"><pre>&#39;localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>&#39;N j, Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+          <td class="code"><pre>&#39;django.views.debug.SafeExceptionReporterFilter&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>((&#39;Abhinav Vadrevu&#39;, &#39;vadrevu@berkeley.edu&#39;),)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>&#39;webmaster@localhost&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>&#39;N j, Y, P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TEMPLATE_DIRS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SITE_ID</td>
+          <td class="code"><pre>1</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ALLOWED_INCLUDE_ROOTS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>&#39;.&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>&#39;m/d/Y&#39;</pre></td>
+        </tr>
+      
+        <tr>
           <td>TEST_RUNNER</td>
           <td class="code"><pre>&#39;django.test.simple.DjangoTestSuiteRunner&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>STATIC_ROOT</td>
+          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>&#39;America/Chicago&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>&#39;django.core.mail.backends.smtp.EmailBackend&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>DEFAULT_TABLESPACE</td>
           <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>X_FRAME_OPTIONS</td>
-          <td class="code"><pre>&#39;SAMEORIGIN&#39;</pre></td>
+          <td>TEMPLATE_CONTEXT_PROCESSORS</td>
+          <td class="code"><pre>(&#39;django.contrib.auth.context_processors.auth&#39;,
+ &#39;django.core.context_processors.debug&#39;,
+ &#39;django.core.context_processors.i18n&#39;,
+ &#39;django.core.context_processors.media&#39;,
+ &#39;django.core.context_processors.static&#39;,
+ &#39;django.core.context_processors.tz&#39;,
+ &#39;django.contrib.messages.context_processors.messages&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>&#39;friendzy.settings&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_ETAGS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+      
+        <tr>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>(&#39;he&#39;, &#39;ar&#39;, &#39;fa&#39;)</pre></td>
+        </tr>
+      
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+      
+        <tr>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>()</pre></td>
+        </tr>
+      
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>&#39;/static/&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>25</pre></td>
+        </tr>
+      
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+      
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>&#39;m/d/Y P&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+      
+        <tr>
+          <td>CACHE_MIDDLEWARE_SECONDS</td>
+          <td class="code"><pre>600</pre></td>
         </tr>
       
         <tr>
@@ -1186,364 +1723,13 @@ Exception Value: &#39;facebookFriends&#39;
         </tr>
       
         <tr>
-          <td>THOUSAND_SEPARATOR</td>
-          <td class="code"><pre>&#39;,&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MESSAGE_STORAGE</td>
-          <td class="code"><pre>&#39;django.contrib.messages.storage.fallback.FallbackStorage&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATE_INPUT_FORMATS</td>
-          <td class="code"><pre>(&#39;%Y-%m-%d&#39;,
- &#39;%m/%d/%Y&#39;,
- &#39;%m/%d/%y&#39;,
- &#39;%b %d %Y&#39;,
- &#39;%b %d, %Y&#39;,
- &#39;%d %b %Y&#39;,
- &#39;%d %b, %Y&#39;,
- &#39;%B %d %Y&#39;,
- &#39;%B %d, %Y&#39;,
- &#39;%d %B %Y&#39;,
- &#39;%d %B, %Y&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DECIMAL_SEPARATOR</td>
-          <td class="code"><pre>&#39;.&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td>EMAIL_HOST_USER</td>
           <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>PASSWORD_HASHERS</td>
+          <td>PROFANITIES_LIST</td>
           <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_THOUSAND_SEPARATOR</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_FILE_STORAGE</td>
-          <td class="code"><pre>&#39;django.core.files.storage.FileSystemStorage&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGGING_CONFIG</td>
-          <td class="code"><pre>&#39;django.utils.log.dictConfig&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ALLOWED_HOSTS</td>
-          <td class="code"><pre>[]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_L10N</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>IGNORABLE_404_URLS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FORCE_SCRIPT_NAME</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SITE_ID</td>
-          <td class="code"><pre>1</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_FROM_EMAIL</td>
-          <td class="code"><pre>&#39;webmaster@localhost&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_DOMAIN</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FIRST_DAY_OF_WEEK</td>
-          <td class="code"><pre>0</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SEND_BROKEN_LINK_EMAILS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>NUMBER_GROUPING</td>
-          <td class="code"><pre>0</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MEDIA_ROOT</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_CONTEXT_PROCESSORS</td>
-          <td class="code"><pre>(&#39;django.contrib.auth.context_processors.auth&#39;,
- &#39;django.core.context_processors.debug&#39;,
- &#39;django.core.context_processors.i18n&#39;,
- &#39;django.core.context_processors.media&#39;,
- &#39;django.core.context_processors.static&#39;,
- &#39;django.core.context_processors.tz&#39;,
- &#39;django.contrib.messages.context_processors.messages&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_SUBJECT_PREFIX</td>
-          <td class="code"><pre>&#39;[Django] &#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_PATH</td>
-          <td class="code"><pre>&#39;/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGGING</td>
-          <td class="code"><pre>{&#39;disable_existing_loggers&#39;: False,
- &#39;filters&#39;: {&#39;require_debug_false&#39;: {&#39;()&#39;: &#39;django.utils.log.RequireDebugFalse&#39;}},
- &#39;handlers&#39;: {&#39;mail_admins&#39;: {&#39;class&#39;: &#39;django.utils.log.AdminEmailHandler&#39;,
-                              &#39;filters&#39;: [&#39;require_debug_false&#39;],
-                              &#39;level&#39;: &#39;ERROR&#39;}},
- &#39;loggers&#39;: {&#39;django.request&#39;: {&#39;handlers&#39;: [&#39;mail_admins&#39;],
-                                &#39;level&#39;: &#39;ERROR&#39;,
-                                &#39;propagate&#39;: True}},
- &#39;version&#39;: 1}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_FILE_PATH</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_PATH</td>
-          <td class="code"><pre>&#39;/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATICFILES_FINDERS</td>
-          <td class="code"><pre>(&#39;django.contrib.staticfiles.finders.FileSystemFinder&#39;,
- &#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_CONTENT_TYPE</td>
-          <td class="code"><pre>&#39;text/html&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PREPEND_WWW</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FIXTURE_DIRS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TIME_ZONE</td>
-          <td class="code"><pre>&#39;America/Chicago&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SHORT_DATE_FORMAT</td>
-          <td class="code"><pre>&#39;m/d/Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TIME_FORMAT</td>
-          <td class="code"><pre>&#39;P&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>AUTHENTICATION_BACKENDS</td>
-          <td class="code"><pre>(&#39;django.contrib.auth.backends.ModelBackend&#39;,)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_ETAGS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SECRET_KEY</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_CACHE_ALIAS</td>
-          <td class="code"><pre>&#39;default&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_CODE</td>
-          <td class="code"><pre>&#39;en-us&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_TEMP_DIR</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_X_FORWARDED_HOST</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_CHARSET</td>
-          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ADMIN_FOR</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ADMINS</td>
-          <td class="code"><pre>((&#39;Abhinav Vadrevu&#39;, &#39;vadrevu@berkeley.edu&#39;),)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;django_language&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_I18N</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_FAILURE_VIEW</td>
-          <td class="code"><pre>&#39;django.views.csrf.csrf_failure&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ABSOLUTE_URL_OVERRIDES</td>
-          <td class="code"><pre>{}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
-          <td class="code"><pre>&#39;django.views.debug.SafeExceptionReporterFilter&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGES_BIDI</td>
-          <td class="code"><pre>(&#39;he&#39;, &#39;ar&#39;, &#39;fa&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TIME_INPUT_FORMATS</td>
-          <td class="code"><pre>(&#39;%H:%M:%S&#39;, &#39;%H:%M&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_HANDLERS</td>
-          <td class="code"><pre>(&#39;django.core.files.uploadhandler.MemoryFileUploadHandler&#39;,
- &#39;django.core.files.uploadhandler.TemporaryFileUploadHandler&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_HOST_PASSWORD</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SIGNING_BACKEND</td>
-          <td class="code"><pre>&#39;django.core.signing.TimestampSigner&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_PERMISSIONS</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATICFILES_DIRS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_DEBUG</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;sessionid&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SHORT_DATETIME_FORMAT</td>
-          <td class="code"><pre>&#39;m/d/Y P&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SETTINGS_MODULE</td>
-          <td class="code"><pre>&#39;friendzy.settings&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_CHARSET</td>
-          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>INTERNAL_IPS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATICFILES_STORAGE</td>
-          <td class="code"><pre>&#39;django.contrib.staticfiles.storage.StaticFilesStorage&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_TZ</td>
-          <td class="code"><pre>True</pre></td>
         </tr>
       
     </tbody>
