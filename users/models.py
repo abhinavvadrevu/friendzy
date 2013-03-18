@@ -85,7 +85,7 @@ class User(models.Model):
             for key in statuses:
                 if curuser.matches(status, statuses[key]):
                     out[key] = statuses[key]
-            return out
+            return {'data':out}
         except User.DoesNotExist:
             print ('user does not exist!')
 
