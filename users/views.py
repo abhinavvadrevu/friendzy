@@ -11,26 +11,26 @@ import datetime
 
 @csrf_exempt
 def login(request):
-    print 'request here'
-    print request.body
     postrequest = json.loads(request.body)
-    userID = postrequest['userID']
-    facebookFriends = postrequest['facebookFriends']
-    friendStatuses = User.login(userID, facebookFriends)
+    userID, facebookFriends = postrequest['userID'], postrequest['facebookFriends']
+    myuser = None
+    if not User.user_exists(userID):
+        myuser = User.objects.create_user(userID, facebookFriends)
+    else:
+        myuser = User.objects.get(facebook_id=userID)
+    friendStatuses = myuser.login(facebookFriends)
     return HttpResponse(simplejson.dumps(friendStatuses), mimetype='application/json')
 
 @csrf_exempt
 def set_status(request):
-    print 'request here'
-    print request.body
-    time = datetime.datetime.now()
     postrequest = json.loads(request.body)
-    userID = postrequest['userID']
-    status = postrequest['status']
-    matchingStatuses = User.set_status(userID, status, time)
-    return HttpResponse(simplejson.dumps(matchingStatuses), mimetype='application/json')
+    userID, status = postrequest['userID'], postrequest['status']
+    if User.user_exists(userID):
+        myuser = User.objects.get(facebook_id=userID)
+        matchingStatuses = myuser.set_status(status)
+        return HttpResponse(simplejson.dumps(matchingStatuses), mimetype='application/json')
+    return HttpResponse(simplejson.dumps({'errCode':-1, 'data':'USER DOES NOT EXIST'}), mimetype='application/json')
 
-@csrf_exempt
 def TESTAPI_resetFixture(request):
     User.TESTAPI_resetFixture()
     return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')

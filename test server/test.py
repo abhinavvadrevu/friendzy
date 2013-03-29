@@ -1,8 +1,8 @@
 import json
 import urllib2
 
-burl = "http://friendzy.herokuapp.com"
-#burl = "http://127.0.0.1:8000"
+#burl = "http://friendzy.herokuapp.com"
+burl = "http://127.0.0.1:8000"
 
 def login(user, friends):
     data = json.dumps({"userID":user, "facebookFriends":friends})
@@ -12,14 +12,12 @@ def login(user, friends):
     try:
         f = urllib2.urlopen(req)
         response = f.read()
-        print 'asdf'
         f.close()
     except urllib2.HTTPError, error:
-        print error.read()
+        #print error.read()
         k= open('test.html','w')
         k.write(error.read())
         k.close()
-    print 'a'
     print response
     return response
 
@@ -39,18 +37,51 @@ def set_status(user, status):
     print response
     return response
 
+def reset_fixture():
+    url = burl + '/resetFixture'
+    req = urllib2.Request(url)
+    response = None
+    try:
+        f = urllib2.urlopen(req)
+        response = f.read()
+        f.close()
+    except urllib2.HTTPError, error:
+        k= open('test.html','w')
+        k.write(error.read())
+        k.close()
+    print response
+    return response
 
-fid = '588985867'
 #fid = '666900613'
 #fid = '1'
+
+
+print 'reset_fixture'
+reset_fixture()
+print ''
+
+print 'Logging in first user'
+fid = 'a'
+print 'login'
 login(fid, ['b','c','d'])
+print 'set_status'
 set_status(fid, 'this is a test status1')
+print ''
 
-
-"""
+print 'Logging in second user'
 fid = 'b'
-login(fid, ['1','c','d'])
-set_status(fid, 'this is a test status1')
-"""
+print 'login'
+login(fid, ['a','c','d'])
+print 'set_status'
+set_status(fid, 'test status1')
+print ''
+
+print 'Logging in third user'
+fid = 'c'
+print 'login'
+login(fid, ['a','b','d'])
+print 'set_status'
+set_status(fid, 'is a test')
+
 
 

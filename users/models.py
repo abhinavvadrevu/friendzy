@@ -1,6 +1,7 @@
 from django.db import models
 import ast
 import datetime
+from django.utils import timezone
 # Create your models here.
 
 
@@ -28,94 +29,99 @@ class ListField(models.TextField):
         return self.get_db_prep_value(value)
 
 
+class Status(models.Model):
+    
+    status = models.CharField(max_length=200, default = '')
+    status_time = models.DateTimeField('date published', default=timezone.datetime.min)
+    
+    def set_status(self, s):
+        self.status = s
+        self.status_time = timezone.datetime.now()
+        self.save()
+    def get_status(self):
+        now = timezone.datetime.now()
+        if now-self.status_time<datetime.timedelta(minutes=15):
+            return self.status
+        return None
+
+
+class UserManager(models.Manager):
+    def create_user(self, fid, friends):
+        status = Status()
+        status.set_status('')
+        return self.create(facebook_id=fid, friends=friends, status=status)
 
 
 class User(models.Model):
     facebook_id = models.CharField(max_length=200)
     friends = ListField()
-    status = models.CharField(max_length=200)
-    status_time = models.DateTimeField('date published')
+    status = models.OneToOneField(Status)
+    
+    objects = UserManager()
     
     @classmethod
-    def login(cls, userid, facebook_friends):
-        myuser = None
+    def user_exists(cls, fid):
         try:
-            myuser = User.objects.get(facebook_id=userid)
+            User.objects.get(facebook_id=fid)
         except User.DoesNotExist:
-            myuser = User()
-            myuser.status_time = datetime.datetime.now() - datetime.timedelta(minutes=16)
-            myuser.facebook_id = userid
-            myuser.save()
-        #user exists
-        myuser.friends = facebook_friends
-        myuser.save()
-        return {"data":myuser.get_friend_statuses()}
+            return False
+        except User.MultipleObjectsReturned: #SHOULD NEVER HAPPEN! ONLY USEFUL FOR DEBUGGING.
+            return True
+        return True
+    
+    def login(self, facebook_friends):
+        self.friends = facebook_friends
+        self.save()
+        return {"data":self.get_friend_statuses()}
     
     def get_friend_statuses(self):
         statuses = {}
         for friendid in self.friends:
-            print 'id:'
-            print friendid
             try:
-                userid = friendid
-                myuser = User.objects.filter(facebook_id=userid)
-                if len(myuser) > 0:
-                    myuser = myuser[0] # crappy filtering - can change to .get instead of .filter later
-                else:
-                    print("friend " + str(userid) + " not found in friendzy database!")
-                    continue
+                myuser = User.objects.get(facebook_id=friendid)
+            except User.DoesNotExist:
+                #do nothing
+                print('user "' + friendid + '" has not yet joined friendzy')
+                continue
+            except User.MultipleObjectsReturned: #THIS CLAUSE IS FOR DEBUGGING ONLY!
+                #get one of the users
+                #NOTE THIS SHOULD NOT HAPPEN BUT THIS CASE IS USEFUL WHILE DEBUGGING
+                print 'MULTIPLE USERS WITH ID "' + friendid + '"'
+                myuser = User.objects.filter(facebook_id=friendid)
+                myuser = myuser[0]
+            else:
                 if myuser.get_status() != None:
                     statuses[myuser.facebook_id] = myuser.get_status()
-            except User.DoesNotExist: #this except clause is only used when .filter is changed to .get
-                #do nothing
-                print("user " + str(self.facebook_id) + " needs to relogin to update friendlist")
         return statuses
     
-    @classmethod
-    def set_status(cls, userid, status, time):
-        try:
-            curuser = User.objects.get(facebook_id=userid)
-            #user exists
-            curuser.status = status
-            status_time = curuser.parse_date(time)
-            curuser.status_time = status_time
-            curuser.save()
-            statuses = curuser.get_friend_statuses()
-            out = {}
-            for key in statuses:
-                if curuser.matches(status, statuses[key]):
-                    out[key] = statuses[key]
-            return {'data':out}
-        except User.DoesNotExist:
-            print ('user does not exist!')
-
+    def set_status(self, status):
+        self.status.set_status(status)
+        #self.save()
+        #return matching statuses
+        fstatuses = self.get_friend_statuses()
+        out = {}
+        for fid in fstatuses:
+            fstatus = fstatuses[fid]
+            if matches(fstatus, status):
+                out[fid] = fstatus
+        return {"data": out}
+    
     def get_status(self):
-        """
-        returns status if valid, else returns None
-        """
-        now = datetime.datetime.now()
-        statustime = self.status_time
-        naive = statustime.replace(tzinfo=None)
-        if now-naive < datetime.timedelta(minutes=15):
-            return self.status
-        return None
-    
-    @staticmethod
-    def matches(string1, string2):
-        """
-        returns if string1 matches with string2
-        more complex matching algorithm yet to come
-        """
-        return string1 == string2
-    
-    @staticmethod
-    def parse_date(time):
-        return time
+        return self.status.get_status()
     
     @staticmethod
     def TESTAPI_resetFixture():
         User.objects.all().delete()
-    
+        Status.objects.all().delete()
+
+def matches(string1, string2):
+    """
+    returns if string1 matches with string2
+    more complex matching algorithm yet to come
+    """
+    return string1 in string2 or string2 in string1
+
+
 
 
 
