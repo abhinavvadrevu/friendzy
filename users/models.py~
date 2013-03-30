@@ -2,6 +2,9 @@ from django.db import models
 import ast
 import datetime
 from django.utils import timezone
+import math
+import yelp
+import json
 # Create your models here.
 
 
@@ -122,7 +125,46 @@ def matches(string1, string2):
     return string1 in string2 or string2 in string1
 
 
-
-
-
-
+class Location(models.Model):
+    
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
+    
+    def midpoint(self, l):
+        lat1 = self.latitude
+        long1 = self.longitude
+        lat2 = l.latitude
+        long2 = l.longitude
+        lonA = math.radians(long1)
+        lonB = math.radians(long2)
+        latA = math.radians(lat1)
+        latB = math.radians(lat2)
+        dLon = lonB - lonA
+        Bx = math.cos(latB) * math.cos(dLon)
+        By = math.cos(latB) * math.sin(dLon)
+        latC = math.atan2(math.sin(latA) + math.sin(latB), math.sqrt((math.cos(latA) + Bx) * (math.cos(latA) + Bx) + By * By))
+        lonC = lonA + math.atan2(By, math.cos(latA) + Bx)
+        lonC = (lonC + 3 * math.pi) % (2 * math.pi) - math.pi
+        lat3, long3 = (math.degrees(latC), math.degrees(lonC))
+        out = Location()
+        out.latitude = lat3
+        out.longitude = long3
+        return out
+    
+    def get_meeting_point(self,l):
+        midlocation = self.midpoint(l)
+        a,b = midlocation.latitude, midlocation.longitude
+        url_params = {}
+        url_params['term'] = 'restaurant'
+        url_params['ll'] = str(a) + ',' + str(b)
+        url_params['limit'] = '1'
+        response = yelp.request('api.yelp.com', '/v2/search', url_params, "AeLIHzyGSsi0QdhpvbM-Ug", "pJudUhIyHj4AuTXntrO_xAksyFI", "40HMWzBg-Zb0I9Wnbt6zVDte7BD6sHEB", "4a_1hN7NpD4JkMEtwuasp8lt0kA")
+        #print type(response)
+        #print response
+        respdict = response#json.loads(response)
+        out = {}
+        out['address'] = reduce(lambda x, y: x+ ' ' + y, respdict['businesses'][0]['location']['display_address'])
+        out['latitude'] = respdict['businesses'][0]['location']['coordinate']['latitude']
+        out['longitude'] = respdict['businesses'][0]['location']['coordinate']['longitude']
+        out['name'] = respdict['businesses'][0]['name']
+        return {'data': out}
