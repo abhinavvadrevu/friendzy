@@ -42,3 +42,4 @@ def gcmtest(request):
     data = {'data': 'IT WORKED!', 'param2': 'value2'}
     reg_ids = [postrequest['regId']]
     response = gcm.json_request(registration_ids=reg_ids, data=data)
+    return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
