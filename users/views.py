@@ -20,6 +20,13 @@ def login(request):
     else:
         myuser = User.objects.get(facebook_id=userID)
     friendStatuses = myuser.login(facebookFriends)
+    #TEST CODE
+    postrequest = json.loads(request.body)
+    gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
+    data = {'data': 'IT WORKED!', 'param2': 'value2'}
+    reg_ids = [postrequest['regId']]
+    response = gcm.json_request(registration_ids=reg_ids, data=data)
+    print response
     return HttpResponse(simplejson.dumps(friendStatuses), mimetype='application/json')
 
 @csrf_exempt
@@ -38,10 +45,4 @@ def TESTAPI_resetFixture(request):
 
 @csrf_exempt
 def gcmtest(request):
-    postrequest = json.loads(request.body)
-    gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
-    data = {'data': 'IT WORKED!', 'param2': 'value2'}
-    reg_ids = [postrequest['regId']]
-    response = gcm.json_request(registration_ids=reg_ids, data=data)
-    print response
     return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
