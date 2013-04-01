@@ -40,5 +40,5 @@ def gcmtest(request):
     postrequest = json.loads(request.body)
     gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
     data = {'data': 'IT WORKED!', 'param2': 'value2'}
-    reg_id = [postrequest['regId']]
+    reg_ids = [postrequest['regId']]
     response = gcm.json_request(registration_ids=reg_ids, data=data)
