@@ -36,6 +36,7 @@ def TESTAPI_resetFixture(request):
     User.TESTAPI_resetFixture()
     return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
 
+@csrf_exempt
 def gcmtest(request):
     postrequest = json.loads(request.body)
     gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
