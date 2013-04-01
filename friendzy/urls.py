@@ -16,6 +16,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('gcm.urls')),
-    #url(r'gcmtest', 'users.views.gcmtest'),
+    #url(r'', include('gcm.urls')),
+    url(r'gcmtest', 'users.views.gcmtest'),
 )
