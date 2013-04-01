@@ -7,6 +7,7 @@ from users.models import User
 import friendzy
 import json
 import datetime
+from gcm import GCM
 
 
 @csrf_exempt
@@ -15,7 +16,7 @@ def login(request):
     userID, facebookFriends = postrequest['userID'], postrequest['facebookFriends']
     myuser = None
     if not User.user_exists(userID):
-        myuser = User.objects.create_user(fid, friends)
+        myuser = User.objects.create_user(userID, facebookFriends)
     else:
         myuser = User.objects.get(facebook_id=userID)
     friendStatuses = myuser.login(facebookFriends)
@@ -34,3 +35,10 @@ def set_status(request):
 def TESTAPI_resetFixture(request):
     User.TESTAPI_resetFixture()
     return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
+
+def gcmtest(request):
+    postrequest = json.loads(request.body)
+    gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
+    data = {'data': 'IT WORKED!', 'param2': 'value2'}
+    reg_id = [postrequest['regId']]
+    response = gcm.json_request(registration_ids=reg_ids, data=data)

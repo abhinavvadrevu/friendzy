@@ -1,4 +1,8 @@
 # Django settings for friendzy project.
+import os
+import sys
+
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -6,6 +10,14 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Abhinav Vadrevu', 'vadrevu@berkeley.edu'),
 )
+
+EMAIL_HOST = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = ''
+EMAIL_PORT = 25
+EMAIL_SUBJECT_PREFIX = '[gcmserver] '
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = ''
 
 MANAGERS = ADMINS
 
@@ -19,6 +31,20 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',
+            'PORT': '',
+        }
+    }
+
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -45,18 +71,18 @@ USE_TZ = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'site_media')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -120,6 +146,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'users',
+    'gcm',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -150,3 +177,12 @@ LOGGING = {
         },
     }
 }
+
+
+# ApiKey - https://code.google.com/apis/console (Key for server apps)
+GCM_APIKEY = "AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA"
+
+try:
+    execfile(os.path.join(PROJECT_PATH, 'local_settings.py'))
+except IOError:
+    pass
