@@ -5,7 +5,6 @@ from django.utils import timezone
 import math
 import yelp
 import json
-from gcm import GCM
 # Create your models here.
 
 
@@ -77,7 +76,7 @@ class User(models.Model):
         self.friends = facebook_friends
         self.save()
         #return {"data":self.get_friend_statuses()}
-        return {"data":{"friend1":"status1", "friend2":"status2", "friend3":"status3", "friend4":"status4"}} # for testing frontend only
+        return {"data":{str(friends[0]):"status1", str(friends[1]):"status2", str(friends[2]):"status3", str(friends[3]):"status4"}} # for testing frontend only
     
     def get_friend_statuses(self):
         statuses = {}
