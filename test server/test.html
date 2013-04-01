@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="NONE,NOARCHIVE">
-  <title>TypeError at /set_status</title>
+  <title>NameError at /login</title>
   <style type="text/css">
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -118,8 +118,8 @@
 </head>
 <body>
 <div id="summary">
-  <h1>TypeError at /set_status</h1>
-  <pre class="exception_value">int() argument must be a string or a number, not &#39;datetime.datetime&#39;</pre>
+  <h1>NameError at /login</h1>
+  <pre class="exception_value">global name &#39;friends&#39; is not defined</pre>
   <table class="meta">
 
     <tr>
@@ -128,7 +128,7 @@
     </tr>
     <tr>
       <th>Request URL:</th>
-      <td>http://127.0.0.1:8000/set_status</td>
+      <td>http://127.0.0.1:8000/login</td>
     </tr>
 
     <tr>
@@ -138,19 +138,19 @@
 
     <tr>
       <th>Exception Type:</th>
-      <td>TypeError</td>
+      <td>NameError</td>
     </tr>
 
 
     <tr>
       <th>Exception Value:</th>
-      <td><pre>int() argument must be a string or a number, not &#39;datetime.datetime&#39;</pre></td>
+      <td><pre>global name &#39;friends&#39; is not defined</pre></td>
     </tr>
 
 
     <tr>
       <th>Exception Location:</th>
-      <td>/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py in get_prep_value, line 537</td>
+      <td>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py in login, line 79</td>
     </tr>
 
     <tr>
@@ -163,7 +163,10 @@
     </tr>
     <tr>
       <th>Python Path:</th>
-      <td><pre>[&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy&#39;,
+      <td><pre>[&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy&#39;,
+ &#39;/usr/local/lib/python2.7/dist-packages/django_gcm-0.9.2-py2.7.egg&#39;,
+ &#39;/usr/local/lib/python2.7/dist-packages/django_tastypie-0.9.14-py2.7.egg&#39;,
+ &#39;/usr/local/lib/python2.7/dist-packages/mimeparse-0.1.3-py2.7.egg&#39;,
  &#39;/usr/lib/python2.7&#39;,
  &#39;/usr/lib/python2.7/plat-linux2&#39;,
  &#39;/usr/lib/python2.7/lib-tk&#39;,
@@ -183,7 +186,7 @@
     </tr>
     <tr>
       <th>Server time:</th>
-      <td>Fri, 29 Mar 2013 17:31:18 -0500</td>
+      <td>Mon, 1 Apr 2013 16:00:25 -0500</td>
     </tr>
   </table>
 </div>
@@ -201,13 +204,13 @@
           <code>/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py</code> in <code>get_response</code>
 
           
-            <div class="context" id="c140566161201776">
+            <div class="context" id="c140699572080152">
               
-                <ol start="104" class="pre-context" id="pre140566161201776"><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                    for middleware_method in self._view_middleware:</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                        response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                        if response:</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                            break</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre></pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                if response is None:</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                    try:</pre></li></ol>
+                <ol start="104" class="pre-context" id="pre140699572080152"><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                    for middleware_method in self._view_middleware:</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                        response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                        if response:</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                            break</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre></pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                if response is None:</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                    try:</pre></li></ol>
               
-              <ol start="111" class="context-line"><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                        response = callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              <ol start="111" class="context-line"><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                        response = callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='112' class="post-context" id="post140566161201776"><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                    except Exception, e:</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                        # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                        # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                        # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                        for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre140566161201776', 'post140566161201776')"><pre>                            response = middleware_method(request, e)</pre></li></ol>
+                <ol start='112' class="post-context" id="post140699572080152"><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                    except Exception, e:</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                        # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                        # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                        # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                        for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre140699572080152', 'post140699572080152')"><pre>                            response = middleware_method(request, e)</pre></li></ol>
               
             </div>
           
@@ -215,10 +218,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140566161201776')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140699572080152')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140566161201776">
+            <table class="vars" id="v140699572080152">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -234,7 +237,7 @@
                 
                   <tr>
                     <td>e</td>
-                    <td class="code"><pre>TypeError(&quot;int() argument must be a string or a number, not &#39;datetime.datetime&#39;&quot;,)</pre></td>
+                    <td class="code"><pre>NameError(&quot;global name &#39;friends&#39; is not defined&quot;,)</pre></td>
                   </tr>
                 
                   <tr>
@@ -244,27 +247,27 @@
                 
                   <tr>
                     <td>settings</td>
-                    <td class="code"><pre>&lt;django.conf.LazySettings object at 0x10e1c50&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.conf.LazySettings object at 0x2ac0c50&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>middleware_method</td>
-                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x1bbce90&gt;&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7ff7340d7d90&gt;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x1b90090&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x350cd10&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/set_status,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;status&quot;: &quot;test status1&quot;, &quot;userID&quot;: &quot;b&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;41\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;syLDw7DHTAu3jUqIxMuVqE7D2Q9teuZg\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-NROX784CyA,guid=af0e6b59bd9bb50c41c075e900000022\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-9LDWj1\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1569\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-9LDWj1/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;OLDPWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/set_status\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1580,unix/ubuntu:/tmp/.ICE-unix/1580\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;1615\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-9LDWj1/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;62914566\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1364567816.725541-1449413612\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7fd82b49d270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x1640460&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x1b9bcd0&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
+                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/login,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;facebookFriends&quot;: [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;], &quot;userID&quot;: &quot;a&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;51\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;2ATHAXjPN7xKz4TxfNW9mNPNdd89B99g\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-Rnfh6Xq6Ph,guid=2bc53a237312c5e53c0969200000055d\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-O0isC7\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1962\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-O0isC7/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/login\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1973,unix/ubuntu:/tmp/.ICE-unix/1973\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;2009\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-O0isC7/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;58720262\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1364834072.855145-2142095866\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7ff73e945270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x301f4c8&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x7ff72c054850&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>callback</td>
-                    <td class="code"><pre>&lt;function set_status at 0x7fd81c036758&gt;</pre></td>
+                    <td class="code"><pre>&lt;function login at 0x7ff72c037c80&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -301,13 +304,13 @@
           <code>/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py</code> in <code>wrapped_view</code>
 
           
-            <div class="context" id="c140566161202136">
+            <div class="context" id="c140699572076912">
               
-                <ol start="70" class="pre-context" id="pre140566161202136"><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    # function.</pre></li><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
+                <ol start="70" class="pre-context" id="pre140699572076912"><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    # function.</pre></li><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
               
-              <ol start="77" class="context-line"><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              <ol start="77" class="context-line"><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='78' class="post-context" id="post140566161202136"><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre140566161202136', 'post140566161202136')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
+                <ol start='78' class="post-context" id="post140699572076912"><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre140699572076912', 'post140699572076912')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
               
             </div>
           
@@ -315,10 +318,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140566161202136')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140699572076912')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140566161202136">
+            <table class="vars" id="v140699572076912">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -330,16 +333,16 @@
                   <tr>
                     <td>args</td>
                     <td class="code"><pre>(&lt;WSGIRequest
-path:/set_status,
+path:/login,
 GET:&lt;QueryDict: {}&gt;,
-POST:&lt;QueryDict: {u&#39;{&quot;status&quot;: &quot;test status1&quot;, &quot;userID&quot;: &quot;b&quot;}&#39;: [u&#39;&#39;]}&gt;,
+POST:&lt;QueryDict: {u&#39;{&quot;facebookFriends&quot;: [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;], &quot;userID&quot;: &quot;a&quot;}&#39;: [u&#39;&#39;]}&gt;,
 COOKIES:{},
 META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
  &#39;COMPIZ_CONFIG_PROFILE&#39;: &#39;ubuntu&#39;,
- &#39;CONTENT_LENGTH&#39;: &#39;41&#39;,
+ &#39;CONTENT_LENGTH&#39;: &#39;51&#39;,
  &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,
- &#39;CSRF_COOKIE&#39;: &#39;syLDw7DHTAu3jUqIxMuVqE7D2Q9teuZg&#39;,
- &#39;DBUS_SESSION_BUS_ADDRESS&#39;: &#39;unix:abstract=/tmp/dbus-NROX784CyA,guid=af0e6b59bd9bb50c41c075e900000022&#39;,
+ &#39;CSRF_COOKIE&#39;: &#39;2ATHAXjPN7xKz4TxfNW9mNPNdd89B99g&#39;,
+ &#39;DBUS_SESSION_BUS_ADDRESS&#39;: &#39;unix:abstract=/tmp/dbus-Rnfh6Xq6Ph,guid=2bc53a237312c5e53c0969200000055d&#39;,
  &#39;DEFAULTS_PATH&#39;: &#39;/usr/share/gconf/ubuntu.default.path&#39;,
  &#39;DESKTOP_SESSION&#39;: &#39;ubuntu&#39;,
  &#39;DISPLAY&#39;: &#39;:0&#39;,
@@ -347,9 +350,9 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
  &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,
  &#39;GDMSESSION&#39;: &#39;ubuntu&#39;,
  &#39;GNOME_DESKTOP_SESSION_ID&#39;: &#39;this-is-deprecated&#39;,
- &#39;GNOME_KEYRING_CONTROL&#39;: &#39;/tmp/keyring-9LDWj1&#39;,
- &#39;GNOME_KEYRING_PID&#39;: &#39;1569&#39;,
- &#39;GPG_AGENT_INFO&#39;: &#39;/tmp/keyring-9LDWj1/gpg:0:1&#39;,
+ &#39;GNOME_KEYRING_CONTROL&#39;: &#39;/tmp/keyring-O0isC7&#39;,
+ &#39;GNOME_KEYRING_PID&#39;: &#39;1962&#39;,
+ &#39;GPG_AGENT_INFO&#39;: &#39;/tmp/keyring-O0isC7/gpg:0:1&#39;,
  &#39;HOME&#39;: &#39;/home/abhinav&#39;,
  &#39;HTTP_ACCEPT_ENCODING&#39;: &#39;identity&#39;,
  &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,
@@ -361,10 +364,9 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
  &#39;LOGNAME&#39;: &#39;abhinav&#39;,
  &#39;LS_COLORS&#39;: &#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:&#39;,
  &#39;MANDATORY_PATH&#39;: &#39;/usr/share/gconf/ubuntu.mandatory.path&#39;,
- &#39;OLDPWD&#39;: &#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2&#39;,
  &#39;PATH&#39;: &#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games&#39;,
- &#39;PATH_INFO&#39;: u&#39;/set_status&#39;,
- &#39;PWD&#39;: &#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy&#39;,
+ &#39;PATH_INFO&#39;: u&#39;/login&#39;,
+ &#39;PWD&#39;: &#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy&#39;,
  &#39;QUERY_STRING&#39;: &#39;&#39;,
  &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,
  &#39;REMOTE_HOST&#39;: &#39;&#39;,
@@ -375,27 +377,27 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
  &#39;SERVER_PORT&#39;: &#39;8000&#39;,
  &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,
  &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.7.3&#39;,
- &#39;SESSION_MANAGER&#39;: &#39;local/ubuntu:@/tmp/.ICE-unix/1580,unix/ubuntu:/tmp/.ICE-unix/1580&#39;,
+ &#39;SESSION_MANAGER&#39;: &#39;local/ubuntu:@/tmp/.ICE-unix/1973,unix/ubuntu:/tmp/.ICE-unix/1973&#39;,
  &#39;SHELL&#39;: &#39;/bin/bash&#39;,
  &#39;SHLVL&#39;: &#39;1&#39;,
- &#39;SSH_AGENT_PID&#39;: &#39;1615&#39;,
- &#39;SSH_AUTH_SOCK&#39;: &#39;/tmp/keyring-9LDWj1/ssh&#39;,
+ &#39;SSH_AGENT_PID&#39;: &#39;2009&#39;,
+ &#39;SSH_AUTH_SOCK&#39;: &#39;/tmp/keyring-O0isC7/ssh&#39;,
  &#39;TERM&#39;: &#39;xterm&#39;,
  &#39;TZ&#39;: &#39;America/Chicago&#39;,
  &#39;UBUNTU_MENUPROXY&#39;: &#39;libappmenu.so&#39;,
  &#39;USER&#39;: &#39;abhinav&#39;,
- &#39;WINDOWID&#39;: &#39;62914566&#39;,
+ &#39;WINDOWID&#39;: &#39;58720262&#39;,
  &#39;XAUTHORITY&#39;: &#39;/home/abhinav/.Xauthority&#39;,
  &#39;XDG_CONFIG_DIRS&#39;: &#39;/etc/xdg/xdg-ubuntu:/etc/xdg&#39;,
  &#39;XDG_CURRENT_DESKTOP&#39;: &#39;Unity&#39;,
  &#39;XDG_DATA_DIRS&#39;: &#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/&#39;,
  &#39;XDG_SEAT_PATH&#39;: &#39;/org/freedesktop/DisplayManager/Seat0&#39;,
- &#39;XDG_SESSION_COOKIE&#39;: &#39;5c0342bcc257d015b715503f00000029-1364567816.725541-1449413612&#39;,
+ &#39;XDG_SESSION_COOKIE&#39;: &#39;5c0342bcc257d015b715503f00000029-1364834072.855145-2142095866&#39;,
  &#39;XDG_SESSION_PATH&#39;: &#39;/org/freedesktop/DisplayManager/Session0&#39;,
  &#39;_&#39;: &#39;/usr/bin/python&#39;,
- &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7fd82b49d270&gt;,
- &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0x1640460&gt;,
- &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x1b9bcd0&gt;,
+ &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7ff73e945270&gt;,
+ &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0x301f4c8&gt;,
+ &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x7ff72c054850&gt;,
  &#39;wsgi.multiprocess&#39;: False,
  &#39;wsgi.multithread&#39;: True,
  &#39;wsgi.run_once&#39;: False,
@@ -405,7 +407,7 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
                 
                   <tr>
                     <td>view_func</td>
-                    <td class="code"><pre>&lt;function set_status at 0x7fd81c0366e0&gt;</pre></td>
+                    <td class="code"><pre>&lt;function login at 0x7ff72c0377d0&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -419,16 +421,16 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
         </li>
       
         <li class="frame user">
-          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy/users/views.py</code> in <code>set_status</code>
+          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/views.py</code> in <code>login</code>
 
           
-            <div class="context" id="c140566161203144">
+            <div class="context" id="c140699572160992">
               
-                <ol start="23" class="pre-context" id="pre140566161203144"><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre></pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>def set_status(request):</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>    postrequest = json.loads(request.body)</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>    userID, status = postrequest[&#39;userID&#39;], postrequest[&#39;status&#39;]</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>    if User.user_exists(userID):</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>        myuser = User.objects.get(facebook_id=userID)</pre></li></ol>
+                <ol start="15" class="pre-context" id="pre140699572160992"><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    postrequest = json.loads(request.body)</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    userID, facebookFriends = postrequest[&#39;userID&#39;], postrequest[&#39;facebookFriends&#39;]</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    myuser = None</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    if not User.user_exists(userID):</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>        myuser = User.objects.create_user(userID, facebookFriends)</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    else:</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>        myuser = User.objects.get(facebook_id=userID)</pre></li></ol>
               
-              <ol start="30" class="context-line"><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>        matchingStatuses = myuser.set_status(status)</pre> <span>...</span></li></ol>
+              <ol start="22" class="context-line"><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    friendStatuses = myuser.login(facebookFriends)</pre> <span>...</span></li></ol>
               
-                <ol start='31' class="post-context" id="post140566161203144"><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>        return HttpResponse(simplejson.dumps(matchingStatuses), mimetype=&#39;application/json&#39;)</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>    return HttpResponse(simplejson.dumps({&#39;errCode&#39;:-1, &#39;data&#39;:&#39;USER DOES NOT EXIST&#39;}), mimetype=&#39;application/json&#39;)</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre></pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>def TESTAPI_resetFixture(request):</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>    User.TESTAPI_resetFixture()</pre></li><li onclick="toggle('pre140566161203144', 'post140566161203144')"><pre>    return HttpResponse(simplejson.dumps({&#39;worked&#39;:&#39;1&#39;}), mimetype=&#39;application/json&#39;)</pre></li></ol>
+                <ol start='23' class="post-context" id="post140699572160992"><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    return HttpResponse(simplejson.dumps(friendStatuses), mimetype=&#39;application/json&#39;)</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre></pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>def set_status(request):</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    postrequest = json.loads(request.body)</pre></li><li onclick="toggle('pre140699572160992', 'post140699572160992')"><pre>    userID, status = postrequest[&#39;userID&#39;], postrequest[&#39;status&#39;]</pre></li></ol>
               
             </div>
           
@@ -436,10 +438,10 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140566161203144')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140699572160992')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140566161203144">
+            <table class="vars" id="v140699572160992">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -449,8 +451,8 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
               <tbody>
                 
                   <tr>
-                    <td>status</td>
-                    <td class="code"><pre>u&#39;test status1&#39;</pre></td>
+                    <td>facebookFriends</td>
+                    <td class="code"><pre>[u&#39;b&#39;, u&#39;c&#39;, u&#39;d&#39;]</pre></td>
                   </tr>
                 
                   <tr>
@@ -460,17 +462,17 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
                 
                   <tr>
                     <td>userID</td>
-                    <td class="code"><pre>u&#39;b&#39;</pre></td>
+                    <td class="code"><pre>u&#39;a&#39;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/set_status,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;status&quot;: &quot;test status1&quot;, &quot;userID&quot;: &quot;b&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;41\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;syLDw7DHTAu3jUqIxMuVqE7D2Q9teuZg\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-NROX784CyA,guid=af0e6b59bd9bb50c41c075e900000022\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-9LDWj1\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1569\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-9LDWj1/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;OLDPWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/set_status\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1580,unix/ubuntu:/tmp/.ICE-unix/1580\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;1615\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-9LDWj1/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;62914566\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1364567816.725541-1449413612\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7fd82b49d270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x1640460&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x1b9bcd0&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
+                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/login,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;facebookFriends&quot;: [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;], &quot;userID&quot;: &quot;a&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;51\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;2ATHAXjPN7xKz4TxfNW9mNPNdd89B99g\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-Rnfh6Xq6Ph,guid=2bc53a237312c5e53c0969200000055d\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-O0isC7\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1962\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-O0isC7/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/login\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1973,unix/ubuntu:/tmp/.ICE-unix/1973\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;2009\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-O0isC7/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;58720262\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1364834072.855145-2142095866\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7ff73e945270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x301f4c8&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x7ff72c054850&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>postrequest</td>
-                    <td class="code"><pre>{u&#39;status&#39;: u&#39;test status1&#39;, u&#39;userID&#39;: u&#39;b&#39;}</pre></td>
+                    <td class="code"><pre>{u&#39;facebookFriends&#39;: [u&#39;b&#39;, u&#39;c&#39;, u&#39;d&#39;], u&#39;userID&#39;: u&#39;a&#39;}</pre></td>
                   </tr>
                 
               </tbody>
@@ -479,16 +481,16 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
         </li>
       
         <li class="frame user">
-          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy/users/models.py</code> in <code>set_status</code>
+          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py</code> in <code>login</code>
 
           
-            <div class="context" id="c140566161202280">
+            <div class="context" id="c140699572161424">
               
-                <ol start="120" class="pre-context" id="pre140566161202280"><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>                myuser = myuser[0]</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>            else:</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>                if myuser.get_status() != None:</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>                    statuses[myuser.facebook_id] = myuser.get_status()</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>        return statuses</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>    </pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>    def set_status(self, status):</pre></li></ol>
+                <ol start="72" class="pre-context" id="pre140699572161424"><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>            return True</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>        return True</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>    </pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>    def login(self, facebook_friends):</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>        self.friends = facebook_friends</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>        self.save()</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>        #return {&quot;data&quot;:self.get_friend_statuses()}</pre></li></ol>
               
-              <ol start="127" class="context-line"><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>        self.status.set_status(status)</pre> <span>...</span></li></ol>
+              <ol start="79" class="context-line"><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>        return {&quot;data&quot;:{str(friends[0]):&quot;status1&quot;, str(friends[1]):&quot;status2&quot;, str(friends[2]):&quot;status3&quot;, str(friends[3]):&quot;status4&quot;}} # for testing frontend only</pre> <span>...</span></li></ol>
               
-                <ol start='128' class="post-context" id="post140566161202280"><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>        #self.save()</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>        #return matching statuses</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>        fstatuses = self.get_friend_statuses()</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>        out = {}</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>        for fid in fstatuses:</pre></li><li onclick="toggle('pre140566161202280', 'post140566161202280')"><pre>            fstatus = fstatuses[fid]</pre></li></ol>
+                <ol start='80' class="post-context" id="post140699572161424"><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>    </pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>    def get_friend_statuses(self):</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>        statuses = {}</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>        for friendid in self.friends:</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>            try:</pre></li><li onclick="toggle('pre140699572161424', 'post140699572161424')"><pre>                myuser = User.objects.get(facebook_id=friendid)</pre></li></ol>
               
             </div>
           
@@ -496,10 +498,10 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '140566161202280')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '140699572161424')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v140566161202280">
+            <table class="vars" id="v140699572161424">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -509,786 +511,13 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
               <tbody>
                 
                   <tr>
-                    <td>status</td>
-                    <td class="code"><pre>u&#39;test status1&#39;</pre></td>
+                    <td>facebook_friends</td>
+                    <td class="code"><pre>[u&#39;b&#39;, u&#39;c&#39;, u&#39;d&#39;]</pre></td>
                   </tr>
                 
                   <tr>
                     <td>self</td>
                     <td class="code"><pre>&lt;User: User object&gt;</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame user">
-          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy/users/models.py</code> in <code>set_status</code>
-
-          
-            <div class="context" id="c140566161202208">
-              
-                <ol start="49" class="pre-context" id="pre140566161202208"><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        self.status = s</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        print &#39;self.status&#39;</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        print self.status</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        self.status_time = timezone.datetime.now()</pre></li></ol>
-              
-              <ol start="56" class="context-line"><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        self.save()</pre> <span>...</span></li></ol>
-              
-                <ol start='57' class="post-context" id="post140566161202208"><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>    def get_status(self):</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        now = timezone.datetime.now()</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        if now-self.status_time&lt;datetime.timedelta(minutes=15):</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>            return self.status</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre>        return None</pre></li><li onclick="toggle('pre140566161202208', 'post140566161202208')"><pre></pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161202208')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161202208">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>s</td>
-                    <td class="code"><pre>u&#39;test status1&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;Status: Status object&gt;</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/base.py</code> in <code>save</code>
-
-          
-            <div class="context" id="c140566161202568">
-              
-                <ol start="456" class="pre-context" id="pre140566161202568"><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre></pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>        The &#39;force_insert&#39; and &#39;force_update&#39; parameters can be used to insist</pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>        that the &quot;save&quot; must be an SQL insert or update (or equivalent for</pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>        non-SQL backends), respectively. Normally, they should not be set.</pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>        if force_insert and force_update:</pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>            raise ValueError(&quot;Cannot force both insert and updating in model saving.&quot;)</pre></li></ol>
-              
-              <ol start="463" class="context-line"><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>        self.save_base(using=using, force_insert=force_insert, force_update=force_update)</pre> <span>...</span></li></ol>
-              
-                <ol start='464' class="post-context" id="post140566161202568"><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre></pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>    save.alters_data = True</pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre></pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>    def save_base(self, raw=False, cls=None, origin=None, force_insert=False,</pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>            force_update=False, using=None):</pre></li><li onclick="toggle('pre140566161202568', 'post140566161202568')"><pre>        &quot;&quot;&quot;</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161202568')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161202568">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>using</td>
-                    <td class="code"><pre>None</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;Status: Status object&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>force_update</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>force_insert</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/base.py</code> in <code>save_base</code>
-
-          
-            <div class="context" id="c140566161201560">
-              
-                <ol start="517" class="pre-context" id="pre140566161201560"><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>            pk_val = self._get_pk_val(meta)</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>            pk_set = pk_val is not None</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>            record_exists = True</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>            manager = cls._base_manager</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>            if pk_set:</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                # Determine whether a record with the primary key already exists.</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                if (force_update or (not force_insert and</pre></li></ol>
-              
-              <ol start="524" class="context-line"><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                        manager.using(using).filter(pk=pk_val).exists())):</pre> <span>...</span></li></ol>
-              
-                <ol start='525' class="post-context" id="post140566161201560"><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                    # It does already exist, so do an UPDATE.</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                    if force_update or non_pks:</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                        values = [(f, None, (raw and getattr(self, f.attname) or f.pre_save(self, False))) for f in non_pks]</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                        if values:</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                            rows = manager.using(using).filter(pk=pk_val)._update(values)</pre></li><li onclick="toggle('pre140566161201560', 'post140566161201560')"><pre>                            if force_update and not rows:</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161201560')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161201560">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>origin</td>
-                    <td class="code"><pre>&lt;class &#39;users.models.Status&#39;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>non_pks</td>
-                    <td class="code"><pre>[&lt;django.db.models.fields.CharField: status&gt;,
- &lt;django.db.models.fields.DateTimeField: status_time&gt;]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>f</td>
-                    <td class="code"><pre>&lt;django.db.models.fields.DateTimeField: status_time&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;Status: Status object&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>force_update</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>raw</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>manager</td>
-                    <td class="code"><pre>&lt;django.db.models.manager.Manager object at 0x1bb7850&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>meta</td>
-                    <td class="code"><pre>&lt;Options for Status&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>pk_val</td>
-                    <td class="code"><pre>datetime.datetime(2013, 3, 29, 17, 31, 17, 423713)</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>using</td>
-                    <td class="code"><pre>&#39;default&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>pk_set</td>
-                    <td class="code"><pre>True</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>org</td>
-                    <td class="code"><pre>None</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>cls</td>
-                    <td class="code"><pre>&lt;class &#39;users.models.Status&#39;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>force_insert</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>record_exists</td>
-                    <td class="code"><pre>True</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/query.py</code> in <code>filter</code>
-
-          
-            <div class="context" id="c140566161151832">
-              
-                <ol start="617" class="pre-context" id="pre140566161151832"><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        return self._clone()</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre></pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>    def filter(self, *args, **kwargs):</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        Returns a new QuerySet instance with the args ANDed to the existing</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        set.</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        &quot;&quot;&quot;</pre></li></ol>
-              
-              <ol start="624" class="context-line"><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        return self._filter_or_exclude(False, *args, **kwargs)</pre> <span>...</span></li></ol>
-              
-                <ol start='625' class="post-context" id="post140566161151832"><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre></pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>    def exclude(self, *args, **kwargs):</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        Returns a new QuerySet instance with NOT (args) ANDed to the existing</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        set.</pre></li><li onclick="toggle('pre140566161151832', 'post140566161151832')"><pre>        &quot;&quot;&quot;</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161151832')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161151832">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>[&lt;Status: Status object&gt;, &lt;Status: Status object&gt;]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>args</td>
-                    <td class="code"><pre>()</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>kwargs</td>
-                    <td class="code"><pre>{&#39;pk&#39;: datetime.datetime(2013, 3, 29, 17, 31, 17, 423713)}</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/query.py</code> in <code>_filter_or_exclude</code>
-
-          
-            <div class="context" id="c140566161150824">
-              
-                <ol start="635" class="pre-context" id="pre140566161150824"><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>            assert self.query.can_filter(), \</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>                    &quot;Cannot filter a query once a slice has been taken.&quot;</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre></pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>        clone = self._clone()</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>        if negate:</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>            clone.query.add_q(~Q(*args, **kwargs))</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>        else:</pre></li></ol>
-              
-              <ol start="642" class="context-line"><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>            clone.query.add_q(Q(*args, **kwargs))</pre> <span>...</span></li></ol>
-              
-                <ol start='643' class="post-context" id="post140566161150824"><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>        return clone</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre></pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>    def complex_filter(self, filter_obj):</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre>        Returns a new QuerySet instance with filter_obj added to the filters.</pre></li><li onclick="toggle('pre140566161150824', 'post140566161150824')"><pre></pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161150824')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161150824">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>negate</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>clone</td>
-                    <td class="code"><pre>[&lt;Status: Status object&gt;, &lt;Status: Status object&gt;]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>args</td>
-                    <td class="code"><pre>()</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>[&lt;Status: Status object&gt;, &lt;Status: Status object&gt;]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>kwargs</td>
-                    <td class="code"><pre>{&#39;pk&#39;: datetime.datetime(2013, 3, 29, 17, 31, 17, 423713)}</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py</code> in <code>add_q</code>
-
-          
-            <div class="context" id="c140566161153920">
-              
-                <ol start="1243" class="pre-context" id="pre140566161153920"><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                    self.having.start_subtree(connector)</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                else:</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                    self.where.start_subtree(connector)</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                if isinstance(child, Node):</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                    self.add_q(child, used_aliases, force_having=force_having)</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                else:</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                    self.add_filter(child, connector, q_object.negated,</pre></li></ol>
-              
-              <ol start="1250" class="context-line"><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                            can_reuse=used_aliases, force_having=force_having)</pre> <span>...</span></li></ol>
-              
-                <ol start='1251' class="post-context" id="post140566161153920"><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                if force_having:</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                    self.having.end_subtree()</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                else:</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                    self.where.end_subtree()</pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre></pre></li><li onclick="toggle('pre140566161153920', 'post140566161153920')"><pre>                if connector == OR:</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161153920')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161153920">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>used_aliases</td>
-                    <td class="code"><pre>set()</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>force_having</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>q_object</td>
-                    <td class="code"><pre>&lt;django.db.models.query_utils.Q object at 0x7fd81c0b2b90&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;django.db.models.sql.query.Query object at 0x7fd81c0b2f50&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>subtree</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>connector</td>
-                    <td class="code"><pre>&#39;AND&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>child</td>
-                    <td class="code"><pre>(&#39;pk&#39;, datetime.datetime(2013, 3, 29, 17, 31, 17, 423713))</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py</code> in <code>add_filter</code>
-
-          
-            <div class="context" id="c140566161150752">
-              
-                <ol start="1178" class="pre-context" id="pre140566161150752"><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>        if having_clause or force_having:</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>            if (alias, col) not in self.group_by:</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>                self.group_by.append((alias, col))</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>            self.having.add((Constraint(alias, col, field), lookup_type, value),</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>                connector)</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>        else:</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>            self.where.add((Constraint(alias, col, field), lookup_type, value),</pre></li></ol>
-              
-              <ol start="1185" class="context-line"><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>                connector)</pre> <span>...</span></li></ol>
-              
-                <ol start='1186' class="post-context" id="post140566161150752"><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre></pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>        if negate:</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>            self.promote_alias_chain(join_list)</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>            if lookup_type != &#39;isnull&#39;:</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>                if len(join_list) &gt; 1:</pre></li><li onclick="toggle('pre140566161150752', 'post140566161150752')"><pre>                    for alias in join_list:</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161150752')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161150752">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>having_clause</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>trim</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>num_parts</td>
-                    <td class="code"><pre>1</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>arg</td>
-                    <td class="code"><pre>&#39;pk&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>negate</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>connector</td>
-                    <td class="code"><pre>&#39;AND&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>process_extras</td>
-                    <td class="code"><pre>True</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;django.db.models.sql.query.Query object at 0x7fd81c0b2f50&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>table_promote</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>field</td>
-                    <td class="code"><pre>&lt;django.db.models.fields.AutoField: id&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>parts</td>
-                    <td class="code"><pre>[&#39;pk&#39;]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>filter_expr</td>
-                    <td class="code"><pre>(&#39;pk&#39;, datetime.datetime(2013, 3, 29, 17, 31, 17, 423713))</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>join_promote</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>force_having</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>join_list</td>
-                    <td class="code"><pre>[&#39;users_status&#39;]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>nonnull_comparison</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>can_reuse</td>
-                    <td class="code"><pre>set()</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>allow_many</td>
-                    <td class="code"><pre>True</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>last</td>
-                    <td class="code"><pre>[]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>target</td>
-                    <td class="code"><pre>&lt;django.db.models.fields.AutoField: id&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>lookup_type</td>
-                    <td class="code"><pre>&#39;exact&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>value</td>
-                    <td class="code"><pre>datetime.datetime(2013, 3, 29, 17, 31, 17, 423713)</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>alias</td>
-                    <td class="code"><pre>&#39;users_status&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>extra_filters</td>
-                    <td class="code"><pre>[]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>col</td>
-                    <td class="code"><pre>&#39;id&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>opts</td>
-                    <td class="code"><pre>&lt;Options for Status&gt;</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/sql/where.py</code> in <code>add</code>
-
-          
-            <div class="context" id="c140566161151616">
-              
-                <ol start="62" class="pre-context" id="pre140566161151616"><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>            value_annotation = datetime.datetime</pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>        elif hasattr(value, &#39;value_annotation&#39;):</pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>            value_annotation = value.value_annotation</pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>        else:</pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>            value_annotation = bool(value)</pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre></pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>        if hasattr(obj, &quot;prepare&quot;):</pre></li></ol>
-              
-              <ol start="69" class="context-line"><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>            value = obj.prepare(lookup_type, value)</pre> <span>...</span></li></ol>
-              
-                <ol start='70' class="post-context" id="post140566161151616"><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre></pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>        super(WhereNode, self).add(</pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>                (obj, lookup_type, value_annotation, value), connector)</pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre></pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>    def as_sql(self, qn, connection):</pre></li><li onclick="toggle('pre140566161151616', 'post140566161151616')"><pre>        &quot;&quot;&quot;</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161151616')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161151616">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>value_annotation</td>
-                    <td class="code"><pre>&lt;type &#39;datetime.datetime&#39;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>obj</td>
-                    <td class="code"><pre>&lt;django.db.models.sql.where.Constraint object at 0x7fd81c03b910&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>lookup_type</td>
-                    <td class="code"><pre>&#39;exact&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>value</td>
-                    <td class="code"><pre>datetime.datetime(2013, 3, 29, 17, 31, 17, 423713)</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>connector</td>
-                    <td class="code"><pre>&#39;AND&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>data</td>
-                    <td class="code"><pre>(&lt;django.db.models.sql.where.Constraint object at 0x7fd81c03b910&gt;,
- &#39;exact&#39;,
- datetime.datetime(2013, 3, 29, 17, 31, 17, 423713))</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;django.db.models.sql.where.WhereNode object at 0x7fd81c0b2e10&gt;</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/sql/where.py</code> in <code>prepare</code>
-
-          
-            <div class="context" id="c140566161150608">
-              
-                <ol start="313" class="pre-context" id="pre140566161150608"><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>        if model is not None:</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>            self.field = model._meta.get_field(field_name)</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>        else:</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>            self.field = None</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre></pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>    def prepare(self, lookup_type, value):</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>        if self.field:</pre></li></ol>
-              
-              <ol start="320" class="context-line"><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>            return self.field.get_prep_lookup(lookup_type, value)</pre> <span>...</span></li></ol>
-              
-                <ol start='321' class="post-context" id="post140566161150608"><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>        return value</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre></pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>    def process(self, lookup_type, value, connection):</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>        Returns a tuple of data suitable for inclusion in a WhereNode</pre></li><li onclick="toggle('pre140566161150608', 'post140566161150608')"><pre>        instance.</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161150608')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161150608">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>lookup_type</td>
-                    <td class="code"><pre>&#39;exact&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;django.db.models.sql.where.Constraint object at 0x7fd81c03b910&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>value</td>
-                    <td class="code"><pre>datetime.datetime(2013, 3, 29, 17, 31, 17, 423713)</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py</code> in <code>get_prep_lookup</code>
-
-          
-            <div class="context" id="c140566161153632">
-              
-                <ol start="303" class="pre-context" id="pre140566161153632"><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>        if lookup_type in (</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>                &#39;regex&#39;, &#39;iregex&#39;, &#39;month&#39;, &#39;day&#39;, &#39;week_day&#39;, &#39;search&#39;,</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>                &#39;contains&#39;, &#39;icontains&#39;, &#39;iexact&#39;, &#39;startswith&#39;, &#39;istartswith&#39;,</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>                &#39;endswith&#39;, &#39;iendswith&#39;, &#39;isnull&#39;</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>            ):</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>            return value</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>        elif lookup_type in (&#39;exact&#39;, &#39;gt&#39;, &#39;gte&#39;, &#39;lt&#39;, &#39;lte&#39;):</pre></li></ol>
-              
-              <ol start="310" class="context-line"><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>            return self.get_prep_value(value)</pre> <span>...</span></li></ol>
-              
-                <ol start='311' class="post-context" id="post140566161153632"><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>        elif lookup_type in (&#39;range&#39;, &#39;in&#39;):</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>            return [self.get_prep_value(v) for v in value]</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>        elif lookup_type == &#39;year&#39;:</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>            try:</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>                return int(value)</pre></li><li onclick="toggle('pre140566161153632', 'post140566161153632')"><pre>            except ValueError:</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161153632')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161153632">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>lookup_type</td>
-                    <td class="code"><pre>&#39;exact&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;django.db.models.fields.AutoField: id&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>value</td>
-                    <td class="code"><pre>datetime.datetime(2013, 3, 29, 17, 31, 17, 423713)</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py</code> in <code>get_prep_value</code>
-
-          
-            <div class="context" id="c140566161151400">
-              
-                <ol start="530" class="pre-context" id="pre140566161151400"><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre></pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>    def validate(self, value, model_instance):</pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>        pass</pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre></pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>    def get_prep_value(self, value):</pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>        if value is None:</pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>            return None</pre></li></ol>
-              
-              <ol start="537" class="context-line"><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>        return int(value)</pre> <span>...</span></li></ol>
-              
-                <ol start='538' class="post-context" id="post140566161151400"><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre></pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>    def contribute_to_class(self, cls, name):</pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>        assert not cls._meta.has_auto_field, \</pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>               &quot;A model can&#39;t have more than one AutoField.&quot;</pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>        super(AutoField, self).contribute_to_class(cls, name)</pre></li><li onclick="toggle('pre140566161151400', 'post140566161151400')"><pre>        cls._meta.has_auto_field = True</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '140566161151400')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v140566161151400">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;django.db.models.fields.AutoField: id&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>value</td>
-                    <td class="code"><pre>datetime.datetime(2013, 3, 29, 17, 31, 17, 423713)</pre></td>
                   </tr>
                 
               </tbody>
@@ -1303,7 +532,7 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
 
   <div id="pastebinTraceback" class="pastebin">
     <input type="hidden" name="language" value="PythonConsole">
-    <input type="hidden" name="title" value="TypeError at /set_status">
+    <input type="hidden" name="title" value="NameError at /login">
     <input type="hidden" name="source" value="Django Dpaste Agent">
     <input type="hidden" name="poster" value="Django">
     <textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -1311,7 +540,7 @@ Environment:
 
 
 Request Method: POST
-Request URL: http://127.0.0.1:8000/set_status
+Request URL: http://127.0.0.1:8000/login
 
 Django Version: 1.4.3
 Python Version: 2.7.3
@@ -1324,7 +553,8 @@ Installed Applications:
  &#39;django.contrib.staticfiles&#39;,
  &#39;django.contrib.admin&#39;,
  &#39;django.contrib.admindocs&#39;,
- &#39;users&#39;)
+ &#39;users&#39;,
+ &#39;gcm&#39;)
 Installed Middleware:
 (&#39;django.middleware.common.CommonMiddleware&#39;,
  &#39;django.contrib.sessions.middleware.SessionMiddleware&#39;,
@@ -1338,35 +568,13 @@ File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py" in ge
   111.                         response = callback(request, *callback_args, **callback_kwargs)
 File "/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py" in wrapped_view
   77.         return view_func(*args, **kwargs)
-File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy/users/views.py" in set_status
-  30.         matchingStatuses = myuser.set_status(status)
-File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy/users/models.py" in set_status
-  127.         self.status.set_status(status)
-File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy/users/models.py" in set_status
-  56.         self.save()
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py" in save
-  463.         self.save_base(using=using, force_insert=force_insert, force_update=force_update)
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py" in save_base
-  524.                         manager.using(using).filter(pk=pk_val).exists())):
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py" in filter
-  624.         return self._filter_or_exclude(False, *args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py" in _filter_or_exclude
-  642.             clone.query.add_q(Q(*args, **kwargs))
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py" in add_q
-  1250.                             can_reuse=used_aliases, force_having=force_having)
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py" in add_filter
-  1185.                 connector)
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/where.py" in add
-  69.             value = obj.prepare(lookup_type, value)
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/where.py" in prepare
-  320.             return self.field.get_prep_lookup(lookup_type, value)
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py" in get_prep_lookup
-  310.             return self.get_prep_value(value)
-File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py" in get_prep_value
-  537.         return int(value)
+File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/views.py" in login
+  22.     friendStatuses = myuser.login(facebookFriends)
+File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py" in login
+  79.         return {&quot;data&quot;:{str(friends[0]):&quot;status1&quot;, str(friends[1]):&quot;status2&quot;, str(friends[2]):&quot;status3&quot;, str(friends[3]):&quot;status4&quot;}} # for testing frontend only
 
-Exception Type: TypeError at /set_status
-Exception Value: int() argument must be a string or a number, not &#39;datetime.datetime&#39;
+Exception Type: NameError at /login
+Exception Value: global name &#39;friends&#39; is not defined
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public Web site">
@@ -1397,7 +605,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       <tbody>
         
           <tr>
-            <td>{&quot;status&quot;: &quot;test status1&quot;, &quot;userID&quot;: &quot;b&quot;}</td>
+            <td>{&quot;facebookFriends&quot;: [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;], &quot;userID&quot;: &quot;a&quot;}</td>
             <td class="code"><pre>u&#39;&#39;</pre></td>
           </tr>
         
@@ -1492,7 +700,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>GNOME_KEYRING_CONTROL</td>
-          <td class="code"><pre>&#39;/tmp/keyring-9LDWj1&#39;</pre></td>
+          <td class="code"><pre>&#39;/tmp/keyring-O0isC7&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1502,7 +710,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>SSH_AGENT_PID</td>
-          <td class="code"><pre>&#39;1615&#39;</pre></td>
+          <td class="code"><pre>&#39;2009&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1537,7 +745,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>SESSION_MANAGER</td>
-          <td class="code"><pre>&#39;local/ubuntu:@/tmp/.ICE-unix/1580,unix/ubuntu:/tmp/.ICE-unix/1580&#39;</pre></td>
+          <td class="code"><pre>&#39;local/ubuntu:@/tmp/.ICE-unix/1973,unix/ubuntu:/tmp/.ICE-unix/1973&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1562,7 +770,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>WINDOWID</td>
-          <td class="code"><pre>&#39;62914566&#39;</pre></td>
+          <td class="code"><pre>&#39;58720262&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1572,7 +780,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>GPG_AGENT_INFO</td>
-          <td class="code"><pre>&#39;/tmp/keyring-9LDWj1/gpg:0:1&#39;</pre></td>
+          <td class="code"><pre>&#39;/tmp/keyring-O0isC7/gpg:0:1&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1587,7 +795,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>CONTENT_LENGTH</td>
-          <td class="code"><pre>&#39;41&#39;</pre></td>
+          <td class="code"><pre>&#39;51&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1597,7 +805,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>SSH_AUTH_SOCK</td>
-          <td class="code"><pre>&#39;/tmp/keyring-9LDWj1/ssh&#39;</pre></td>
+          <td class="code"><pre>&#39;/tmp/keyring-O0isC7/ssh&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1642,7 +850,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>DBUS_SESSION_BUS_ADDRESS</td>
-          <td class="code"><pre>&#39;unix:abstract=/tmp/dbus-NROX784CyA,guid=af0e6b59bd9bb50c41c075e900000022&#39;</pre></td>
+          <td class="code"><pre>&#39;unix:abstract=/tmp/dbus-Rnfh6Xq6Ph,guid=2bc53a237312c5e53c0969200000055d&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1652,7 +860,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>XDG_SESSION_COOKIE</td>
-          <td class="code"><pre>&#39;5c0342bcc257d015b715503f00000029-1364567816.725541-1449413612&#39;</pre></td>
+          <td class="code"><pre>&#39;5c0342bcc257d015b715503f00000029-1364834072.855145-2142095866&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1677,7 +885,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>GNOME_KEYRING_PID</td>
-          <td class="code"><pre>&#39;1569&#39;</pre></td>
+          <td class="code"><pre>&#39;1962&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1692,12 +900,12 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>CSRF_COOKIE</td>
-          <td class="code"><pre>&#39;syLDw7DHTAu3jUqIxMuVqE7D2Q9teuZg&#39;</pre></td>
+          <td class="code"><pre>&#39;2ATHAXjPN7xKz4TxfNW9mNPNdd89B99g&#39;</pre></td>
         </tr>
       
         <tr>
-          <td>OLDPWD</td>
-          <td class="code"><pre>&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2&#39;</pre></td>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7ff73e945270&gt;</pre></td>
         </tr>
       
         <tr>
@@ -1707,12 +915,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>wsgi.input</td>
-          <td class="code"><pre>&lt;socket._fileobject object at 0x1b9bcd0&gt;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7fd82b49d270&gt;</pre></td>
+          <td class="code"><pre>&lt;socket._fileobject object at 0x7ff72c054850&gt;</pre></td>
         </tr>
       
         <tr>
@@ -1722,7 +925,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>PWD</td>
-          <td class="code"><pre>&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft2/friendzy&#39;</pre></td>
+          <td class="code"><pre>&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1757,7 +960,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>PATH_INFO</td>
-          <td class="code"><pre>u&#39;/set_status&#39;</pre></td>
+          <td class="code"><pre>u&#39;/login&#39;</pre></td>
         </tr>
       
     </tbody>
@@ -1812,7 +1015,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>STATIC_ROOT</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
+          <td class="code"><pre>&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/friendzy/site_media&#39;</pre></td>
         </tr>
       
         <tr>
@@ -1822,7 +1025,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>EMAIL_SUBJECT_PREFIX</td>
-          <td class="code"><pre>&#39;[Django] &#39;</pre></td>
+          <td class="code"><pre>&#39;[gcmserver] &#39;</pre></td>
         </tr>
       
         <tr>
@@ -1899,8 +1102,8 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
         </tr>
       
         <tr>
-          <td>FIRST_DAY_OF_WEEK</td>
-          <td class="code"><pre>0</pre></td>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>()</pre></td>
         </tr>
       
         <tr>
@@ -1990,6 +1193,11 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
         </tr>
       
         <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+      
+        <tr>
           <td>WSGI_APPLICATION</td>
           <td class="code"><pre>&#39;friendzy.wsgi.application&#39;</pre></td>
         </tr>
@@ -2064,7 +1272,8 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
  &#39;django.contrib.staticfiles&#39;,
  &#39;django.contrib.admin&#39;,
  &#39;django.contrib.admindocs&#39;,
- &#39;users&#39;)</pre></td>
+ &#39;users&#39;,
+ &#39;gcm&#39;)</pre></td>
         </tr>
       
         <tr>
@@ -2223,6 +1432,11 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
         </tr>
       
         <tr>
+          <td>GCM_APIKEY</td>
+          <td class="code"><pre>u&#39;********************&#39;</pre></td>
+        </tr>
+      
+        <tr>
           <td>CACHE_MIDDLEWARE_ALIAS</td>
           <td class="code"><pre>&#39;default&#39;</pre></td>
         </tr>
@@ -2276,8 +1490,8 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
         </tr>
       
         <tr>
-          <td>LOCALE_PATHS</td>
-          <td class="code"><pre>()</pre></td>
+          <td>PROJECT_PATH</td>
+          <td class="code"><pre>&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/friendzy&#39;</pre></td>
         </tr>
       
         <tr>
@@ -2292,7 +1506,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>EMAIL_USE_TLS</td>
-          <td class="code"><pre>False</pre></td>
+          <td class="code"><pre>True</pre></td>
         </tr>
       
         <tr>
@@ -2302,7 +1516,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>EMAIL_HOST</td>
-          <td class="code"><pre>&#39;localhost&#39;</pre></td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
@@ -2312,7 +1526,7 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>MEDIA_ROOT</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
+          <td class="code"><pre>&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/friendzy/media&#39;</pre></td>
         </tr>
       
         <tr>
@@ -2332,12 +1546,12 @@ Exception Value: int() argument must be a string or a number, not &#39;datetime.
       
         <tr>
           <td>DEFAULT_FROM_EMAIL</td>
-          <td class="code"><pre>&#39;webmaster@localhost&#39;</pre></td>
+          <td class="code"><pre>&#39;&#39;</pre></td>
         </tr>
       
         <tr>
           <td>MEDIA_URL</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
+          <td class="code"><pre>&#39;/media/&#39;</pre></td>
         </tr>
       
         <tr>

@@ -76,7 +76,7 @@ class User(models.Model):
         self.friends = facebook_friends
         self.save()
         #return {"data":self.get_friend_statuses()}
-        return {"data":{str(friends[0]):"status1", str(friends[1]):"status2", str(friends[2]):"status3", str(friends[3]):"status4"}} # for testing frontend only
+        return {"data":{str(self.friends[0]):"status1", str(self.friends[1]):"status2", str(self.friends[2]):"status3", str(self.friends[3]):"status4"}} # for testing frontend only
     
     def get_friend_statuses(self):
         statuses = {}

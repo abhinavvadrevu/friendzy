@@ -64,6 +64,7 @@ print 'Logging in first user'
 fid = 'a'
 print 'login'
 login(fid, ['b','c','d'])
+"""
 print 'set_status'
 set_status(fid, 'this is a test status1')
 print ''
@@ -84,4 +85,4 @@ print 'set_status'
 set_status(fid, 'is a test')
 
 
-
+"""
