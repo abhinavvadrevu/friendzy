@@ -264,4 +264,5 @@ class Location(models.Model):
         out['latitude'] = respdict['businesses'][0]['location']['coordinate']['latitude']
         out['longitude'] = respdict['businesses'][0]['location']['coordinate']['longitude']
         out['name'] = respdict['businesses'][0]['name']
+        print out
         return out
