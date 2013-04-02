@@ -4,8 +4,8 @@ import urllib2
 #burl = "http://friendzy.herokuapp.com"
 burl = "http://127.0.0.1:8000"
 
-def login(user, friends):
-    data = json.dumps({"userID":user, "facebookFriends":friends})
+def login(user, friends, regId):
+    data = json.dumps({"userID":user, "facebookFriends":friends, "regId":regId})
     url = burl + '/login'
     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
     response=None
@@ -24,6 +24,26 @@ def login(user, friends):
 def set_status(user, status):
     url = burl + '/set_status'
     data = json.dumps({"userID":user, "status":status})
+    req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
+    response=None
+    try:
+        f = urllib2.urlopen(req)
+        response = f.read()
+        f.close()
+    except urllib2.HTTPError, error:
+        k= open('test.html','w')
+        k.write(error.read())
+        k.close()
+    print response
+    return response
+
+def match(userid, friendid, userlat, userlong):
+    url = burl + '/match'
+    tosend = {}
+    tosend['userID'] = userid
+    tosend['friendID'] = friendid
+    tosend['userLocation'] = {'latitude':userlat, 'longitude':userlong}
+    data = json.dumps(tosend)
     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
     response=None
     try:
@@ -63,8 +83,7 @@ print ''
 print 'Logging in first user'
 fid = 'a'
 print 'login'
-login(fid, ['b','c','d'])
-"""
+login(fid, ['b','c','d','e'], fid)
 print 'set_status'
 set_status(fid, 'this is a test status1')
 print ''
@@ -72,15 +91,23 @@ print ''
 print 'Logging in second user'
 fid = 'b'
 print 'login'
-login(fid, ['a','c','d'])
+login(fid, ['a','c','d', 'e'], fid)
 print 'set_status'
 set_status(fid, 'test status1')
 print ''
 
+print 'User a requesting match with user b'
+match('a','b', "37.8717", "-122.2728")
+
+print 'User b confirms match with user a'
+match('b','a', "47.6097", "-122.3331")
+
+
+"""
 print 'Logging in third user'
 fid = 'c'
 print 'login'
-login(fid, ['a','b','d'])
+login(fid, ['a','b','d'], fid)
 print 'set_status'
 set_status(fid, 'is a test')
 

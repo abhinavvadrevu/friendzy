@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="robots" content="NONE,NOARCHIVE">
-  <title>IndexError at /login</title>
+  <title>TypeError at /match</title>
   <style type="text/css">
     html * { padding:0; margin:0; }
     body * { padding:10px 20px; }
@@ -118,8 +118,8 @@
 </head>
 <body>
 <div id="summary">
-  <h1>IndexError at /login</h1>
-  <pre class="exception_value">list index out of range</pre>
+  <h1>TypeError at /match</h1>
+  <pre class="exception_value">get_regId() takes exactly 2 arguments (1 given)</pre>
   <table class="meta">
 
     <tr>
@@ -128,7 +128,7 @@
     </tr>
     <tr>
       <th>Request URL:</th>
-      <td>http://127.0.0.1:8000/login</td>
+      <td>http://127.0.0.1:8000/match</td>
     </tr>
 
     <tr>
@@ -138,19 +138,19 @@
 
     <tr>
       <th>Exception Type:</th>
-      <td>IndexError</td>
+      <td>TypeError</td>
     </tr>
 
 
     <tr>
       <th>Exception Value:</th>
-      <td><pre>list index out of range</pre></td>
+      <td><pre>get_regId() takes exactly 2 arguments (1 given)</pre></td>
     </tr>
 
 
     <tr>
       <th>Exception Location:</th>
-      <td>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py in login, line 79</td>
+      <td>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py in notify, line 202</td>
     </tr>
 
     <tr>
@@ -186,7 +186,7 @@
     </tr>
     <tr>
       <th>Server time:</th>
-      <td>Mon, 1 Apr 2013 16:01:41 -0500</td>
+      <td>Tue, 2 Apr 2013 00:52:22 -0500</td>
     </tr>
   </table>
 </div>
@@ -204,13 +204,13 @@
           <code>/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py</code> in <code>get_response</code>
 
           
-            <div class="context" id="c139849571307888">
+            <div class="context" id="c139992311904376">
               
-                <ol start="104" class="pre-context" id="pre139849571307888"><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                    for middleware_method in self._view_middleware:</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                        response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                        if response:</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                            break</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre></pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                if response is None:</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                    try:</pre></li></ol>
+                <ol start="104" class="pre-context" id="pre139992311904376"><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                    for middleware_method in self._view_middleware:</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                        response = middleware_method(request, callback, callback_args, callback_kwargs)</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                        if response:</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                            break</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre></pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                if response is None:</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                    try:</pre></li></ol>
               
-              <ol start="111" class="context-line"><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                        response = callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
+              <ol start="111" class="context-line"><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                        response = callback(request, *callback_args, **callback_kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='112' class="post-context" id="post139849571307888"><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                    except Exception, e:</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                        # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                        # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                        # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                        for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre139849571307888', 'post139849571307888')"><pre>                            response = middleware_method(request, e)</pre></li></ol>
+                <ol start='112' class="post-context" id="post139992311904376"><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                    except Exception, e:</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                        # If the view raised an exception, run it through exception</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                        # middleware, and if the exception middleware returns a</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                        # response, use that. Otherwise, reraise the exception.</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                        for middleware_method in self._exception_middleware:</pre></li><li onclick="toggle('pre139992311904376', 'post139992311904376')"><pre>                            response = middleware_method(request, e)</pre></li></ol>
               
             </div>
           
@@ -218,10 +218,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139849571307888')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139992311904376')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139849571307888">
+            <table class="vars" id="v139992311904376">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -237,7 +237,7 @@
                 
                   <tr>
                     <td>e</td>
-                    <td class="code"><pre>IndexError(&#39;list index out of range&#39;,)</pre></td>
+                    <td class="code"><pre>TypeError(&#39;get_regId() takes exactly 2 arguments (1 given)&#39;,)</pre></td>
                   </tr>
                 
                   <tr>
@@ -247,27 +247,27 @@
                 
                   <tr>
                     <td>settings</td>
-                    <td class="code"><pre>&lt;django.conf.LazySettings object at 0x1826c50&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.conf.LazySettings object at 0x2289c50&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>middleware_method</td>
-                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7f314c0ddd90&gt;&gt;</pre></td>
+                    <td class="code"><pre>&lt;bound method CsrfViewMiddleware.process_view of &lt;django.middleware.csrf.CsrfViewMiddleware object at 0x7f52880e0e50&gt;&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>self</td>
-                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x2272d10&gt;</pre></td>
+                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x28a41d0&gt;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/login,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;facebookFriends&quot;: [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;], &quot;userID&quot;: &quot;a&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;51\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;EH1WMPpS7efVx8a4SCGTrz7Fo2EfO0z4\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-Rnfh6Xq6Ph,guid=2bc53a237312c5e53c0969200000055d\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-O0isC7\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1962\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-O0isC7/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/login\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1973,unix/ubuntu:/tmp/.ICE-unix/1973\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;2009\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-O0isC7/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;58720262\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1364834072.855145-2142095866\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7f3153a7e270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x1d854c8&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x7f314404a550&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
+                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/match,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;userLocation&quot;: {&quot;latitude&quot;: &quot;47.6097&quot;, &quot;longitude&quot;: &quot;-122.3331&quot;}, &quot;userID&quot;: &quot;b&quot;, &quot;friendID&quot;: &quot;a&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;99\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;9Tilzm5Kx5cqQjDruIZ9Ahztc0HvOCnq\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-l6FmfAuGKF,guid=f62ef9a4ddc7a2218b0df0d000000025\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-7CodMg\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1586\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-7CodMg/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/match\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1597,unix/ubuntu:/tmp/.ICE-unix/1597\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;1632\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-7CodMg/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;48234502\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1364856307.82601-1420828029\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7f5292f5a270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x27e84c8&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x2d648d0&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>callback</td>
-                    <td class="code"><pre>&lt;function login at 0x7f3144037c80&gt;</pre></td>
+                    <td class="code"><pre>&lt;function match at 0x7f52800355f0&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -304,13 +304,13 @@
           <code>/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py</code> in <code>wrapped_view</code>
 
           
-            <div class="context" id="c139849571307816">
+            <div class="context" id="c139992311798528">
               
-                <ol start="70" class="pre-context" id="pre139849571307816"><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    # function.</pre></li><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
+                <ol start="70" class="pre-context" id="pre139992311798528"><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    Marks a view function as being exempt from the CSRF view protection.</pre></li><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    # We could just do view_func.csrf_exempt = True, but decorators</pre></li><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    # are nicer if they don&#39;t have side-effects, so we return a new</pre></li><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    # function.</pre></li><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    def wrapped_view(*args, **kwargs):</pre></li></ol>
               
-              <ol start="77" class="context-line"><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
+              <ol start="77" class="context-line"><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>        return view_func(*args, **kwargs)</pre> <span>...</span></li></ol>
               
-                <ol start='78' class="post-context" id="post139849571307816"><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre139849571307816', 'post139849571307816')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
+                <ol start='78' class="post-context" id="post139992311798528"><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    wrapped_view.csrf_exempt = True</pre></li><li onclick="toggle('pre139992311798528', 'post139992311798528')"><pre>    return wraps(view_func, assigned=available_attrs(view_func))(wrapped_view)</pre></li></ol>
               
             </div>
           
@@ -318,10 +318,10 @@
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139849571307816')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139992311798528')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139849571307816">
+            <table class="vars" id="v139992311798528">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -333,16 +333,16 @@
                   <tr>
                     <td>args</td>
                     <td class="code"><pre>(&lt;WSGIRequest
-path:/login,
+path:/match,
 GET:&lt;QueryDict: {}&gt;,
-POST:&lt;QueryDict: {u&#39;{&quot;facebookFriends&quot;: [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;], &quot;userID&quot;: &quot;a&quot;}&#39;: [u&#39;&#39;]}&gt;,
+POST:&lt;QueryDict: {u&#39;{&quot;userLocation&quot;: {&quot;latitude&quot;: &quot;47.6097&quot;, &quot;longitude&quot;: &quot;-122.3331&quot;}, &quot;userID&quot;: &quot;b&quot;, &quot;friendID&quot;: &quot;a&quot;}&#39;: [u&#39;&#39;]}&gt;,
 COOKIES:{},
 META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
  &#39;COMPIZ_CONFIG_PROFILE&#39;: &#39;ubuntu&#39;,
- &#39;CONTENT_LENGTH&#39;: &#39;51&#39;,
+ &#39;CONTENT_LENGTH&#39;: &#39;99&#39;,
  &#39;CONTENT_TYPE&#39;: &#39;application/json&#39;,
- &#39;CSRF_COOKIE&#39;: &#39;EH1WMPpS7efVx8a4SCGTrz7Fo2EfO0z4&#39;,
- &#39;DBUS_SESSION_BUS_ADDRESS&#39;: &#39;unix:abstract=/tmp/dbus-Rnfh6Xq6Ph,guid=2bc53a237312c5e53c0969200000055d&#39;,
+ &#39;CSRF_COOKIE&#39;: &#39;9Tilzm5Kx5cqQjDruIZ9Ahztc0HvOCnq&#39;,
+ &#39;DBUS_SESSION_BUS_ADDRESS&#39;: &#39;unix:abstract=/tmp/dbus-l6FmfAuGKF,guid=f62ef9a4ddc7a2218b0df0d000000025&#39;,
  &#39;DEFAULTS_PATH&#39;: &#39;/usr/share/gconf/ubuntu.default.path&#39;,
  &#39;DESKTOP_SESSION&#39;: &#39;ubuntu&#39;,
  &#39;DISPLAY&#39;: &#39;:0&#39;,
@@ -350,9 +350,9 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
  &#39;GATEWAY_INTERFACE&#39;: &#39;CGI/1.1&#39;,
  &#39;GDMSESSION&#39;: &#39;ubuntu&#39;,
  &#39;GNOME_DESKTOP_SESSION_ID&#39;: &#39;this-is-deprecated&#39;,
- &#39;GNOME_KEYRING_CONTROL&#39;: &#39;/tmp/keyring-O0isC7&#39;,
- &#39;GNOME_KEYRING_PID&#39;: &#39;1962&#39;,
- &#39;GPG_AGENT_INFO&#39;: &#39;/tmp/keyring-O0isC7/gpg:0:1&#39;,
+ &#39;GNOME_KEYRING_CONTROL&#39;: &#39;/tmp/keyring-7CodMg&#39;,
+ &#39;GNOME_KEYRING_PID&#39;: &#39;1586&#39;,
+ &#39;GPG_AGENT_INFO&#39;: &#39;/tmp/keyring-7CodMg/gpg:0:1&#39;,
  &#39;HOME&#39;: &#39;/home/abhinav&#39;,
  &#39;HTTP_ACCEPT_ENCODING&#39;: &#39;identity&#39;,
  &#39;HTTP_CONNECTION&#39;: &#39;close&#39;,
@@ -365,7 +365,7 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
  &#39;LS_COLORS&#39;: &#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:&#39;,
  &#39;MANDATORY_PATH&#39;: &#39;/usr/share/gconf/ubuntu.mandatory.path&#39;,
  &#39;PATH&#39;: &#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games&#39;,
- &#39;PATH_INFO&#39;: u&#39;/login&#39;,
+ &#39;PATH_INFO&#39;: u&#39;/match&#39;,
  &#39;PWD&#39;: &#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy&#39;,
  &#39;QUERY_STRING&#39;: &#39;&#39;,
  &#39;REMOTE_ADDR&#39;: &#39;127.0.0.1&#39;,
@@ -377,27 +377,27 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
  &#39;SERVER_PORT&#39;: &#39;8000&#39;,
  &#39;SERVER_PROTOCOL&#39;: &#39;HTTP/1.1&#39;,
  &#39;SERVER_SOFTWARE&#39;: &#39;WSGIServer/0.1 Python/2.7.3&#39;,
- &#39;SESSION_MANAGER&#39;: &#39;local/ubuntu:@/tmp/.ICE-unix/1973,unix/ubuntu:/tmp/.ICE-unix/1973&#39;,
+ &#39;SESSION_MANAGER&#39;: &#39;local/ubuntu:@/tmp/.ICE-unix/1597,unix/ubuntu:/tmp/.ICE-unix/1597&#39;,
  &#39;SHELL&#39;: &#39;/bin/bash&#39;,
  &#39;SHLVL&#39;: &#39;1&#39;,
- &#39;SSH_AGENT_PID&#39;: &#39;2009&#39;,
- &#39;SSH_AUTH_SOCK&#39;: &#39;/tmp/keyring-O0isC7/ssh&#39;,
+ &#39;SSH_AGENT_PID&#39;: &#39;1632&#39;,
+ &#39;SSH_AUTH_SOCK&#39;: &#39;/tmp/keyring-7CodMg/ssh&#39;,
  &#39;TERM&#39;: &#39;xterm&#39;,
  &#39;TZ&#39;: &#39;America/Chicago&#39;,
  &#39;UBUNTU_MENUPROXY&#39;: &#39;libappmenu.so&#39;,
  &#39;USER&#39;: &#39;abhinav&#39;,
- &#39;WINDOWID&#39;: &#39;58720262&#39;,
+ &#39;WINDOWID&#39;: &#39;48234502&#39;,
  &#39;XAUTHORITY&#39;: &#39;/home/abhinav/.Xauthority&#39;,
  &#39;XDG_CONFIG_DIRS&#39;: &#39;/etc/xdg/xdg-ubuntu:/etc/xdg&#39;,
  &#39;XDG_CURRENT_DESKTOP&#39;: &#39;Unity&#39;,
  &#39;XDG_DATA_DIRS&#39;: &#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/&#39;,
  &#39;XDG_SEAT_PATH&#39;: &#39;/org/freedesktop/DisplayManager/Seat0&#39;,
- &#39;XDG_SESSION_COOKIE&#39;: &#39;5c0342bcc257d015b715503f00000029-1364834072.855145-2142095866&#39;,
+ &#39;XDG_SESSION_COOKIE&#39;: &#39;5c0342bcc257d015b715503f00000029-1364856307.82601-1420828029&#39;,
  &#39;XDG_SESSION_PATH&#39;: &#39;/org/freedesktop/DisplayManager/Session0&#39;,
  &#39;_&#39;: &#39;/usr/bin/python&#39;,
- &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f3153a7e270&gt;,
- &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0x1d854c8&gt;,
- &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x7f314404a550&gt;,
+ &#39;wsgi.errors&#39;: &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f5292f5a270&gt;,
+ &#39;wsgi.file_wrapper&#39;: &lt;class wsgiref.util.FileWrapper at 0x27e84c8&gt;,
+ &#39;wsgi.input&#39;: &lt;socket._fileobject object at 0x2d648d0&gt;,
  &#39;wsgi.multiprocess&#39;: False,
  &#39;wsgi.multithread&#39;: True,
  &#39;wsgi.run_once&#39;: False,
@@ -407,7 +407,7 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
                 
                   <tr>
                     <td>view_func</td>
-                    <td class="code"><pre>&lt;function login at 0x7f31440377d0&gt;</pre></td>
+                    <td class="code"><pre>&lt;function match at 0x7f5280035578&gt;</pre></td>
                   </tr>
                 
                   <tr>
@@ -421,16 +421,16 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
         </li>
       
         <li class="frame user">
-          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/views.py</code> in <code>login</code>
+          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/views.py</code> in <code>match</code>
 
           
-            <div class="context" id="c139849571307744">
+            <div class="context" id="c139992311798096">
               
-                <ol start="15" class="pre-context" id="pre139849571307744"><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    postrequest = json.loads(request.body)</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    userID, facebookFriends = postrequest[&#39;userID&#39;], postrequest[&#39;facebookFriends&#39;]</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    myuser = None</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    if not User.user_exists(userID):</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>        myuser = User.objects.create_user(userID, facebookFriends)</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    else:</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>        myuser = User.objects.get(facebook_id=userID)</pre></li></ol>
+                <ol start="41" class="pre-context" id="pre139992311798096"><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>    userID = postrequest[&#39;userID&#39;]</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>    friendID = postrequest[&#39;friendID&#39;]</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>    userLat = postrequest[&#39;userLocation&#39;][&#39;latitude&#39;]</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>    userLong = postrequest[&#39;userLocation&#39;][&#39;longitude&#39;]</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>    if Appeal.objects.appeal_exists(userID, friendID):</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>        print &quot;USER &quot; + str(userID) + &quot; ACCEPTED APPEAL&quot;</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>        appeal = Appeal.objects.get_appeal(userID, friendID)</pre></li></ol>
               
-              <ol start="22" class="context-line"><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    friendStatuses = myuser.login(facebookFriends)</pre> <span>...</span></li></ol>
+              <ol start="48" class="context-line"><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>        resp = appeal.notify()</pre> <span>...</span></li></ol>
               
-                <ol start='23' class="post-context" id="post139849571307744"><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    return HttpResponse(simplejson.dumps(friendStatuses), mimetype=&#39;application/json&#39;)</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre></pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>@csrf_exempt</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>def set_status(request):</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    postrequest = json.loads(request.body)</pre></li><li onclick="toggle('pre139849571307744', 'post139849571307744')"><pre>    userID, status = postrequest[&#39;userID&#39;], postrequest[&#39;status&#39;]</pre></li></ol>
+                <ol start='49' class="post-context" id="post139992311798096"><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>        return HttpResponse(simplejson.dumps(resp), mimetype=&#39;application/json&#39;)</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>    else:</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>        appeal = Appeal.objects.create_appeal(userID, friendID, userLat, userLong)</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre>        return HttpResponse(simplejson.dumps({&#39;worked&#39;:&#39;1&#39;}), mimetype=&#39;application/json&#39;)</pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre></pre></li><li onclick="toggle('pre139992311798096', 'post139992311798096')"><pre></pre></li></ol>
               
             </div>
           
@@ -438,10 +438,10 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139849571307744')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139992311798096')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139849571307744">
+            <table class="vars" id="v139992311798096">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -451,28 +451,40 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
               <tbody>
                 
                   <tr>
-                    <td>facebookFriends</td>
-                    <td class="code"><pre>[u&#39;b&#39;, u&#39;c&#39;, u&#39;d&#39;]</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>myuser</td>
-                    <td class="code"><pre>&lt;User: User object&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>userID</td>
-                    <td class="code"><pre>u&#39;a&#39;</pre></td>
+                    <td>userLat</td>
+                    <td class="code"><pre>u&#39;47.6097&#39;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>request</td>
-                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/login,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;facebookFriends&quot;: [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;], &quot;userID&quot;: &quot;a&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;51\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;EH1WMPpS7efVx8a4SCGTrz7Fo2EfO0z4\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-Rnfh6Xq6Ph,guid=2bc53a237312c5e53c0969200000055d\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-O0isC7\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1962\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-O0isC7/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/login\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1973,unix/ubuntu:/tmp/.ICE-unix/1973\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;2009\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-O0isC7/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;58720262\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1364834072.855145-2142095866\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7f3153a7e270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x1d854c8&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x7f314404a550&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
+                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/match,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {u\&#39;{&quot;userLocation&quot;: {&quot;latitude&quot;: &quot;47.6097&quot;, &quot;longitude&quot;: &quot;-122.3331&quot;}, &quot;userID&quot;: &quot;b&quot;, &quot;friendID&quot;: &quot;a&quot;}\&#39;: [u\&#39;\&#39;]}&gt;,\nCOOKIES:{},\nMETA:{\&#39;COLORTERM\&#39;: \&#39;gnome-terminal\&#39;,\n \&#39;COMPIZ_CONFIG_PROFILE\&#39;: \&#39;ubuntu\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;99\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;application/json\&#39;,\n \&#39;CSRF_COOKIE\&#39;: \&#39;9Tilzm5Kx5cqQjDruIZ9Ahztc0HvOCnq\&#39;,\n \&#39;DBUS_SESSION_BUS_ADDRESS\&#39;: \&#39;unix:abstract=/tmp/dbus-l6FmfAuGKF,guid=f62ef9a4ddc7a2218b0df0d000000025\&#39;,\n \&#39;DEFAULTS_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.default.path\&#39;,\n \&#39;DESKTOP_SESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;:0\&#39;,\n \&#39;DJANGO_SETTINGS_MODULE\&#39;: \&#39;friendzy.settings\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GDMSESSION\&#39;: \&#39;ubuntu\&#39;,\n \&#39;GNOME_DESKTOP_SESSION_ID\&#39;: \&#39;this-is-deprecated\&#39;,\n \&#39;GNOME_KEYRING_CONTROL\&#39;: \&#39;/tmp/keyring-7CodMg\&#39;,\n \&#39;GNOME_KEYRING_PID\&#39;: \&#39;1586\&#39;,\n \&#39;GPG_AGENT_INFO\&#39;: \&#39;/tmp/keyring-7CodMg/gpg:0:1\&#39;,\n \&#39;HOME\&#39;: \&#39;/home/abhinav\&#39;,\n \&#39;HTTP_ACCEPT_ENCODING\&#39;: \&#39;identity\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;close\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;127.0.0.1:8000\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Python-urllib/2.7\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LESSCLOSE\&#39;: \&#39;/usr/bin/lesspipe %s %s\&#39;,\n \&#39;LESSOPEN\&#39;: \&#39;| /usr/bin/lesspipe %s\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;abhinav\&#39;,\n \&#39;LS_COLORS\&#39;: \&#39;rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:\&#39;,\n \&#39;MANDATORY_PATH\&#39;: \&#39;/usr/share/gconf/ubuntu.mandatory.path\&#39;,\n \&#39;PATH\&#39;: \&#39;/usr/local/heroku/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/match\&#39;,\n \&#39;PWD\&#39;: \&#39;/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;POST\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;localhost\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.3\&#39;,\n \&#39;SESSION_MANAGER\&#39;: \&#39;local/ubuntu:@/tmp/.ICE-unix/1597,unix/ubuntu:/tmp/.ICE-unix/1597\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/bash\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AGENT_PID\&#39;: \&#39;1632\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/tmp/keyring-7CodMg/ssh\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm\&#39;,\n \&#39;TZ\&#39;: \&#39;America/Chicago\&#39;,\n \&#39;UBUNTU_MENUPROXY\&#39;: \&#39;libappmenu.so\&#39;,\n \&#39;USER\&#39;: \&#39;abhinav\&#39;,\n \&#39;WINDOWID\&#39;: \&#39;48234502\&#39;,\n \&#39;XAUTHORITY\&#39;: \&#39;/home/abhinav/.Xauthority\&#39;,\n \&#39;XDG_CONFIG_DIRS\&#39;: \&#39;/etc/xdg/xdg-ubuntu:/etc/xdg\&#39;,\n \&#39;XDG_CURRENT_DESKTOP\&#39;: \&#39;Unity\&#39;,\n \&#39;XDG_DATA_DIRS\&#39;: \&#39;/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/\&#39;,\n \&#39;XDG_SEAT_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Seat0\&#39;,\n \&#39;XDG_SESSION_COOKIE\&#39;: \&#39;5c0342bcc257d015b715503f00000029-1364856307.82601-1420828029\&#39;,\n \&#39;XDG_SESSION_PATH\&#39;: \&#39;/org/freedesktop/DisplayManager/Session0\&#39;,\n \&#39;_\&#39;: \&#39;/usr/bin/python\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x7f5292f5a270&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x27e84c8&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x2d648d0&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>userLong</td>
+                    <td class="code"><pre>u&#39;-122.3331&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>userID</td>
+                    <td class="code"><pre>u&#39;b&#39;</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>friendID</td>
+                    <td class="code"><pre>u&#39;a&#39;</pre></td>
                   </tr>
                 
                   <tr>
                     <td>postrequest</td>
-                    <td class="code"><pre>{u&#39;facebookFriends&#39;: [u&#39;b&#39;, u&#39;c&#39;, u&#39;d&#39;], u&#39;userID&#39;: u&#39;a&#39;}</pre></td>
+                    <td class="code"><pre>{u&#39;friendID&#39;: u&#39;a&#39;,
+ u&#39;userID&#39;: u&#39;b&#39;,
+ u&#39;userLocation&#39;: {u&#39;latitude&#39;: u&#39;47.6097&#39;, u&#39;longitude&#39;: u&#39;-122.3331&#39;}}</pre></td>
+                  </tr>
+                
+                  <tr>
+                    <td>appeal</td>
+                    <td class="code"><pre>&lt;Appeal: Appeal object&gt;</pre></td>
                   </tr>
                 
               </tbody>
@@ -481,16 +493,16 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
         </li>
       
         <li class="frame user">
-          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py</code> in <code>login</code>
+          <code>/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py</code> in <code>notify</code>
 
           
-            <div class="context" id="c139849571302504">
+            <div class="context" id="c139992311798456">
               
-                <ol start="72" class="pre-context" id="pre139849571302504"><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>            return True</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>        return True</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>    </pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>    def login(self, facebook_friends):</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>        self.friends = facebook_friends</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>        self.save()</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>        #return {&quot;data&quot;:self.get_friend_statuses()}</pre></li></ol>
+                <ol start="195" class="pre-context" id="pre139992311798456"><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>    </pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>    def notify(self):</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        notifies CONFIRMED match</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        NOTE THIS IS DIFFERENT FROM AppealManager.notify() WHICH NOTIFIES A POTENTIAL MATCH</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        &quot;&quot;&quot;</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        data = self.get_data(self.uid, self.latitude, self.longitude)</pre></li></ol>
               
-              <ol start="79" class="context-line"><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>        return {&quot;data&quot;:{str(self.friends[0]):&quot;status1&quot;, str(self.friends[1]):&quot;status2&quot;, str(self.friends[2]):&quot;status3&quot;, str(self.friends[3]):&quot;status4&quot;}} # for testing frontend only</pre> <span>...</span></li></ol>
+              <ol start="202" class="context-line"><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        regId = self.get_regId(self.uid)</pre> <span>...</span></li></ol>
               
-                <ol start='80' class="post-context" id="post139849571302504"><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>    </pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>    def get_friend_statuses(self):</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>        statuses = {}</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>        for friendid in self.friends:</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>            try:</pre></li><li onclick="toggle('pre139849571302504', 'post139849571302504')"><pre>                myuser = User.objects.get(facebook_id=friendid)</pre></li></ol>
+                <ol start='203' class="post-context" id="post139992311798456"><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        gcmNotification({&#39;data&#39;:data}, [regId])</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        print &quot;USER &quot; + str(self.uid) + &quot; NOTIFIED&quot;</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        return {&#39;worked&#39;:&#39;1&#39;}</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>    </pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>    def get_data(self, uid1, latitude1, longitude1):</pre></li><li onclick="toggle('pre139992311798456', 'post139992311798456')"><pre>        user1id, user1lat, user1long = self.uid, self.latitude, self.longitude</pre></li></ol>
               
             </div>
           
@@ -498,10 +510,10 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
           
             <div class="commands">
                 
-                    <a href="#" onclick="return varToggle(this, '139849571302504')"><span>&#x25b6;</span> Local vars</a>
+                    <a href="#" onclick="return varToggle(this, '139992311798456')"><span>&#x25b6;</span> Local vars</a>
                 
             </div>
-            <table class="vars" id="v139849571302504">
+            <table class="vars" id="v139992311798456">
               <thead>
                 <tr>
                   <th>Variable</th>
@@ -511,13 +523,17 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
               <tbody>
                 
                   <tr>
-                    <td>facebook_friends</td>
-                    <td class="code"><pre>[u&#39;b&#39;, u&#39;c&#39;, u&#39;d&#39;]</pre></td>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;Appeal: Appeal object&gt;</pre></td>
                   </tr>
                 
                   <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;User: User object&gt;</pre></td>
+                    <td>data</td>
+                    <td class="code"><pre>{&#39;friendLocation&#39;: {&#39;latitude&#39;: 37.8717, &#39;longitude&#39;: -122.2728},
+ &#39;meetingLocation&#39;: {&#39;latitude&#39;: 37.872374, &#39;longitude&#39;: -122.268947},
+ &#39;meetingName&#39;: u&#39;Taiwan Restaurant&#39;,
+ &#39;userID&#39;: u&#39;a&#39;,
+ &#39;userLocation&#39;: {&#39;latitude&#39;: 37.8717, &#39;longitude&#39;: -122.2728}}</pre></td>
                   </tr>
                 
               </tbody>
@@ -532,7 +548,7 @@ META:{&#39;COLORTERM&#39;: &#39;gnome-terminal&#39;,
 
   <div id="pastebinTraceback" class="pastebin">
     <input type="hidden" name="language" value="PythonConsole">
-    <input type="hidden" name="title" value="IndexError at /login">
+    <input type="hidden" name="title" value="TypeError at /match">
     <input type="hidden" name="source" value="Django Dpaste Agent">
     <input type="hidden" name="poster" value="Django">
     <textarea name="content" id="traceback_area" cols="140" rows="25">
@@ -540,7 +556,7 @@ Environment:
 
 
 Request Method: POST
-Request URL: http://127.0.0.1:8000/login
+Request URL: http://127.0.0.1:8000/match
 
 Django Version: 1.4.3
 Python Version: 2.7.3
@@ -568,13 +584,13 @@ File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py" in ge
   111.                         response = callback(request, *callback_args, **callback_kwargs)
 File "/usr/local/lib/python2.7/dist-packages/django/views/decorators/csrf.py" in wrapped_view
   77.         return view_func(*args, **kwargs)
-File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/views.py" in login
-  22.     friendStatuses = myuser.login(facebookFriends)
-File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py" in login
-  79.         return {&quot;data&quot;:{str(self.friends[0]):&quot;status1&quot;, str(self.friends[1]):&quot;status2&quot;, str(self.friends[2]):&quot;status3&quot;, str(self.friends[3]):&quot;status4&quot;}} # for testing frontend only
+File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/views.py" in match
+  48.         resp = appeal.notify()
+File "/home/abhinav/Desktop/Abs_Things/work/cs169/iteration2/draft3/friendzy/users/models.py" in notify
+  202.         regId = self.get_regId(self.uid)
 
-Exception Type: IndexError at /login
-Exception Value: list index out of range
+Exception Type: TypeError at /match
+Exception Value: get_regId() takes exactly 2 arguments (1 given)
 </textarea>
   <br><br>
   <input type="submit" value="Share this traceback on a public Web site">
@@ -605,7 +621,7 @@ Exception Value: list index out of range
       <tbody>
         
           <tr>
-            <td>{&quot;facebookFriends&quot;: [&quot;b&quot;, &quot;c&quot;, &quot;d&quot;], &quot;userID&quot;: &quot;a&quot;}</td>
+            <td>{&quot;userLocation&quot;: {&quot;latitude&quot;: &quot;47.6097&quot;, &quot;longitude&quot;: &quot;-122.3331&quot;}, &quot;userID&quot;: &quot;b&quot;, &quot;friendID&quot;: &quot;a&quot;}</td>
             <td class="code"><pre>u&#39;&#39;</pre></td>
           </tr>
         
@@ -700,7 +716,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>GNOME_KEYRING_CONTROL</td>
-          <td class="code"><pre>&#39;/tmp/keyring-O0isC7&#39;</pre></td>
+          <td class="code"><pre>&#39;/tmp/keyring-7CodMg&#39;</pre></td>
         </tr>
       
         <tr>
@@ -710,7 +726,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>SSH_AGENT_PID</td>
-          <td class="code"><pre>&#39;2009&#39;</pre></td>
+          <td class="code"><pre>&#39;1632&#39;</pre></td>
         </tr>
       
         <tr>
@@ -745,7 +761,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>SESSION_MANAGER</td>
-          <td class="code"><pre>&#39;local/ubuntu:@/tmp/.ICE-unix/1973,unix/ubuntu:/tmp/.ICE-unix/1973&#39;</pre></td>
+          <td class="code"><pre>&#39;local/ubuntu:@/tmp/.ICE-unix/1597,unix/ubuntu:/tmp/.ICE-unix/1597&#39;</pre></td>
         </tr>
       
         <tr>
@@ -770,7 +786,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>WINDOWID</td>
-          <td class="code"><pre>&#39;58720262&#39;</pre></td>
+          <td class="code"><pre>&#39;48234502&#39;</pre></td>
         </tr>
       
         <tr>
@@ -780,7 +796,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>GPG_AGENT_INFO</td>
-          <td class="code"><pre>&#39;/tmp/keyring-O0isC7/gpg:0:1&#39;</pre></td>
+          <td class="code"><pre>&#39;/tmp/keyring-7CodMg/gpg:0:1&#39;</pre></td>
         </tr>
       
         <tr>
@@ -795,7 +811,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>CONTENT_LENGTH</td>
-          <td class="code"><pre>&#39;51&#39;</pre></td>
+          <td class="code"><pre>&#39;99&#39;</pre></td>
         </tr>
       
         <tr>
@@ -805,7 +821,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>SSH_AUTH_SOCK</td>
-          <td class="code"><pre>&#39;/tmp/keyring-O0isC7/ssh&#39;</pre></td>
+          <td class="code"><pre>&#39;/tmp/keyring-7CodMg/ssh&#39;</pre></td>
         </tr>
       
         <tr>
@@ -850,7 +866,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>DBUS_SESSION_BUS_ADDRESS</td>
-          <td class="code"><pre>&#39;unix:abstract=/tmp/dbus-Rnfh6Xq6Ph,guid=2bc53a237312c5e53c0969200000055d&#39;</pre></td>
+          <td class="code"><pre>&#39;unix:abstract=/tmp/dbus-l6FmfAuGKF,guid=f62ef9a4ddc7a2218b0df0d000000025&#39;</pre></td>
         </tr>
       
         <tr>
@@ -860,7 +876,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>XDG_SESSION_COOKIE</td>
-          <td class="code"><pre>&#39;5c0342bcc257d015b715503f00000029-1364834072.855145-2142095866&#39;</pre></td>
+          <td class="code"><pre>&#39;5c0342bcc257d015b715503f00000029-1364856307.82601-1420828029&#39;</pre></td>
         </tr>
       
         <tr>
@@ -885,7 +901,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>GNOME_KEYRING_PID</td>
-          <td class="code"><pre>&#39;1962&#39;</pre></td>
+          <td class="code"><pre>&#39;1586&#39;</pre></td>
         </tr>
       
         <tr>
@@ -900,12 +916,12 @@ Exception Value: list index out of range
       
         <tr>
           <td>CSRF_COOKIE</td>
-          <td class="code"><pre>&#39;EH1WMPpS7efVx8a4SCGTrz7Fo2EfO0z4&#39;</pre></td>
+          <td class="code"><pre>&#39;9Tilzm5Kx5cqQjDruIZ9Ahztc0HvOCnq&#39;</pre></td>
         </tr>
       
         <tr>
           <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f3153a7e270&gt;</pre></td>
+          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x7f5292f5a270&gt;</pre></td>
         </tr>
       
         <tr>
@@ -915,7 +931,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>wsgi.input</td>
-          <td class="code"><pre>&lt;socket._fileobject object at 0x7f314404a550&gt;</pre></td>
+          <td class="code"><pre>&lt;socket._fileobject object at 0x2d648d0&gt;</pre></td>
         </tr>
       
         <tr>
@@ -960,7 +976,7 @@ Exception Value: list index out of range
       
         <tr>
           <td>PATH_INFO</td>
-          <td class="code"><pre>u&#39;/login&#39;</pre></td>
+          <td class="code"><pre>u&#39;/match&#39;</pre></td>
         </tr>
       
     </tbody>

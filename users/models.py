@@ -1,41 +1,112 @@
 from django.db import models
-import ast
 import datetime
 from django.utils import timezone
 import math
 import yelp
 import json
+from gcm import GCM
+from ListField import ListField
 # Create your models here.
 
+##############
+#  managers  #
+##############
 
-class ListField(models.TextField):
-    __metaclass__ = models.SubfieldBase
-    description = "Stores a python list"
-    
-    def __init__(self, *args, **kwargs):
-        super(ListField, self).__init__(*args, **kwargs)
-    
-    def to_python(self, value):
-        if not value:
-            value = []
-        if isinstance(value, list):
-            return value
-        return ast.literal_eval(value)
-    
-    def get_prep_value(self, value):
-        if value is None:
-            return value
-        return unicode(value)
-    
-    def value_to_string(self, obj):
-        value = self._get_val_from_obj(obj)
-        return self.get_db_prep_value(value)
 
+class UserManager(models.Manager):
+    def create_user(self, fid, friends, regId):
+        status = Status.objects.create_status()
+        user = self.create(facebook_id=fid, friends=friends, status=status, regId=regId)
+        user.save()
+        return user
+    
+    def user_exists(self, fid):
+        try:
+            User.objects.get(facebook_id=fid)
+        except User.DoesNotExist:
+            return False
+        except User.MultipleObjectsReturned: #SHOULD NEVER HAPPEN! ONLY USEFUL FOR DEBUGGING.
+            return True
+        return True
+    
+    def get_user(self, fid):
+        return User.objects.get(facebook_id=fid)
+
+class StatusManager(models.Manager):
+    def create_status(self):
+        status = self.create(status='', status_time= timezone.datetime.min)
+        status.save()
+        return status
+
+class AppealManager(models.Manager):
+    def create_appeal(self, uid, friendid, latitude, longitude):
+        self.create(uid=uid, friendid = friendid, latitude=float(latitude), longitude=float(longitude))
+        print "USER " + str(uid) + " CREATED APPEAL, REQUESTING MATCH WITH USER " + str(friendid)
+        #notify friend of potential match
+        self.notify(uid, friendid)
+    
+    def notify(self, uid, friendid):
+        """
+        notifies of POTENTIAL match
+        NOTE THIS IS DIFFERENT FROM Appeal.notify() WHICH NOTIFIES A CONFIRMED MATCH
+        """
+        f = User.objects.get_user(friendid)
+        data = {'data':{'friendID':uid}}
+        gcmNotification(data, [f.regId])
+    
+    def appeal_exists(self, user1, user2):
+        try:
+            appeal = Appeal.objects.get(uid=user1, friendid=user2)
+        except Appeal.DoesNotExist:
+            try:
+                appeal = Appeal.objects.get(uid=user2, friendid=user1)
+            except Appeal.DoesNotExist:
+                return False
+            else:
+                return True
+        else:
+            return True
+    
+    def get_appeal(self, user1, user2):
+        try:
+            appeal = Appeal.objects.get(uid=user1, friendid=user2)
+        except Appeal.DoesNotExist:
+                appeal = Appeal.objects.get(uid=user2, friendid=user1)
+                return appeal
+        else:
+            return appeal
+
+####################
+#  misc functions  #
+####################
+
+def matches(string1, string2):
+    """
+    returns True if string1 matches with string2
+    more complex matching algorithm yet to come
+    """
+    return string1 in string2 or string2 in string1
+
+def gcmNotification(data, reg_ids):
+    gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
+    print data
+    data = {'data': data}
+    response = gcm.json_request(registration_ids=reg_ids, data=data)
+    print response
+    return {'worked':'1'}
+
+############
+#  models  #
+############
 
 class Status(models.Model):
-    
+    """
+    Status class for storing statuses
+    """
     status = models.CharField(max_length=200, default = '')
     status_time = models.DateTimeField('date published', default=timezone.datetime.min)
+    
+    objects = StatusManager()
     
     def set_status(self, s):
         self.status = s
@@ -47,38 +118,28 @@ class Status(models.Model):
             return self.status
         return None
 
-
-class UserManager(models.Manager):
-    def create_user(self, fid, friends):
-        status = Status()
-        status.set_status('')
-        return self.create(facebook_id=fid, friends=friends, status=status)
-
-
 class User(models.Model):
+    """
+    User class
+    """
     facebook_id = models.CharField(max_length=200)
     friends = ListField()
     status = models.OneToOneField(Status)
+    regId = models.CharField(max_length=4096)
     
     objects = UserManager()
     
-    @classmethod
-    def user_exists(cls, fid):
-        try:
-            User.objects.get(facebook_id=fid)
-        except User.DoesNotExist:
-            return False
-        except User.MultipleObjectsReturned: #SHOULD NEVER HAPPEN! ONLY USEFUL FOR DEBUGGING.
-            return True
-        return True
-    
-    def login(self, facebook_friends):
+    def login(self, facebook_friends, regId):
         self.friends = facebook_friends
+        self.regId = regId
         self.save()
         #return {"data":self.get_friend_statuses()}
         return {"data":{str(self.friends[0]):"status1", str(self.friends[1]):"status2", str(self.friends[2]):"status3", str(self.friends[3]):"status4"}} # for testing frontend only
     
     def get_friend_statuses(self):
+        """
+        returns all friends' statuses
+        """
         statuses = {}
         for friendid in self.friends:
             try:
@@ -118,39 +179,76 @@ class User(models.Model):
     def TESTAPI_resetFixture():
         User.objects.all().delete()
         Status.objects.all().delete()
+        Appeal.objects.all().delete()
 
-def matches(string1, string2):
+class Appeal(models.Model):
     """
-    returns if string1 matches with string2
-    more complex matching algorithm yet to come
+    Appeal class
     """
-    return string1 in string2 or string2 in string1
-
-
-class Location(models.Model):
-    
+    uid = models.CharField(max_length=200, default='')
+    friendid = models.CharField(max_length=200, default='')
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
     
+    objects = AppealManager()
+    
+    def notify(self, flat, flong):
+        """
+        notifies CONFIRMED match
+        NOTE THIS IS DIFFERENT FROM AppealManager.notify() WHICH NOTIFIES A POTENTIAL MATCH
+        """
+        data = self.get_data(self.friendid, flat, flong)
+        regId = Appeal.get_regId(self.uid)
+        gcmNotification({'data':data}, [regId])
+        print "USER " + str(self.uid) + " NOTIFIED"
+        return {'worked':'1'}
+    
+    def get_data(self, fuid1, flatitude1, flongitude1):
+        user1id, user1lat, user1long = self.uid, self.latitude, self.longitude
+        user2id, user2lat, user2long = fuid1, flatitude1, flongitude1
+        user1loc = Location()
+        user2loc = Location()
+        user1loc.set_location(user1lat, user1long)
+        user2loc.set_location(user2lat, user2long)
+        meeting = user1loc.get_meeting_point(user2loc)
+        out = {}
+        out['userID'] = user1id
+        out['userLocation'] = {"latitude":user1lat, "longitude":user1long}
+        out['friendLocation'] = {"latitude":user2lat, "longitude":user2long}
+        out['meetingName'] = meeting['name']
+        out['meetingLocation'] = {"latitude":meeting['latitude'], "longitude":meeting['longitude']}
+        return out
+    
+    @staticmethod
+    def get_regId(uid):
+        myuser = User.objects.get(facebook_id=uid)
+        return myuser.regId
+        
+
+class Location(models.Model):
+    """
+    Location class
+    """
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
+    
+    def set_location(self, latitude, longitude):
+        self.latitude = float(latitude)
+        self.longitude = float(longitude)
+    
     def midpoint(self, l):
-        lat1 = self.latitude
-        long1 = self.longitude
-        lat2 = l.latitude
-        long2 = l.longitude
-        lonA = math.radians(long1)
-        lonB = math.radians(long2)
-        latA = math.radians(lat1)
-        latB = math.radians(lat2)
+        lat1, long1 = self.latitude, self.longitude
+        lat2, long2 = l.latitude, l.longitude
+        lonA, lonB = math.radians(long1), math.radians(long2)
+        latA, latB = math.radians(lat1), math.radians(lat2)
         dLon = lonB - lonA
         Bx = math.cos(latB) * math.cos(dLon)
         By = math.cos(latB) * math.sin(dLon)
         latC = math.atan2(math.sin(latA) + math.sin(latB), math.sqrt((math.cos(latA) + Bx) * (math.cos(latA) + Bx) + By * By))
         lonC = lonA + math.atan2(By, math.cos(latA) + Bx)
         lonC = (lonC + 3 * math.pi) % (2 * math.pi) - math.pi
-        lat3, long3 = (math.degrees(latC), math.degrees(lonC))
         out = Location()
-        out.latitude = lat3
-        out.longitude = long3
+        out.latitude, out.longitude = (math.degrees(latC), math.degrees(lonC))
         return out
     
     def get_meeting_point(self,l):
@@ -160,13 +258,10 @@ class Location(models.Model):
         url_params['term'] = 'restaurant'
         url_params['ll'] = str(a) + ',' + str(b)
         url_params['limit'] = '1'
-        response = yelp.request('api.yelp.com', '/v2/search', url_params, "AeLIHzyGSsi0QdhpvbM-Ug", "pJudUhIyHj4AuTXntrO_xAksyFI", "40HMWzBg-Zb0I9Wnbt6zVDte7BD6sHEB", "4a_1hN7NpD4JkMEtwuasp8lt0kA")
-        #print type(response)
-        #print response
-        respdict = response#json.loads(response)
+        respdict = yelp.request('api.yelp.com', '/v2/search', url_params, "AeLIHzyGSsi0QdhpvbM-Ug", "pJudUhIyHj4AuTXntrO_xAksyFI", "40HMWzBg-Zb0I9Wnbt6zVDte7BD6sHEB", "4a_1hN7NpD4JkMEtwuasp8lt0kA")
         out = {}
         out['address'] = reduce(lambda x, y: x+ ' ' + y, respdict['businesses'][0]['location']['display_address'])
         out['latitude'] = respdict['businesses'][0]['location']['coordinate']['latitude']
         out['longitude'] = respdict['businesses'][0]['location']['coordinate']['longitude']
         out['name'] = respdict['businesses'][0]['name']
-        return {'data': out}
+        return out
