@@ -161,8 +161,8 @@ class User(models.Model):
         self.friends = facebook_friends
         self.regId = regId
         self.save()
-        #return {"data":self.get_friend_statuses()}
-        return {"data":{str(self.friends[0]):"status1", str(self.friends[1]):"status2", str(self.friends[2]):"status3", str(self.friends[3]):"status4"}} # for testing frontend only
+        #return {"data":{str(self.friends[0]):"status1", str(self.friends[1]):"status2", str(self.friends[2]):"status3", str(self.friends[3]):"status4"}} # for testing frontend only
+        return {"data":self.get_friend_statuses()}
     
     def get_friend_statuses(self):
         """
@@ -197,8 +197,8 @@ class User(models.Model):
             fstatus = fstatuses[fid]
             if matches(fstatus, status):
                 out[fid] = fstatus
-        #return {"data": out}
-        return {"data":{"friend1":"status1", "friend2":"status2", "friend3":"status3", "friend4":"status4"}} # for testing frontend only
+        #return {"data":{"friend1":"status1", "friend2":"status2", "friend3":"status3", "friend4":"status4"}} # for testing frontend only
+        return {"data": out}
     
     def get_status(self):
         return self.status.get_status()

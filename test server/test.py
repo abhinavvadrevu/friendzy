@@ -99,6 +99,7 @@ print 'reset_fixture'
 reset_fixture()
 print ''
 
+"""
 print 'Logging in first user'
 fid = 'a'
 print 'login'
@@ -127,7 +128,6 @@ print 'User b polls server for chats'
 chat('b','a','')
 print 'User b sends a message to user a'
 chat('b','a','whats up')
-"""
 
 
 
