@@ -338,7 +338,7 @@ class Chat(models.Model):
             msgs.append((message, mydate))
             i -= 1
         if msgs == []:
-            msgs = ['']
+            msgs = [['']]
         return msgs
     
     def visited(self, userID):
