@@ -44,11 +44,12 @@ def match(request):
     userLat = postrequest['userLocation']['latitude']
     userLong = postrequest['userLocation']['longitude']
     if Appeal.objects.appeal_exists(userID, friendID):
-        print "USER " + str(userID) + " ACCEPTED APPEAL"
+        print "user", userID, "accepted", friendID, "'s appeal"
         appeal = Appeal.objects.get_appeal(userID, friendID)
         resp = appeal.notify(userLat, userLong)
         return HttpResponse(simplejson.dumps(resp), mimetype='application/json')
     else:
+        print "created appeal from", userID, "to", friendID
         appeal = Appeal.objects.create_appeal(userID, friendID, userLat, userLong)
         return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
 
