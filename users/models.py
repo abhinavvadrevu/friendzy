@@ -62,7 +62,7 @@ class AppealManager(models.Manager):
             }
         }
         
-        gcmNotification(data, [f.regId])
+        gcmNotification(data, [friend.regId])
     
     def appeal_exists(self, user1, user2):
         try:
