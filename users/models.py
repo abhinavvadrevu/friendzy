@@ -229,7 +229,9 @@ class Appeal(models.Model):
         data = self.get_data(self.friendid, flat, flong)
         regId = Appeal.get_regId(self.uid)
         gcmNotification({'data':data}, [regId])
-        print "USER " + str(self.uid) + " NOTIFIED"
+        print "USER " + str(self.uid) + " NOTIFIED, deleting appeal"
+        self.delete()
+        
         return {'worked':'1'}
     
     def get_data(self, fuid1, flatitude1, flongitude1):
