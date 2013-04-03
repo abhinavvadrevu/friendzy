@@ -228,7 +228,7 @@ class Appeal(models.Model):
         """
         data = self.get_data(self.friendid, flat, flong)
         regId = Appeal.get_regId(self.uid)
-        gcmNotification({'data':data, "messageType": "double"}, [regId])
+        gcmNotification({'data':data, "messageType": "double"}, [regId, User.objects.get_user(friendid).regId])
         print "USER " + str(self.uid) + " NOTIFIED, deleting appeal"
         self.delete()
         
