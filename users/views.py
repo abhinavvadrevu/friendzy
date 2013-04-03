@@ -68,7 +68,7 @@ def chat(request):
         chat.add_message(userID, msg)
     connected = chat.connected(friendID)
     chat.visited(userID)
-    data = {'data':{'msg':outmsgs, 'connected':connected, 'senderID':friendID}}
+    data = {'msg':outmsgs, 'connected':connected, 'senderID':friendID}
     return HttpResponse(simplejson.dumps(data), mimetype='application/json')
         
 
