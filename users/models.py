@@ -51,7 +51,7 @@ class AppealManager(models.Manager):
         NOTE THIS IS DIFFERENT FROM Appeal.notify() WHICH NOTIFIES A CONFIRMED MATCH
         """
         f = User.objects.get_user(friendid)
-        data = {'data':{'friendID':uid}}
+        data = {'data':{'friendID':uid}, 'messageType': "initial"}
         gcmNotification(data, [f.regId])
     
     def appeal_exists(self, user1, user2):
@@ -228,7 +228,7 @@ class Appeal(models.Model):
         """
         data = self.get_data(self.friendid, flat, flong)
         regId = Appeal.get_regId(self.uid)
-        gcmNotification({'data':data}, [regId])
+        gcmNotification({'data':data, "messageType": "double"}, [regId])
         print "USER " + str(self.uid) + " NOTIFIED, deleting appeal"
         self.delete()
         

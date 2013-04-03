@@ -26,6 +26,7 @@ def login(request):
 def set_status(request):
     postrequest = json.loads(request.body)
     userID, status = postrequest['userID'], postrequest['status']
+    print "set_status:", status
     if User.objects.user_exists(userID):
         myuser = User.objects.get_user(userID)
         matchingStatuses = myuser.set_status(status)
