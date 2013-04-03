@@ -58,7 +58,7 @@ class AppealManager(models.Manager):
             "messageType": "initial",
             "data": {
                 "friendId": uid,
-                "friendStatus": user.status
+                "friendStatus": user.get_status()
             }
         }
         
