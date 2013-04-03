@@ -57,7 +57,7 @@ class AppealManager(models.Manager):
         data = {
             "messageType": "initial",
             "data": {
-                "friendID": uid,
+                "friendId": uid,
                 "friendStatus": user.status
             }
         }
@@ -128,7 +128,7 @@ def matches(string1, string2):
 def gcmNotification(data, reg_ids):
     gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
     print data
-    data = {'data': data}
+    # data = {'data': data}
     response = gcm.json_request(registration_ids=reg_ids, data=data)
     print response
     return {'worked':'1'}
@@ -184,7 +184,7 @@ class User(models.Model):
                 myuser = User.objects.get(facebook_id=friendid)
             except User.DoesNotExist:
                 #do nothing
-                print('user "' + friendid + '" has not yet joined friendzy')
+                # print('user "' + friendid + '" has not yet joined friendzy')
                 continue
             except User.MultipleObjectsReturned: #THIS CLAUSE IS FOR DEBUGGING ONLY!
                 #get one of the users
@@ -253,7 +253,8 @@ class Appeal(models.Model):
         user2loc.set_location(user2lat, user2long)
         meeting = user1loc.get_meeting_point(user2loc)
         out = {}
-        out['userID'] = user1id
+        out['userId'] = user1id
+        out['friendId'] = user2id
         out['userLocation'] = {"latitude":user1lat, "longitude":user1long}
         out['friendLocation'] = {"latitude":user2lat, "longitude":user2long}
         out['meetingName'] = meeting['name']
