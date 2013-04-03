@@ -47,11 +47,21 @@ class AppealManager(models.Manager):
     
     def notify(self, uid, friendid):
         """
-        notifies of POTENTIAL match
-        NOTE THIS IS DIFFERENT FROM Appeal.notify() WHICH NOTIFIES A CONFIRMED MATCH
+        Notify friendId that uid has appealed them.
+        
+        This is ***DIFFERENT*** from Appeal.notify() which notifies a ***CONFIRMED*** match
         """
-        f = User.objects.get_user(friendid)
-        data = {'data':{'friendID':uid}, 'messageType': "initial"}
+        user = User.objects.get_user(uid)
+        friend = User.objects.get_user(friendid)
+        
+        data = {
+            "messageType": "initial",
+            "data": {
+                "friendID": uid,
+                "friendStatus": user.status
+            }
+        }
+        
         gcmNotification(data, [f.regId])
     
     def appeal_exists(self, user1, user2):
