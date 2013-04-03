@@ -7,7 +7,7 @@ import ast
 
 class ListField(models.TextField):
     """
-    List class for storing facebook friends
+    List class
     """
     __metaclass__ = models.SubfieldBase
     description = "Stores a python list"

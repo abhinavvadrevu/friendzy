@@ -76,6 +76,34 @@ class AppealManager(models.Manager):
         else:
             return appeal
 
+class ChatManager(models.Manager):
+    def create_chat(self, userID, friendID):
+        chat = self.create(user1id=userID, user2id=friendID)
+        chat.save()
+        return chat
+    
+    def chat_exists(self, userID, friendID):
+        try:
+            chat = Chat.objects.get(user1id=userID, user2id=friendID)
+        except Chat.DoesNotExist:
+            try:
+                chat = Chat.objects.get(user1id=friendID, user2id=userID)
+            except Chat.DoesNotExist:
+                return False
+            else:
+                return True
+        else:
+            return True
+    
+    def get_chat(self, userID, friendID):
+        try:
+            chat = Chat.objects.get(user1id=userID, user2id=friendID)
+        except Chat.DoesNotExist:
+                chat = Chat.objects.get(user1id=friendID, user2id=userID)
+                return chat
+        else:
+            return chat
+
 ####################
 #  misc functions  #
 ####################
@@ -180,6 +208,7 @@ class User(models.Model):
         User.objects.all().delete()
         Status.objects.all().delete()
         Appeal.objects.all().delete()
+        Chat.objects.all().delete()
 
 class Appeal(models.Model):
     """
@@ -264,4 +293,52 @@ class Location(models.Model):
         out['latitude'] = respdict['businesses'][0]['location']['coordinate']['latitude']
         out['longitude'] = respdict['businesses'][0]['location']['coordinate']['longitude']
         out['name'] = respdict['businesses'][0]['name']
+        print out
         return out
+
+class Chat(models.Model):
+    """
+    Location class
+    """
+    messages = ListField()
+    user1id = models.CharField(max_length=200)
+    user2id = models.CharField(max_length=200)
+    user1lastvisit  = models.DateTimeField('user 1 last visit', default=timezone.datetime.min)
+    user2lastvisit  = models.DateTimeField('user 2 last visit', default=timezone.datetime.min)
+    
+    objects = ChatManager()
+    
+    def add_message(self, userID, message):
+        self.messages.append((message, str(timezone.datetime.now()), userID))
+        self.save()
+    
+    def get_updates(self, friendID):
+        lastvisit = None
+        if friendID == self.user1id:
+            lastvisit = self.user2lastvisit
+        else:
+            lastvisit = self.user1lastvisit
+        msgs, i = [], len(self.messages)-1
+        while i>=0 and datetime.datetime.strptime(self.messages[i][1], '%Y-%m-%d %H:%M:%S.%f') >= lastvisit:
+            message = self.messages[i][0]
+            mydate = self.messages[i][1]
+            msgs.append((message, mydate))
+            i -= 1
+        if msgs == []:
+            msgs = ['']
+        return msgs
+    
+    def visited(self, userID):
+        if userID == self.user1id:
+            self.user1lastvisit = timezone.datetime.now()
+        else:
+            self.user2lastvisit = timezone.datetime.now()
+        self.save()
+    
+    def connected(self, userID):
+        lastvisit = None
+        if userID == self.user1id:
+            lastvisit = self.user1lastvisit
+        else:
+            lastvisit = self.user2lastvisit
+        return timezone.datetime.now() - lastvisit < datetime.timedelta(seconds=10)

@@ -3,30 +3,43 @@ This class is used throughout models.py as a list implementation which Django is
 """
 
 from django.db import models
+import ast
 
+class MyList(str):
+	"""A subclass of string so it can be told whether a string is
+	   a pickled object or not (if the object is an instance of this class
+	   then it must [well, should] be a pickled one)."""
+	pass
 
-class ListField(models.TextField):
-    """
-    List class for storing facebook friends
-    """
-    __metaclass__ = models.SubfieldBase
-    description = "Stores a python list"
-    
-    def __init__(self, *args, **kwargs):
-        super(ListField, self).__init__(*args, **kwargs)
-    
-    def to_python(self, value):
-        if not value:
-            value = []
-        if isinstance(value, list):
-            return value
-        return ast.literal_eval(value)
-    
-    def get_prep_value(self, value):
-        if value is None:
-            return value
-        return unicode(value)
-    
-    def value_to_string(self, obj):
-        value = self._get_val_from_obj(obj)
-        return self.get_db_prep_value(value)
+class ListField(models.Field):
+	__metaclass__ = models.SubfieldBase
+	
+	def to_python(self, value):
+		if isinstance(value, MyList):
+			# If the value is a definite pickle; and an error is raised in de-pickling
+			# it should be allowed to propogate.
+			return pickle.loads(str(value))
+		else:
+			try:
+				return pickle.loads(str(value))
+			except:
+				# If an error was raised, just return the plain value
+				return value
+	
+	def get_db_prep_save(self, value):
+		if value is not None and not isinstance(value, MyList):
+			value = MyList(pickle.dumps(value))
+		return value
+	
+	def get_internal_type(self): 
+		return 'TextField'
+	
+	def get_db_prep_lookup(self, lookup_type, value):
+		if lookup_type == 'exact':
+			value = self.get_db_prep_save(value)
+			return super(ListField, self).get_db_prep_lookup(lookup_type, value)
+		elif lookup_type == 'in':
+			value = [self.get_db_prep_save(v) for v in value]
+			return super(ListField, self).get_db_prep_lookup(lookup_type, value)
+		else:
+			raise TypeError('Lookup type %s is not supported.' % lookup_type)
