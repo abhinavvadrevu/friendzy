@@ -1,8 +1,8 @@
 import json
 import urllib2
 
-#burl = "http://friendzy.herokuapp.com"
-burl = "http://127.0.0.1:8000"
+burl = "http://friendzy.herokuapp.com"
+#burl = "http://127.0.0.1:8000"
 
 def login(user, friends, regId):
     data = json.dumps({"userID":user, "facebookFriends":friends, "regId":regId})
@@ -75,7 +75,7 @@ def reset_fixture():
 #fid = '666900613'
 #fid = '1'
 
-
+"""
 print 'reset_fixture'
 reset_fixture()
 print ''
@@ -98,9 +98,9 @@ print ''
 
 print 'User a requesting match with user b'
 match('a','b', "37.8717", "-122.2728")
-
-print 'User b confirms match with user a'
-match('b','a', "47.6097", "-122.3331")
+"""
+print 'User a confirms match with user 100000924356267'
+match('a','100000924356267', "47.6097", "-122.3331")
 
 
 """

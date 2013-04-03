@@ -7,6 +7,7 @@ from users.models import User, Status, Appeal
 import friendzy
 import json
 import datetime
+from gcm import GCM
 
 
 @csrf_exempt
@@ -51,7 +52,13 @@ def match(request):
         appeal = Appeal.objects.create_appeal(userID, friendID, userLat, userLong)
         return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
 
-
+@csrf_exempt
+def gcmtest(request):
+    regId = postrequest['regId']
+    gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
+    data = {'data': {'worked':'1'}}
+    response = gcm.json_request(registration_ids=reg_ids, data=data)
+    return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
 
 
 
