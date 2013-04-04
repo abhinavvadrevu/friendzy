@@ -243,7 +243,7 @@ class Appeal(models.Model):
         message = {
             "messageType": "double",
             # Only necessary for initial when the respondent has to post his own id to server again
-            "ownId": "NOT USED"
+            "ownId": "NOT USED",
             "data": data
         }
         gcmNotification(message, [regId, User.objects.get_user(self.friendid).regId])
