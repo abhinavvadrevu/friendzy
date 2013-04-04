@@ -56,6 +56,7 @@ class AppealManager(models.Manager):
         
         data = {
             "messageType": "initial",
+            "ownId": friendid,
             "data": {
                 "friendId": uid,
                 "friendStatus": user.get_status()
@@ -238,7 +239,15 @@ class Appeal(models.Model):
         """
         data = self.get_data(self.friendid, flat, flong)
         regId = Appeal.get_regId(self.uid)
-        gcmNotification({'data':data, "messageType": "double"}, [regId, User.objects.get_user(self.friendid).regId])
+        
+        message = {
+            "messageType": "double",
+            # Only necessary for initial when the respondent has to post his own id to server again
+            "ownId": "NOT USED"
+            "data": data
+        }
+        gcmNotification(message, [regId, User.objects.get_user(self.friendid).regId])
+        
         print "USER " + str(self.uid) + " NOTIFIED, deleting appeal"
         self.delete()
         
@@ -338,7 +347,7 @@ class Chat(models.Model):
             msgs.append((message, mydate))
             i -= 1
         if msgs == []:
-            msgs = [['']]
+            msgs = ['']
         return msgs
     
     def visited(self, userID):
