@@ -59,7 +59,8 @@ class AppealManager(models.Manager):
             "ownId": friendid,
             "data": {
                 "friendId": uid,
-                "friendStatus": user.get_status()
+                "friendStatus": user.get_status(),
+                "ownStatus": friend.get_status()
             }
         }
         
