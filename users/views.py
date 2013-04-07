@@ -61,10 +61,12 @@ def chat(request):
     friendID = postrequest['friendID']
     msg = postrequest['msg']
     if not Chat.objects.chat_exists(userID, friendID):
+        print "chat doesn't exist, creating"
         Chat.objects.create_chat(userID, friendID)
     chat = Chat.objects.get_chat(userID, friendID)
     outmsgs = chat.get_updates(friendID)
     if not msg == '':
+        print "adding message:", msg
         chat.add_message(userID, msg)
     connected = chat.connected(friendID)
     chat.visited(userID)

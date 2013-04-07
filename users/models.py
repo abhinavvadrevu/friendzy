@@ -342,6 +342,7 @@ class Chat(models.Model):
         else:
             lastvisit = self.user1lastvisit
         msgs, i = [], len(self.messages)-1
+        print "we have", i, "messages"
         while i>=0 and datetime.datetime.strptime(self.messages[i][1], '%Y-%m-%d %H:%M:%S.%f') >= lastvisit:
             message = self.messages[i][0]
             mydate = self.messages[i][1]
