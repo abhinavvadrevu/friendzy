@@ -247,7 +247,13 @@ class Appeal(models.Model):
             "ownId": "NOT USED",
             "data": data
         }
-        gcmNotification(message, [regId, User.objects.get_user(self.friendid).regId])
+        gcmNotification(message, [regId])
+        
+        # Switch around userId and friendId when sending to friend
+        tmp = message["data"]["userId"]
+        message["data"]["userId"] = message["data"]["friendId"]
+        message["data"]["friendId"] = tmp
+        gcmNotification(message, [User.objects.get_user(self.friendid).regId])
         
         print "USER " + str(self.uid) + " NOTIFIED, deleting appeal"
         self.delete()
