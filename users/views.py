@@ -56,6 +56,7 @@ def match(request):
 
 @csrf_exempt
 def chat(request):
+    print "raw:", request.body
     postrequest = json.loads(request.body)
     userID = postrequest['userID']
     friendID = postrequest['friendID']
