@@ -129,10 +129,10 @@ def matches(string1, string2):
 
 def gcmNotification(data, reg_ids):
     gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
-    print data
+    print "notification payload:", data
     # data = {'data': data}
     response = gcm.json_request(registration_ids=reg_ids, data=data)
-    print response
+    print "submission response", response
     return {'worked':'1'}
 
 ############
