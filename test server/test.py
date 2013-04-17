@@ -156,9 +156,12 @@ print 'set_status'
 set_status(fid, 'is a test', 'true')
 
 print 'User a subscribes to b and c'
-subscribe_update('a','add','maths',['b','c'])
+subscribe_update('a','add','status',['b','c'])
 print 'User a unsubscribes to c'
-subscribe_update('a','delete','maths',['c'])
+subscribe_update('a','delete','status',['c'])
+
+print 'User b sets status'
+set_status('b', 'test status1', 'true')
 
 """
 

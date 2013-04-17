@@ -13,6 +13,7 @@ from DataStructures import *
 
 #Twilio
 from twilio.rest import TwilioRestClient
+from twilio import TwilioRestException
 account = "ACad5b697d43118d36082e78894c07fdbd"
 token = "b625061400a44d2a8c8e0784412f8785"
 client = TwilioRestClient(account, token)
@@ -247,6 +248,7 @@ class User(models.Model):
     
     def set_status(self, status, public):
         self.status.set_status(status, public)
+        self.notifyfollowers(status)
         #self.save()
         #return matching statuses
         fstatuses = self.get_friend_statuses()
@@ -261,9 +263,26 @@ class User(models.Model):
     def get_status(self):
         return self.status.get_status()
     
+    def notifyfollowers(self, status):
+        followers = self.followers.keyval_set.all()
+        for follower in followers:
+            userid = follower.key
+            topic = follower.value
+            if matches(topic, status) and User.objects.user_exists(userid):
+                User.objects.get_user(userid).sms(self.notification_message(self.facebook_id, status, topic)) #CHANGE LATER TO ALLOW FOR GCM/SMS BASED ON SETTINGS
+    
+    def notification_message(self, userid, status, topic):
+        message = "user " + userid + " posted a message about '" + topic + "':  "
+        message += '"' + status + '"'
+        return message
+    
     def sms(self, message):
         pn = self.phone_number
-        message = client.sms.messages.create(to=pn, from_=FROM_NUMBER, body=message)
+        print 'sending sms to '+pn+' which reads: '+message
+        try:
+            message = client.sms.messages.create(to=pn, from_=FROM_NUMBER, body=message)
+        except TwilioRestException:
+            "not a real phone number: " + pn
     
     def appendkv(self,userid,topic):
         self.followers.appendkv(userid,topic)
