@@ -57,7 +57,7 @@ class UserManager(models.Manager):
             for myuserid in to:
                 if self.user_exists(myuserid):
                     user = self.get_user(myuserid)
-                    user.followers.appendkv(userid,topic)
+                    user.appendkv(userid,topic)
                 else:
                     print "ATTEMPTED TO SUBSCRIBE TO UNKNOWN USER: " + str(myuserid)
         elif type == 'delete':
@@ -264,6 +264,10 @@ class User(models.Model):
     def sms(self, message):
         pn = self.phone_number
         message = client.sms.messages.create(to=pn, from_=FROM_NUMBER, body=message)
+    
+    def appendkv(self,userid,topic):
+        self.followers.appendkv(userid,topic)
+        self.save()
     
     @staticmethod
     def TESTAPI_resetFixture():

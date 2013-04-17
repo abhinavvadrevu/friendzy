@@ -158,7 +158,7 @@ set_status(fid, 'is a test', 'true')
 print 'User a subscribes to b and c'
 subscribe_update('a','add','maths',['b','c'])
 print 'User a unsubscribes to c'
-subscribe_update('a','delete','maths',['b','c'])
+subscribe_update('a','delete','maths',['c'])
 
 """
 
