@@ -13,10 +13,10 @@ from gcm import GCM
 @csrf_exempt
 def login(request):
     postrequest = json.loads(request.body)
-    userID, facebookFriends, regId = postrequest['userID'], postrequest['facebookFriends'], postrequest['regId']
+    userID, facebookFriends, regId, pn = postrequest['userID'], postrequest['facebookFriends'], postrequest['regId'], postrequest['phone_number']
     myuser = None
     if not User.objects.user_exists(userID):
-        myuser = User.objects.create_user(userID, facebookFriends, regId)
+        myuser = User.objects.create_user(userID, facebookFriends, regId, pn)
     else:
         myuser = User.objects.get_user(userID)
     friendStatuses = myuser.login(facebookFriends, regId)
@@ -25,11 +25,10 @@ def login(request):
 @csrf_exempt
 def set_status(request):
     postrequest = json.loads(request.body)
-    userID, status = postrequest['userID'], postrequest['status']
-    print "set_status:", status
+    userID, status, public = postrequest['userID'], postrequest['status'], postrequest['public']
     if User.objects.user_exists(userID):
         myuser = User.objects.get_user(userID)
-        matchingStatuses = myuser.set_status(status)
+        matchingStatuses = myuser.set_status(status, public)
         return HttpResponse(simplejson.dumps(matchingStatuses), mimetype='application/json')
     return HttpResponse(simplejson.dumps({'errCode':-1, 'data':'USER DOES NOT EXIST'}), mimetype='application/json')
 
@@ -74,7 +73,15 @@ def chat(request):
     data = {'msg':outmsgs, 'connected':connected, 'senderID':friendID}
     return HttpResponse(simplejson.dumps(data), mimetype='application/json')
         
-
+@csrf_exempt
+def subscribe_update(request):
+    postrequest = json.loads(request.body)
+    userID, type, topic, to = postrequest['userID'], postrequest['type'], postrequest['subscribe_topic'], postrequest['subscribe_to']
+    if User.objects.user_exists(userID):
+        resp = User.objects.subscriber(userID, type, topic, to)
+        return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
+    return HttpResponse(simplejson.dumps({'errCode':-1, 'data':'USER DOES NOT EXIST'}), mimetype='application/json')
+        
 @csrf_exempt
 def gcmtest(request):
     regId = postrequest['regId']

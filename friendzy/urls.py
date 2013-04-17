@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'set_status', 'users.views.set_status'),
     url(r'match', 'users.views.match'),
     url(r'chat', 'users.views.chat'),
+    url(r'subscribe_update', 'users.views.subscribe_update'),
     url(r'resetFixture', 'users.views.TESTAPI_resetFixture'),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

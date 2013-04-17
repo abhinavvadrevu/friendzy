@@ -2,11 +2,28 @@ from django.db import models
 import datetime
 from django.utils import timezone
 import math
-import yelp
 import json
-from gcm import GCM
-from ListField import ListField
+from DataStructures import *
 # Create your models here.
+
+
+##############
+#  Initialize API's  #
+##############
+
+#Twilio
+from twilio.rest import TwilioRestClient
+account = "ACad5b697d43118d36082e78894c07fdbd"
+token = "b625061400a44d2a8c8e0784412f8785"
+client = TwilioRestClient(account, token)
+FROM_NUMBER="+15308838474"
+
+#GCM
+from gcm import GCM
+gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
+
+#Yelp
+import yelp
 
 ##############
 #  managers  #
@@ -14,9 +31,12 @@ from ListField import ListField
 
 
 class UserManager(models.Manager):
-    def create_user(self, fid, friends, regId):
+    def create_user(self, fid, friends, regId, pn):
         status = Status.objects.create_status()
-        user = self.create(facebook_id=fid, friends=friends, status=status, regId=regId)
+        followers = Dicty.objects.create_dicty(fid+"'s followers")
+        user = self.create(facebook_id=fid, friends=friends, status=status, regId=regId, phone_number = pn, followers=followers)
+        #user.followers.name = fid+"'s followers"
+        #user.followers.save()
         user.save()
         return user
     
@@ -31,10 +51,28 @@ class UserManager(models.Manager):
     
     def get_user(self, fid):
         return User.objects.get(facebook_id=fid)
+    
+    def subscriber(self, userid, type, topic, to):
+        if type == 'add':
+            for myuserid in to:
+                if self.user_exists(myuserid):
+                    user = self.get_user(myuserid)
+                    user.followers.appendkv(userid,topic)
+                else:
+                    print "ATTEMPTED TO SUBSCRIBE TO UNKNOWN USER: " + str(myuserid)
+        elif type == 'delete':
+            for myuserid in to:
+                if self.user_exists(myuserid):
+                    user = self.get_user(myuserid)
+                    user.followers.deletekeyval(userid,topic)
+                else:
+                    print "ATTEMPTED TO DELETE SUBSCRIPTION TO UNKNOWN USER: " + str(myuserid)
+        elif type == 'editfriends':
+            return
 
 class StatusManager(models.Manager):
     def create_status(self):
-        status = self.create(status='', status_time= timezone.datetime.min)
+        status = self.create(status='', status_time= timezone.datetime.min, public=True)
         status.save()
         return status
 
@@ -128,7 +166,7 @@ def matches(string1, string2):
     return string1 in string2 or string2 in string1
 
 def gcmNotification(data, reg_ids):
-    gcm = GCM("AIzaSyAUfP7ynnoS4BQGFm3ZybWtz9ns3n8TXYA")
+    global gcm
     print "notification payload:", data
     # data = {'data': data}
     response = gcm.json_request(registration_ids=reg_ids, data=data)
@@ -145,10 +183,15 @@ class Status(models.Model):
     """
     status = models.CharField(max_length=200, default = '')
     status_time = models.DateTimeField('date published', default=timezone.datetime.min)
+    public = models.BooleanField()
     
     objects = StatusManager()
     
-    def set_status(self, s):
+    def set_status(self, s, p):
+        if p == 'true':
+            self.public = True
+        else:
+            self.public = False
         self.status = s
         self.status_time = timezone.datetime.now()
         self.save()
@@ -163,13 +206,16 @@ class User(models.Model):
     User class
     """
     facebook_id = models.CharField(max_length=200)
+    phone_number = models.CharField(max_length=15)
     friends = ListField()
+    followers = models.OneToOneField(Dicty)
     status = models.OneToOneField(Status)
     regId = models.CharField(max_length=4096)
     
     objects = UserManager()
     
     def login(self, facebook_friends, regId):
+        #self.sms('test_message')
         self.friends = facebook_friends
         self.regId = regId
         self.save()
@@ -199,8 +245,8 @@ class User(models.Model):
                     statuses[myuser.facebook_id] = myuser.get_status()
         return statuses
     
-    def set_status(self, status):
-        self.status.set_status(status)
+    def set_status(self, status, public):
+        self.status.set_status(status, public)
         #self.save()
         #return matching statuses
         fstatuses = self.get_friend_statuses()
@@ -215,12 +261,18 @@ class User(models.Model):
     def get_status(self):
         return self.status.get_status()
     
+    def sms(self, message):
+        pn = self.phone_number
+        message = client.sms.messages.create(to=pn, from_=FROM_NUMBER, body=message)
+    
     @staticmethod
     def TESTAPI_resetFixture():
         User.objects.all().delete()
         Status.objects.all().delete()
         Appeal.objects.all().delete()
         Chat.objects.all().delete()
+        KeyVal.objects.all().delete()
+        Dicty.objects.all().delete()
 
 class Appeal(models.Model):
     """
