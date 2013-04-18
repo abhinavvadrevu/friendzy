@@ -36,6 +36,7 @@ class UserManager(models.Manager):
         status = Status.objects.create_status()
         followers = Dicty.objects.create_dicty(fid+"'s followers")
         user = self.create(facebook_id=fid, friends=friends, status=status, regId=regId, phone_number = pn, followers=followers)
+        user.sms=False
         #user.followers.name = fid+"'s followers"
         #user.followers.save()
         user.save()
@@ -167,7 +168,6 @@ def matches(string1, string2):
     return string1 in string2 or string2 in string1
 
 def gcmNotification(data, reg_ids):
-    global gcm
     print "notification payload:", data
     # data = {'data': data}
     response = gcm.json_request(registration_ids=reg_ids, data=data)
@@ -212,6 +212,7 @@ class User(models.Model):
     followers = models.OneToOneField(Dicty)
     status = models.OneToOneField(Status)
     regId = models.CharField(max_length=4096)
+    sms = models.BooleanField(default=False)
     
     objects = UserManager()
     
@@ -263,20 +264,31 @@ class User(models.Model):
     def get_status(self):
         return self.status.get_status()
     
+    def setsms(self, bools):
+        print 'AT SETSMS METHOD, SETTING TO ' + str(bools)
+        self.sms = bool(str(bools))
+        self.save()
+    
     def notifyfollowers(self, status):
         followers = self.followers.keyval_set.all()
         for follower in followers:
             userid = follower.key
             topic = follower.value
             if matches(topic, status) and User.objects.user_exists(userid):
-                User.objects.get_user(userid).sms(self.notification_message(self.facebook_id, status, topic)) #CHANGE LATER TO ALLOW FOR GCM/SMS BASED ON SETTINGS
+                nuser = User.objects.get_user(userid)
+                if nuser.sms:
+                    notification_message = self.notification_message(self.facebook_id, status, topic)
+                    nuser.send_sms(notification_message) #CHANGE LATER TO ALLOW FOR GCM/SMS BASED ON SETTINGS
+                else:
+                    message = {"friendID":self.facebook_id, "friendStatus":self.get_status()}
+                    gcmNotification(message, [nuser.regId])
     
     def notification_message(self, userid, status, topic):
         message = "user " + userid + " posted a message about '" + topic + "':  "
         message += '"' + status + '"'
         return message
     
-    def sms(self, message):
+    def send_sms(self, message):
         pn = self.phone_number
         print 'sending sms to '+pn+' which reads: '+message
         try:

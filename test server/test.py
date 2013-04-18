@@ -98,6 +98,26 @@ def subscribe_update(userid, type, topic, to):
     print response
     return response
 
+def sms(userid, sms):
+    url = burl + '/set_sms'
+    tosend = {}
+    tosend['userID'] = userid
+    tosend['sms'] = sms
+    data = json.dumps(tosend)
+    req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
+    response=None
+    try:
+        f = urllib2.urlopen(req)
+        response = f.read()
+        f.close()
+    except urllib2.HTTPError, error:
+        k= open('test.html','w')
+        k.write(error.read())
+        k.close()
+    print response
+    return response
+
+
 def reset_fixture():
     url = burl + '/resetFixture'
     req = urllib2.Request(url)
@@ -161,7 +181,13 @@ print 'User a unsubscribes to c'
 subscribe_update('a','delete','status',['c'])
 
 print 'User b sets status'
-set_status('b', 'test status1', 'true')
+set_status('b', 'test status2', 'true')
+
+print 'User a turns on sms notifications'
+sms('a','true')
+
+print 'User b sets status'
+set_status('b', 'test status3', 'true')
 
 """
 

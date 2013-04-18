@@ -78,10 +78,20 @@ def subscribe_update(request):
     postrequest = json.loads(request.body)
     userID, type, topic, to = postrequest['userID'], postrequest['type'], postrequest['subscribe_topic'], postrequest['subscribe_to']
     if User.objects.user_exists(userID):
-        resp = User.objects.subscriber(userID, type, topic, to)
+        User.objects.subscriber(userID, type, topic, to)
         return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
     return HttpResponse(simplejson.dumps({'errCode':-1, 'data':'USER DOES NOT EXIST'}), mimetype='application/json')
-        
+
+@csrf_exempt
+def set_sms(request):
+    postrequest = json.loads(request.body)
+    userID, sms = postrequest['userID'], postrequest['sms']
+    if User.objects.user_exists(userID):
+        user = User.objects.get_user(userID)
+        user.setsms(sms)
+        return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
+    return HttpResponse(simplejson.dumps({'errCode':-1, 'data':'USER DOES NOT EXIST'}), mimetype='application/json')
+
 @csrf_exempt
 def gcmtest(request):
     regId = postrequest['regId']
