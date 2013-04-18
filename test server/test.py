@@ -19,7 +19,7 @@ def login(user, friends, regId, pn):
         k.write(error.read())
         k.close()
     print response
-    return response
+    return json.loads(response)
 
 def set_status(user, status, public):
     url = burl + '/set_status'
@@ -35,7 +35,7 @@ def set_status(user, status, public):
         k.write(error.read())
         k.close()
     print response
-    return response
+    return json.loads(response)
 
 def match(userid, friendid, userlat, userlong):
     url = burl + '/match'
@@ -55,7 +55,7 @@ def match(userid, friendid, userlat, userlong):
         k.write(error.read())
         k.close()
     print response
-    return response
+    return json.loads(response)
 
 def chat(userid, friendid, msg):
     url = burl + '/chat'
@@ -75,7 +75,7 @@ def chat(userid, friendid, msg):
         k.write(error.read())
         k.close()
     print response
-    return response
+    return json.loads(response)
 
 def subscribe_update(userid, type, topic, to):
     url = burl + '/subscribe_update'
@@ -96,7 +96,7 @@ def subscribe_update(userid, type, topic, to):
         k.write(error.read())
         k.close()
     print response
-    return response
+    return json.loads(response)
 
 def sms(userid, sms):
     url = burl + '/set_sms'
@@ -115,28 +115,8 @@ def sms(userid, sms):
         k.write(error.read())
         k.close()
     print response
-    return response
+    return json.loads(response)
 
-def get_events(userid, latitude, longitude):
-    url = burl + '/get_events'
-    tosend = {}
-    tosend['userID'] = userid
-    tosend['userLocation'] = {}
-    tosend['userLocation']['latitude'] = latitude
-    tosend['userLocation']['longitude'] = longitude
-    data = json.dumps(tosend)
-    req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
-    response=None
-    try:
-        f = urllib2.urlopen(req)
-        response = f.read()
-        f.close()
-    except urllib2.HTTPError, error:
-        k= open('test.html','w')
-        k.write(error.read())
-        k.close()
-    print response
-    return response
 
 def reset_fixture():
     url = burl + '/resetFixture'
@@ -159,63 +139,84 @@ def reset_fixture():
 print 'reset_fixture'
 reset_fixture()
 print ''
+
 print 'Logging in first user'
 fid, pn = 'a', "testnum"#"+19162762760"
 print 'login'
-login(fid, ['b','c','d','e'], fid, pn)
+response = login(fid, ['b','c','d','e'], fid, pn)
+assert response == {"data": {}}, "login failed!"
 print 'set_status'
-set_status(fid, 'this is a test status1', 'true')
+response = set_status(fid, 'this is a test status1', 'true')
+assert response == {'data':{}},  "status was not set correctly"
 print ''
+
 
 print 'Logging in second user'
 fid = 'b'
 print 'login'
-login(fid, ['a','c','d', 'e'], fid, fid)
+response = login(fid, ['a','c','d', 'e'], fid, fid)
+assert response == {"data": {"a": "this is a test status1"}}, 'login failed!'
 print 'set_status'
-set_status(fid, 'test status1', 'false')
-print ''
-
+response = set_status(fid, 'this is a test status1', 'false')
+assert response == {"data": {"a": "this is a test status1"}}, 'status was not set correctly'
+print 'matching'
 print 'User a requesting match with user b'
-match('a','b', "37.8717", "-122.2728")
+response = match('a','b', "37.8717", "-122.2728")
+assert response == {"worked": "1"}, 'matching failed'
 print 'User b confirms match with user a'
-match('b','a', "47.6097", "-122.3331")
+response = match('b','a', "47.6097", "-122.3331")
+assert response == {"worked": "1"}, 'matching failed'
 print ''
-
 print 'User a starts chat with user b'
-chat('a','b','hi')
+response = chat('a','b','hi')
+assert response == {"msg": [[""]], "senderID": "b", "connected": False}, 'chat sent'
 print 'User b polls server for chats'
-chat('b','a','')
+response = chat('b','a','')
+assert response['msg'][0][0] == "hi", 'chat received'
 print 'User b sends a message to user a'
-chat('b','a','whats up')
+response = chat('b','a','whats up')
+assert response == {"msg": [[""]], "senderID": "a", "connected": True}, 'chat sent'
+
 
 print 'Logging in third user'
 fid = 'c'
 print 'login'
-login(fid, ['a','b','d'], fid, fid)
+response = login(fid, ['a','b','d'], fid, fid)
+assert response == {"data": {"a": "this is a test status1", "b": "this is a test status1"}}, 'login failed'
 print 'set_status'
-set_status(fid, 'is a test', 'true')
-
+response  = set_status(fid, 'is a test', 'true')
+assert response == {"data": {"a": "this is a test status1", "b": "this is a test status1"}}, 'status was set correctly'
 print 'User a subscribes to b and c'
-subscribe_update('a','add','status',['b','c'])
+response = subscribe_update('a','add','status',['b','c'])
+assert response == {"worked": "1"}, 'subscribe failed'
 print 'User a unsubscribes to c'
-subscribe_update('a','delete','status',['c'])
-
+response = subscribe_update('a','delete','status',['c'])
+assert response == {"worked": "1"}, 'unsubscribe failed'
 print 'User b sets status'
-set_status('b', 'test status2', 'true')
+response = set_status('b', 'test status2', 'true')
+assert response  == {"data": {}}, 'status was not set correctly'
 
 print 'User a turns on sms notifications'
-sms('a','true')
-
+response = sms('a','true')
+assert response == {"worked": "1"}, 'sms turned on'
+print 'User a turns off sms notifications'
+response = sms('a','false')
+assert response == {"worked": "1"}, 'sms turned off'
 print 'User b sets status'
-set_status('b', 'test status3', 'true')
-
-print "user c requests for events"
-get_events('c','42.752', '-122.489')
-
-"""
-
-"""
-
-"""
-
-"""
+response = set_status('b', 'test status3', 'true')
+assert response == {"data": {}}, 'status was not set correctly'
+print 'User a sets status'
+response = set_status('a', 'status3', 'true')
+assert response == {"data": {"b": "test status3"}}, 'status was set correctly'
+print 'User a requesting match with user c'
+response = match('a','c', "37.879719", "-122.260744")
+assert response == {"worked": "1"}, 'matching failed'
+print 'User c subscribes to a and b'
+response = subscribe_update('c','add','status',['b','a'])
+assert response == {"worked": "1"}, 'subscribe failed'
+print 'User b starts chat with user c'
+response = chat('b','c','how are you?')
+assert response == {"msg": [[""]], "senderID": "c", "connected": False}, 'chat sent'
+print 'User b polls server for chats'
+response = chat('c','b','')
+assert response['msg'][0][0] == "how are you?", 'chat received'
