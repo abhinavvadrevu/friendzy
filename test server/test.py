@@ -117,6 +117,27 @@ def sms(userid, sms):
     print response
     return json.loads(response)
 
+def get_events(userid, latitude, longitude):
+    url = burl + '/get_events'
+    tosend = {}
+    tosend['userID'] = userid
+    tosend['userLocation'] = {}
+    tosend['userLocation']['latitude'] = latitude
+    tosend['userLocation']['longitude'] = longitude
+    data = json.dumps(tosend)
+    req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
+    response=None
+    try:
+        f = urllib2.urlopen(req)
+        response = f.read()
+        f.close()
+    except urllib2.HTTPError, error:
+        k= open('test.html','w')
+        k.write(error.read())
+        k.close()
+    print response
+    return json.loads(response)
+
 
 def reset_fixture():
     url = burl + '/resetFixture'
@@ -220,3 +241,12 @@ assert response == {"msg": [[""]], "senderID": "c", "connected": False}, 'chat s
 print 'User b polls server for chats'
 response = chat('c','b','')
 assert response['msg'][0][0] == "how are you?", 'chat received'
+
+
+print "user c requests for events"
+response  = get_events('c','42.752', '-122.489')
+assert response == {"data": [{"location_name": "Beckie's Restaurant", "longitude": -122.4886972, 
+                "match_age": "1439 minutes", "latitude": 42.754335, "attendees": ["b", "a"], 
+                "statuses": ["test status3", "status3"]}]}, 'get event request'
+                
+                

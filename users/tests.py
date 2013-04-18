@@ -15,19 +15,18 @@ class UserTest(unittest.TestCase):
     #@patch('models.User.get_friend_statuses')
     def test_user_exists(self):
         # objects.create creates and saves a db entry in one step
-        models.User.objects.create_user('an_id', ['some', 'list', 'items'],'123')
+        models.User.objects.create_user('an_id', ['some', 'list', 'items'],'123', '1234567')
         self.assertTrue(models.User.objects.user_exists('an_id'),"user_exists test fails")
         
     def test_user_exists1(self):
         # objects.create creates and saves a db entry in one step
-        models.User.objects.create_user('user1', ['some', 'list', 'items'],'123')
-        self.assertFalse(models.User.objects.user_exists('user2'),"user doesn't not exit")
-        
+        models.User.objects.create_user('user1', ['some', 'list', 'items'],'123', '1234567')
+        self.assertTrue(models.User.objects.user_exists('user1'),"user doesn't not exit")
   
     def test_Status(self):
         status1 = models.Status()
         ans = "ABC"
-        status1.set_status(ans)
+        status1.set_status(ans,True)
         self.assertEqual(status1.status, ans)
         
     
@@ -36,14 +35,14 @@ class UserTest(unittest.TestCase):
         status2 = models.Status()
         ans = "ABC"
         wrong = '123'
-        status1.set_status(ans)
+        status1.set_status(ans,True)
         self.assertNotEqual(status1.status, wrong)
     
     
     def test_Status3(self):
         status1 = models.Status()
         ans = "ABC"
-        status1.set_status(ans)
+        status1.set_status(ans,True)
         self.assertEqual(status1.get_status(), ans)
         
     def test_chat1(self):
@@ -69,24 +68,43 @@ class UserTest(unittest.TestCase):
         self.assertFalse(models.matches(status1, status2),"matching is correct")
     
     def test_status_from_user(self):
-        user = models.User()
-        user.status = models.Status()
-        user.set_status('abc')
-        self.assertEqual(user.get_status(), "abc")
+        user5 = models.User()
+        user5.status = models.Status()
+        user5.status.set_status('123', True)
+        self.assertEqual(user5.status.status, '123')
     
     def test_status_from_user1(self):
-        user = models.User()
-        user.status = models.Status()
-        user.set_status('abc')
-        self.assertIsNotNone(user.get_status(), 'status is None')
+        user5 = models.User()
+        user5.status = models.Status()
+        user5.status.set_status('123', True)
+        self.assertNotEqual(user5.status.get_status(), '456')
+        
     
     def test_fbID(self):
         user = models.User()
-        models.User.objects.create_user('an_id', ['some', 'list', 'items'],'123')
+        models.User.objects.create_user('an_id', ['some', 'list', 'items'],'123','1234567')
         user.facebook_id = 'an_id'
         self.assertEqual(user.facebook_id, "an_id")
+    
+        
+    def test_NotfriendL(self):
+        models.User.objects.create_user('user1', ['some', 'list', 'items'],'123','1234567')
+        self.assertNotEqual(models.User.objects.get_user('user1').friends, ['aaaa', 'aaa', 'bbb'])
+        
+#     def test_subscriber(self):
+#         models.User.objects.create_user('user1', ['some', 'list', 'items'],'123','1234567')
+#         models.User.objects.create_user('user2', ['some', 'list', 'items'],'133','1111111')
+#         models.User.objects.subscriber('user1', 'add', 'math', ['user2'])
+#         self.assertEqual(models.User.objects.get_user('user1').keyval_set.all(), ['a', 'b'])
+#         
+#         
+    def test_send_message(self):
+        try1 = models.User()
+        try1.status = models.Status()
+        try1.status.set_status('math 1', True)
+        self.assertEqual(try1.notification_message('try1', 'math 1', 'math'), 'user try1 posted a message about \'math\':  "math 1"')
 
-
+        
 class TestLocation(unittest.TestCase):
     def test_getting_lon_lat(self):
         a = models.Location()
@@ -201,3 +219,12 @@ class TestLocation(unittest.TestCase):
         user2.add_message('user2', 'message from user2')
         user1.add_message('user1', 'message from user1')
         self.assertNotEqual(user1.get_updates('user2'), user2.get_updates('user1'))
+        
+#     def test_meeting(self):
+#         a = models.Meeting()
+#         a.friends = ['b', 'c']
+#         a.latitude = 12.001
+#         a.meeting_name = 'soda hall'
+#         a.longitude = 31.001
+#         self.assertEqual(a.get_data()['latitude'], 31.001)
+#           
