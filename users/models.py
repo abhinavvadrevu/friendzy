@@ -78,6 +78,37 @@ class StatusManager(models.Manager):
         status.save()
         return status
 
+class MeetingManager(models.Manager):
+    def create_meeting(self, data):
+        userid = data['userId']
+        friendid = data['friendId']
+        #ulat, ulong = data['userLocation']["latitude"], data['userLocation']["longitude"]
+        #flat, flong = data['friendLocation']["latitude"], data['friendLocation']["longitude"]
+        mname = data['meetingName']
+        mlat, mlong = data['meetingLocation']["latitude"], data['meetingLocation']["longitude"]
+        meeting = self.create(latitude=mlat, longitude=mlong, meeting_name = mname)
+        meeting.friends = [userid, friendid]
+        meeting.meeting_time = timezone.datetime.now()
+        meeting.save()
+        return meeting
+    
+    def get_meetings(self, ulat, ulong):
+        ulocation = Location()
+        ulocation.latitude, ulocation.longitude = ulat, ulong
+        out = []
+        for meeting in Meeting.objects.all():
+            now = timezone.datetime.now()
+            if now-meeting.meeting_time<datetime.timedelta(minutes=15):
+                mlocation = Location()
+                mlocation.latitude, mlocation.longitude = meeting.latitude, meeting.longitude
+                dist = mlocation.get_distance(ulocation)
+                if dist<10:
+                    meetingdata = meeting.get_data()
+                    out.append(meetingdata)
+            else:
+                meeting.delete() # IMPORTANT - THIS DELETES ALL MEETINGS THAT ARE OVER 15 MINS OLD
+        return {'data':out}
+
 class AppealManager(models.Manager):
     def create_appeal(self, uid, friendid, latitude, longitude):
         self.create(uid=uid, friendid = friendid, latitude=float(latitude), longitude=float(longitude))
@@ -308,6 +339,7 @@ class User(models.Model):
         Chat.objects.all().delete()
         KeyVal.objects.all().delete()
         Dicty.objects.all().delete()
+        Meeting.objects.all().delete()
 
 class Appeal(models.Model):
     """
@@ -342,6 +374,9 @@ class Appeal(models.Model):
         message["data"]["friendId"] = tmp
         gcmNotification(message, [User.objects.get_user(self.friendid).regId])
         
+        #Create a Meeting object
+        Meeting.objects.create_meeting(data)
+        
         print "USER " + str(self.uid) + " NOTIFIED, deleting appeal"
         self.delete()
         
@@ -369,6 +404,37 @@ class Appeal(models.Model):
         myuser = User.objects.get(facebook_id=uid)
         return myuser.regId
         
+
+class Meeting(models.Model):
+    #uid = models.CharField(max_length=200, default='')
+    friends = ListField()
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
+    meeting_time = models.DateTimeField('meeting time', default=timezone.datetime.min)
+    meeting_name = models.CharField(max_length=1000, default='')
+    
+    objects = MeetingManager()
+    
+    def get_data(self):
+        #compute statuses
+        statuses = []
+        for userid in self.friends:
+            statuses.append(User.objects.get_user(userid).get_status())
+        #compute age
+        ageinseconds = (self.meeting_time - datetime.datetime.now()).seconds
+        age = ''
+        if ageinseconds>60:
+            age = str(ageinseconds//60) + " minutes"
+        else:
+            age = ageinseconds + " seconds"
+        out = {}
+        out['latitude'] = self.latitude
+        out['longitude'] = self.longitude
+        out['attendees'] = self.friends
+        out['location_name'] = self.meeting_name
+        out['match_age'] = age
+        out['statuses'] = statuses
+        return out
 
 class Location(models.Model):
     """
@@ -411,6 +477,25 @@ class Location(models.Model):
         out['name'] = respdict['businesses'][0]['name']
         print out
         return out
+    
+    def get_distance(self,l):
+        lon1, lat1, lon2, lat2 = map(float,[self.longitude, self.latitude, l.longitude, l.latitude])
+        print 'distances'
+        print  lon1, lat1, lon2, lat2
+        """
+        Calculate the great circle distance between two points 
+        on the earth (specified in decimal degrees)
+        """
+        # convert decimal degrees to radians 
+        lon1, lat1, lon2, lat2 = map(math.radians, [lon1, lat1, lon2, lat2])
+        # haversine formula 
+        dlon = lon2 - lon1 
+        dlat = lat2 - lat1 
+        a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon/2)**2
+        c = 2 * math.asin(math.sqrt(a)) 
+        km = 6367 * c
+        print "DISTANCE IS " + str(km) + " km"
+        return km 
 
 class Chat(models.Model):
     """

@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.utils import simplejson
 from django.views.decorators.csrf import csrf_exempt                                          
-from users.models import User, Status, Appeal, Chat
+from users.models import User, Status, Appeal, Chat, Meeting
 import friendzy
 import json
 import datetime
@@ -91,6 +91,15 @@ def set_sms(request):
         user.setsms(sms)
         return HttpResponse(simplejson.dumps({'worked':'1'}), mimetype='application/json')
     return HttpResponse(simplejson.dumps({'errCode':-1, 'data':'USER DOES NOT EXIST'}), mimetype='application/json')
+
+@csrf_exempt
+def get_events(request):
+    postrequest = json.loads(request.body)
+    userID = postrequest['userID']
+    userLat = postrequest['userLocation']['latitude']
+    userLong = postrequest['userLocation']['longitude']
+    meetings = Meeting.objects.get_meetings(userLat, userLong)
+    return HttpResponse(simplejson.dumps(meetings), mimetype='application/json')
 
 @csrf_exempt
 def gcmtest(request):

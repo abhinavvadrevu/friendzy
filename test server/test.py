@@ -117,6 +117,26 @@ def sms(userid, sms):
     print response
     return response
 
+def get_events(userid, latitude, longitude):
+    url = burl + '/get_events'
+    tosend = {}
+    tosend['userID'] = userid
+    tosend['userLocation'] = {}
+    tosend['userLocation']['latitude'] = latitude
+    tosend['userLocation']['longitude'] = longitude
+    data = json.dumps(tosend)
+    req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
+    response=None
+    try:
+        f = urllib2.urlopen(req)
+        response = f.read()
+        f.close()
+    except urllib2.HTTPError, error:
+        k= open('test.html','w')
+        k.write(error.read())
+        k.close()
+    print response
+    return response
 
 def reset_fixture():
     url = burl + '/resetFixture'
@@ -188,6 +208,9 @@ sms('a','true')
 
 print 'User b sets status'
 set_status('b', 'test status3', 'true')
+
+print "user c requests for events"
+get_events('c','42.752', '-122.489')
 
 """
 
