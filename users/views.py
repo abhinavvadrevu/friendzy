@@ -25,7 +25,7 @@ def login(request):
 @csrf_exempt
 def set_status(request):
     postrequest = json.loads(request.body)
-    userID, status, public = postrequest['userID'], postrequest['status'], postrequest['public']
+    userID, status, public = postrequest['userID'], postrequest['status'], postrequest['is_public']
     if User.objects.user_exists(userID):
         myuser = User.objects.get_user(userID)
         matchingStatuses = myuser.set_status(status, public)
