@@ -28,7 +28,6 @@ class UserTest(unittest.TestCase):
         ans = "ABC"
         status1.set_status(ans,True)
         self.assertEqual(status1.status, ans)
-        
     
     def test_Status2(self):
         status1 = models.Status()
@@ -37,7 +36,6 @@ class UserTest(unittest.TestCase):
         wrong = '123'
         status1.set_status(ans,True)
         self.assertNotEqual(status1.status, wrong)
-    
     
     def test_Status3(self):
         status1 = models.Status()
@@ -78,31 +76,56 @@ class UserTest(unittest.TestCase):
         user5.status = models.Status()
         user5.status.set_status('123', True)
         self.assertNotEqual(user5.status.get_status(), '456')
-        
-    
+
     def test_fbID(self):
         user = models.User()
         models.User.objects.create_user('an_id', ['some', 'list', 'items'],'123','1234567')
         user.facebook_id = 'an_id'
         self.assertEqual(user.facebook_id, "an_id")
-    
         
-    def test_NotfriendL(self):
+    def test_NotfriendList(self):
         models.User.objects.create_user('user1', ['some', 'list', 'items'],'123','1234567')
         self.assertNotEqual(models.User.objects.get_user('user1').friends, ['aaaa', 'aaa', 'bbb'])
         
-#     def test_subscriber(self):
-#         models.User.objects.create_user('user1', ['some', 'list', 'items'],'123','1234567')
-#         models.User.objects.create_user('user2', ['some', 'list', 'items'],'133','1111111')
-#         models.User.objects.subscriber('user1', 'add', 'math', ['user2'])
-#         self.assertEqual(models.User.objects.get_user('user1').keyval_set.all(), ['a', 'b'])
-#         
-#         
+    def test_friendList(self):
+        models.User.objects.create_user('user4', ['aaaa', 'aaa', 'bbb'],'123','1234567')
+        self.assertEqual(models.User.objects.get_user('user4').friends, ['aaaa', 'aaa', 'bbb'])
+        
+    
+    def test_subscriber(self):
+        models.User.objects.create_user('team', ['some', 'list', 'items'],'133','1111111')
+        models.User.objects.create_user('group', ['some', 'aaaat', 'items'],'113','13333111')
+        #subscribe team with group for topic = math
+        models.User.objects.subscriber('team', 'add', 'math', ['group'])
+        self.assertEqual(models.User.objects.get_user('group').
+                         followers.keyval_set.all()[0].key, 'team')
+        self.assertEqual(models.User.objects.get_user('group').
+                         followers.keyval_set.all()[0].value, 'math')
+        self.assertNotEqual(models.User.objects.get_user('group').
+                         followers.keyval_set.all()[0].key, 'team1')
+        self.assertNotEqual(models.User.objects.get_user('group').
+                         followers.keyval_set.all()[0].value, 'english')
+        #unsubscribe topic math and change topic to physic
+        models.User.objects.subscriber('team', 'delete', 'math', ['group'])
+        models.User.objects.subscriber('team', 'add', 'physic', ['group'])
+        self.assertNotEqual(models.User.objects.get_user('group').
+                         followers.keyval_set.all()[0].value, 'math')
+        self.assertEqual(models.User.objects.get_user('group').
+                         followers.keyval_set.all()[0].value, 'physic')
+        
     def test_send_message(self):
         try1 = models.User()
         try1.status = models.Status()
         try1.status.set_status('math 1', True)
-        self.assertEqual(try1.notification_message('try1', 'math 1', 'math'), 'user try1 posted a message about \'math\':  "math 1"')
+        self.assertEqual(try1.notification_message('try1', 'math 1', 'math'), 
+                         'user try1 posted a message about \'math\':  "math 1"')
+        
+    def test_send_message1(self):
+        try1 = models.User()
+        try1.status = models.Status()
+        try1.status.set_status('math 1', True)
+        self.assertNotEqual(try1.notification_message('try1', 'math 1', 'math'), 
+                         'user try1 posted a message about \'math\':  "math 2"')
 
         
 class TestLocation(unittest.TestCase):
@@ -198,7 +221,6 @@ class TestLocation(unittest.TestCase):
         user1.user1id = 'user1'
         user2 = models.Chat()
         user2.user2id = 'user2'
-        ''' user1.add_message = 'message from user1', '2013-04-03 01:43:26.984770'(time added message), 'user1'''
         user1.add_message('user1', 'message from user1')
         self.assertIsNotNone(user1.messages, 'message added')
         
@@ -220,11 +242,29 @@ class TestLocation(unittest.TestCase):
         user1.add_message('user1', 'message from user1')
         self.assertNotEqual(user1.get_updates('user2'), user2.get_updates('user1'))
         
-#     def test_meeting(self):
-#         a = models.Meeting()
-#         a.friends = ['b', 'c']
-#         a.latitude = 12.001
-#         a.meeting_name = 'soda hall'
-#         a.longitude = 31.001
-#         self.assertEqual(a.get_data()['latitude'], 31.001)
-#           
+    def test_meeting(self):
+        data = {'userId': 'aaa', 'friendId': '123', 'userLocation': {'latitude':12, 'longitude': 14},
+                 'friendLocation':{ 'latitude': 14, 'longitude':15}, 'meetingName': 'Soda Hall',
+                 'meetingLocation': {'latitude': 12, 'longitude': 14}}
+        meeting = models.Meeting.objects.create_meeting(data)
+        self.assertEqual(meeting.friends,['aaa', '123'])
+        self.assertEqual(meeting.latitude,12)
+        self.assertEqual(meeting.longitude,14)
+        self.assertEqual(meeting.meeting_name,'Soda Hall')
+        
+    def test_meeting1(self):
+        data = {'userId': 'bbb', 'friendId': '123', 'userLocation': {'latitude':12, 'longitude': 14},
+                 'friendLocation':{ 'latitude': 14, 'longitude':15}, 'meetingName': 'Soda Hall',
+                 'meetingLocation': {'latitude': 12, 'longitude': 14}}
+        meeting = models.Meeting.objects.create_meeting(data)
+        self.assertNotEqual(meeting.friends,['aaa', '123'])
+        self.assertNotEqual(meeting.latitude,14)
+        self.assertEqual(meeting.longitude,14)
+        self.assertEqual(meeting.meeting_name,'Soda Hall')
+        
+        
+        
+        
+        
+        
+        
