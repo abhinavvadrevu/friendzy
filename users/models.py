@@ -313,14 +313,14 @@ class User(models.Model):
                 else:
                     data = {
                         "messageType": "initial",
-                        "ownId": self.facebook_id,
+                        "ownId": nuser.facebook_id,
                         "data": {
-                            "friendId": nuser.facebook_id,
-                            "friendStatus": self.get_status(),
-                            "ownStatus": friend.get_status()
+                            "friendId": self.facebook_id,
+                            "friendStatus": nuser.get_status(),
+                            "ownStatus": self.get_status()
                         }
                     }
-                    gcmNotification(message, [nuser.regId])
+                    gcmNotification(data, [nuser.regId])
     
     def notification_message(self, userid, status, topic):
         message = "user " + userid + " posted a message about '" + topic + "':  "
