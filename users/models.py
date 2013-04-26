@@ -7,9 +7,9 @@ from DataStructures import *
 # Create your models here.
 
 
-##############
+######################
 #  Initialize API's  #
-##############
+######################
 
 #Twilio
 from twilio.rest import TwilioRestClient
@@ -86,6 +86,7 @@ class MeetingManager(models.Manager):
         #flat, flong = data['friendLocation']["latitude"], data['friendLocation']["longitude"]
         mname = data['meetingName']
         mlat, mlong = data['meetingLocation']["latitude"], data['meetingLocation']["longitude"]
+        #print "meeting lat,long is " + str(mlat) + ',' + str(mlong)
         meeting = self.create(latitude=mlat, longitude=mlong, meeting_name = mname)
         meeting.friends = [userid, friendid]
         meeting.meeting_time = timezone.datetime.now()
@@ -102,6 +103,7 @@ class MeetingManager(models.Manager):
                 mlocation = Location()
                 mlocation.latitude, mlocation.longitude = meeting.latitude, meeting.longitude
                 dist = mlocation.get_distance(ulocation)
+                print str(dist)
                 if dist<10:
                     meetingdata = meeting.get_data()
                     out.append(meetingdata)
@@ -333,7 +335,7 @@ class User(models.Model):
         try:
             message = client.sms.messages.create(to=pn, from_=FROM_NUMBER, body=message)
         except TwilioRestException:
-            "not a real phone number: " + pn
+            print "not a real phone number: " + pn
     
     def appendkv(self,userid,topic):
         self.followers.appendkv(userid,topic)
@@ -405,6 +407,8 @@ class Appeal(models.Model):
         out['friendLocation'] = {"latitude":user2lat, "longitude":user2long}
         out['meetingName'] = meeting['name']
         out['meetingLocation'] = {"latitude":meeting['latitude'], "longitude":meeting['longitude']}
+        print "output data for meeitng"
+        print out
         return out
     
     @staticmethod
@@ -488,8 +492,7 @@ class Location(models.Model):
     
     def get_distance(self,l):
         lon1, lat1, lon2, lat2 = map(float,[self.longitude, self.latitude, l.longitude, l.latitude])
-        print 'distances'
-        print  lon1, lat1, lon2, lat2
+        print 'distance between (' + str(lon1) + "," + str(lat1) + ") and (" + str(lon2) + "," + str(lat2) + ")"
         """
         Calculate the great circle distance between two points 
         on the earth (specified in decimal degrees)

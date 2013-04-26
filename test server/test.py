@@ -23,7 +23,7 @@ def login(user, friends, regId, pn):
 
 def set_status(user, status, public):
     url = burl + '/set_status'
-    data = json.dumps({"userID":user, "status":status, "public":public})
+    data = json.dumps({"userID":user, "status":status, "is_public":public})
     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
     response=None
     try:
@@ -244,9 +244,5 @@ assert response['msg'][0][0] == "how are you?", 'chat received'
 
 
 print "user c requests for events"
-response  = get_events('c','42.752', '-122.489')
-assert response == {"data": [{"location_name": "Beckie's Restaurant", "longitude": -122.4886972, 
-                "match_age": "1439 minutes", "latitude": 42.754335, "attendees": ["b", "a"], 
-                "statuses": ["test status3", "status3"]}]}, 'get event request'
-                
-                
+response  = get_events('c','42.477', '-122.087')
+assert response == {"data": [{"location_name": "Rocky Point Resort", "longitude": -122.0876528, "match_age": "1439 minutes", "latitude": 42.4782955, "attendees": ["b", "a"], "statuses": ["test status3", "status3"]}]}
