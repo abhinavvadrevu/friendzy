@@ -57,12 +57,13 @@ def match(userid, friendid, userlat, userlong):
     print response
     return json.loads(response)
 
-def chat(userid, friendid, msg):
+def chat(userid, friendid, msg, location):
     url = burl + '/chat'
     tosend = {}
     tosend['userID'] = userid
     tosend['friendID'] = friendid
     tosend['msg'] = msg
+    tosend['meetup_location'] = location
     data = json.dumps(tosend)
     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
     response=None
@@ -189,14 +190,15 @@ response = match('b','a', "47.6097", "-122.3331")
 assert response == {"worked": "1"}, 'matching failed'
 print ''
 print 'User a starts chat with user b'
-response = chat('a','b','hi')
-assert response == {"msg": [[""]], "senderID": "b", "connected": False}, 'chat sent'
+location = {'meetingLocation':{'latitude':42.4782955, 'longitude':-122.0876528}, 'meetingName':'Rocky Point Resort'}
+response = chat('a','b','hi', {})
+assert response == {"msg": [[""]], "senderID": "b", "connected": False, "current_meetup_location":location}, 'chat not sent'
 print 'User b polls server for chats'
-response = chat('b','a','')
-assert response['msg'][0][0] == "hi", 'chat received'
+response = chat('b','a','',{})
+assert response['msg'][0][0] == "hi", 'chat not received'
 print 'User b sends a message to user a'
-response = chat('b','a','whats up')
-assert response == {"msg": [[""]], "senderID": "a", "connected": True}, 'chat sent'
+response = chat('b','a','whats up',{})
+assert response == {"msg": [[""]], "senderID": "a", "connected": True, "current_meetup_location":location}, 'chat not sent'
 
 
 print 'Logging in third user'
@@ -223,24 +225,38 @@ assert response == {"worked": "1"}, 'sms turned on'
 print 'User a turns off sms notifications'
 response = sms('a','false')
 assert response == {"worked": "1"}, 'sms turned off'
+
+print 'User c sets status'
+response  = set_status('c', 'is a test status3', 'true')
 print 'User b sets status'
 response = set_status('b', 'test status3', 'true')
-assert response == {"data": {}}, 'status was not set correctly'
+assert response == {"data": {"c":'is a test status3'}}, 'status was not set correctly'
 print 'User a sets status'
 response = set_status('a', 'status3', 'true')
-assert response == {"data": {"b": "test status3"}}, 'status was set correctly'
+assert response == {"data": {"b": "test status3", "c":'is a test status3'}}, 'status was set correctly'
 print 'User a requesting match with user c'
 response = match('a','c', "37.879719", "-122.260744")
 assert response == {"worked": "1"}, 'matching failed'
 print 'User c subscribes to a and b'
 response = subscribe_update('c','add','status',['b','a'])
 assert response == {"worked": "1"}, 'subscribe failed'
+print 'User b requesting match with user c'
+response = match('b','c', "47.6097", "-122.3331")
+assert response == {"worked": "1"}, 'matching failed'
+print 'User c confirms match with user b'
+response = match('c','b', "38.5817", "-121.4933")
+assert response == {"worked": "1"}, 'matching failed'
 print 'User b starts chat with user c'
-response = chat('b','c','how are you?')
-assert response == {"msg": [[""]], "senderID": "c", "connected": False}, 'chat sent'
-print 'User b polls server for chats'
-response = chat('c','b','')
+response = chat('b','c','how are you?',{})
+location = {'meetingLocation':{'latitude':43.2181385, 'longitude':-121.7839748}, 'meetingName':'R & D Market'}
+assert response == {"msg": [[""]], "senderID": "c", "connected": False, "current_meetup_location":location}, 'chat not sent'
+print 'User b polls server for chats and changes location'
+nlocation = {'meetingLocation':{'latitude':43.0805962853446, 'longitude':-121.824914216995}, 'meetingName':'Diamond Lake Junction Cafe & Quick Mart'}
+response = chat('c','b','', nlocation)
 assert response['msg'][0][0] == "how are you?", 'chat received'
+print 'User c polls server for chats and get new location'
+response = chat('c','b','', {})
+assert response == {"msg": [[""]], "senderID": "b", "connected": True, "current_meetup_location":nlocation}, 'chat not sent'
 
 
 print "user c requests for events"

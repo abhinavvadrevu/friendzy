@@ -84,14 +84,37 @@ class MeetingManager(models.Manager):
         friendid = data['friendId']
         #ulat, ulong = data['userLocation']["latitude"], data['userLocation']["longitude"]
         #flat, flong = data['friendLocation']["latitude"], data['friendLocation']["longitude"]
-        mname = data['meetingName']
-        mlat, mlong = data['meetingLocation']["latitude"], data['meetingLocation']["longitude"]
+        mname = data['suggested_meetups'][0]['meetingName']
+        mlat, mlong = data['suggested_meetups'][0]['meetingLocation']["latitude"], data['suggested_meetups'][0]['meetingLocation']["longitude"]
         #print "meeting lat,long is " + str(mlat) + ',' + str(mlong)
         meeting = self.create(latitude=mlat, longitude=mlong, meeting_name = mname)
         meeting.friends = [userid, friendid]
         meeting.meeting_time = timezone.datetime.now()
         meeting.save()
         return meeting
+    
+    def get_meeting(self, uid, fid):
+        try:
+            return Meeting.objects.get(friends=[unicode(uid), unicode(fid)])
+        except Meeting.MultipleObjectsReturned: #SHOULD NEVER HAPPEN! ONLY USEFUL FOR DEBUGGING.
+            return Meeting.objects.filter(friends=[unicode(uid), unicode(fid)])[0]
+        except Meeting.DoesNotExist:
+            try:
+                return Meeting.objects.get(friends=[unicode(fid), unicode(uid)])
+            except Meeting.MultipleObjectsReturned: #SHOULD NEVER HAPPEN! ONLY USEFUL FOR DEBUGGING.
+                return Meeting.objects.filter(friends=[unicode(fid), unicode(uid)])[0]
+            except Meeting.DoesNotExist:
+                return False
+    
+    def update_meetup(self, userID, friendID, meetup_location):
+        meeting = self.get_meeting(userID, friendID)
+        name, latitude, longitude = meeting.meeting_name, meeting.latitude, meeting.longitude
+        current_meetup_location = {'meetingName':meeting.meeting_name, 'meetingLocation':{'latitude':meeting.latitude, 'longitude':meeting.longitude}}
+        if meetup_location != {}:
+            if current_meetup_location != meetup_location:
+                meeting.update_location(meetup_location)
+            return meetup_location
+        return current_meetup_location
     
     def get_meetings(self, ulat, ulong):
         ulocation = Location()
@@ -389,7 +412,6 @@ class Appeal(models.Model):
         
         print "USER " + str(self.uid) + " NOTIFIED, deleting appeal"
         self.delete()
-        
         return {'worked':'1'}
     
     def get_data(self, fuid1, flatitude1, flongitude1):
@@ -399,15 +421,22 @@ class Appeal(models.Model):
         user2loc = Location()
         user1loc.set_location(user1lat, user1long)
         user2loc.set_location(user2lat, user2long)
-        meeting = user1loc.get_meeting_point(user2loc)
+        meetings = user1loc.get_meeting_point(user2loc)
+        suggested_meetups = []
+        for place in meetings:
+            suggested_meetup = {}
+            suggested_meetup['meetingName'] = place['name']
+            suggested_meetup['meetingLocation'] = {"latitude":place['latitude'], "longitude":place['longitude']}
+            suggested_meetups.append(suggested_meetup)
         out = {}
         out['userId'] = user1id
         out['friendId'] = user2id
         out['userLocation'] = {"latitude":user1lat, "longitude":user1long}
         out['friendLocation'] = {"latitude":user2lat, "longitude":user2long}
-        out['meetingName'] = meeting['name']
-        out['meetingLocation'] = {"latitude":meeting['latitude'], "longitude":meeting['longitude']}
-        print "output data for meeitng"
+        out['suggested_meetups'] = suggested_meetups
+        #out['meetingName'] = meeting['name']
+        #out['meetingLocation'] = {"latitude":meeting['latitude'], "longitude":meeting['longitude']}
+        print "output data for meeting"
         print out
         return out
     
@@ -420,9 +449,9 @@ class Appeal(models.Model):
 class Meeting(models.Model):
     #uid = models.CharField(max_length=200, default='')
     friends = ListField()
+    meeting_time = models.DateTimeField('meeting time', default=timezone.datetime.min)
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
-    meeting_time = models.DateTimeField('meeting time', default=timezone.datetime.min)
     meeting_name = models.CharField(max_length=1000, default='')
     
     objects = MeetingManager()
@@ -447,6 +476,12 @@ class Meeting(models.Model):
         out['match_age'] = age
         out['statuses'] = statuses
         return out
+    
+    def update_location(self, meetup_location):
+        self.meeting_name = meetup_location['meetingName']
+        self.latitude = meetup_location['meetingLocation']['latitude']
+        self.longitude = meetup_location['meetingLocation']['longitude']
+        self.save()
 
 class Location(models.Model):
     """
@@ -480,15 +515,17 @@ class Location(models.Model):
         url_params = {}
         url_params['term'] = 'restaurant'
         url_params['ll'] = str(a) + ',' + str(b)
-        url_params['limit'] = '1'
+        url_params['limit'] = '5'
         respdict = yelp.request('api.yelp.com', '/v2/search', url_params, "AeLIHzyGSsi0QdhpvbM-Ug", "pJudUhIyHj4AuTXntrO_xAksyFI", "40HMWzBg-Zb0I9Wnbt6zVDte7BD6sHEB", "4a_1hN7NpD4JkMEtwuasp8lt0kA")
-        out = {}
-        out['address'] = reduce(lambda x, y: x+ ' ' + y, respdict['businesses'][0]['location']['display_address'])
-        out['latitude'] = respdict['businesses'][0]['location']['coordinate']['latitude']
-        out['longitude'] = respdict['businesses'][0]['location']['coordinate']['longitude']
-        out['name'] = respdict['businesses'][0]['name']
-        print out
-        return out
+        meetups = []
+        for i in range(len(respdict['businesses'])):
+            out = {}
+            out['address'] = reduce(lambda x, y: x+ ' ' + y, respdict['businesses'][i]['location']['display_address'])
+            out['latitude'] = respdict['businesses'][i]['location']['coordinate']['latitude']
+            out['longitude'] = respdict['businesses'][i]['location']['coordinate']['longitude']
+            out['name'] = respdict['businesses'][i]['name']
+            meetups.append(out)
+        return meetups
     
     def get_distance(self,l):
         lon1, lat1, lon2, lat2 = map(float,[self.longitude, self.latitude, l.longitude, l.latitude])

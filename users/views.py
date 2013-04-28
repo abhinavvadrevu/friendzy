@@ -55,11 +55,11 @@ def match(request):
 
 @csrf_exempt
 def chat(request):
-    print "raw:", request.body
     postrequest = json.loads(request.body)
     userID = postrequest['userID']
     friendID = postrequest['friendID']
     msg = postrequest['msg']
+    meetup_location = postrequest['meetup_location']
     if not Chat.objects.chat_exists(userID, friendID):
         print "chat doesn't exist, creating"
         Chat.objects.create_chat(userID, friendID)
@@ -70,7 +70,8 @@ def chat(request):
         chat.add_message(userID, msg)
     connected = chat.connected(friendID)
     chat.visited(userID)
-    data = {'msg':outmsgs, 'connected':connected, 'senderID':friendID}
+    meeting_location = Meeting.objects.update_meetup(userID, friendID, meetup_location) #udate and get latest meetup!
+    data = {'msg':outmsgs, 'connected':connected, 'senderID':friendID, "current_meetup_location":meeting_location}
     return HttpResponse(simplejson.dumps(data), mimetype='application/json')
         
 @csrf_exempt
