@@ -21,6 +21,7 @@ DEFAULT_FROM_EMAIL = ''
 
 MANAGERS = ADMINS
 
+# Possibly overwritten by dj_database_url if there is one.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -188,8 +189,10 @@ except IOError:
     pass
     
 # Parse database configuration from $DATABASE_URL
-#import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
+import dj_database_url
+maybe = dj_database_url.config()
+if maybe != {}:
+   DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
