@@ -278,6 +278,11 @@ class User(models.Model):
         self.regId = regId
         self.save()
         #return {"data":{str(self.friends[0]):"status1", str(self.friends[1]):"status2", str(self.friends[2]):"status3", str(self.friends[3]):"status4"}} # for testing frontend only
+        data = self.get_friend_statuses()
+        status = self.get_status()
+        if status == None:
+            status = ""
+        data['own_status'] = status
         return {"data":self.get_friend_statuses()}
     
     def get_friend_statuses(self):
