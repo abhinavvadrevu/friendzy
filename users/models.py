@@ -345,8 +345,8 @@ class User(models.Model):
                         "ownId": nuser.facebook_id,
                         "data": {
                             "friendId": self.facebook_id,
-                            "friendStatus": nuser.get_status(),
-                            "ownStatus": self.get_status()
+                            "friendStatus": self.get_status(),
+                            "ownStatus": nuser.get_status()
                         }
                     }
                     gcmNotification(data, [nuser.regId])
