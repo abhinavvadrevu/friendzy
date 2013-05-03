@@ -1,8 +1,8 @@
 import json
 import urllib2
 
-burl = "http://friendzy.herokuapp.com"
-#burl = "http://127.0.0.1:8000"
+#burl = "http://friendzy.herokuapp.com"
+burl = "http://127.0.0.1:8000"
 
 def login(user, friends, regId, pn):
     data = json.dumps({"userID":user, "facebookFriends":friends, "regId":regId, "phone_number":pn})

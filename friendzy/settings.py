@@ -189,7 +189,7 @@ except IOError:
     pass
     
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
+#import dj_database_url
 #maybe = dj_database_url.config()
 #if maybe != {}:
 #   DATABASES['default'] =  dj_database_url.config()
