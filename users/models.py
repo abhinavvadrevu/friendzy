@@ -466,7 +466,7 @@ class Meeting(models.Model):
         for userid in self.friends:
             statuses.append(User.objects.get_user(userid).get_status())
         #compute age
-        ageinseconds = (self.meeting_time - datetime.datetime.now()).seconds
+        ageinseconds = (datetime.datetime.now() - self.meeting_time).seconds
         age = ''
         if ageinseconds>60:
             age = str(ageinseconds//60) + " minutes"

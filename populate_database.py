@@ -15,7 +15,7 @@ def login(user, friends, regId, pn):
         f.close()
     except urllib2.HTTPError, error:
         #print error.read()
-        k= open('test.html','w')
+        k= open('population_error.html','w')
         k.write(error.read())
         k.close()
     print response
@@ -31,7 +31,7 @@ def set_status(user, status, public):
         response = f.read()
         f.close()
     except urllib2.HTTPError, error:
-        k= open('test.html','w')
+        k= open('population_error.html','w')
         k.write(error.read())
         k.close()
     print response
@@ -51,7 +51,7 @@ def match(userid, friendid, userlat, userlong):
         response = f.read()
         f.close()
     except urllib2.HTTPError, error:
-        k= open('test.html','w')
+        k= open('population_error.html','w')
         k.write(error.read())
         k.close()
     print response
@@ -72,7 +72,7 @@ def chat(userid, friendid, msg, location):
         response = f.read()
         f.close()
     except urllib2.HTTPError, error:
-        k= open('test.html','w')
+        k= open('population_error.html','w')
         k.write(error.read())
         k.close()
     print response
@@ -93,7 +93,7 @@ def subscribe_update(userid, type, topic, to):
         response = f.read()
         f.close()
     except urllib2.HTTPError, error:
-        k= open('test.html','w')
+        k= open('population_error.html','w')
         k.write(error.read())
         k.close()
     print response
@@ -112,7 +112,7 @@ def sms(userid, sms):
         response = f.read()
         f.close()
     except urllib2.HTTPError, error:
-        k= open('test.html','w')
+        k= open('population_error.html','w')
         k.write(error.read())
         k.close()
     print response
@@ -133,7 +133,7 @@ def get_events(userid, latitude, longitude):
         response = f.read()
         f.close()
     except urllib2.HTTPError, error:
-        k= open('test.html','w')
+        k= open('population_error.html','w')
         k.write(error.read())
         k.close()
     print response
@@ -148,14 +148,15 @@ def reset_fixture():
         response = f.read()
         f.close()
     except urllib2.HTTPError, error:
-        k= open('test.html','w')
+        k= open('population_error.html','w')
         k.write(error.read())
         k.close()
     print response
     return response
 
 
-print 'reset_fixture'
-reset_fixture()
+#print 'reset_fixture'
+#reset_fixture()
 print ''
 
+response  = get_events('c','42.477', '-122.087')
