@@ -341,12 +341,12 @@ class User(models.Model):
                     nuser.send_sms(notification_message) #CHANGE LATER TO ALLOW FOR GCM/SMS BASED ON SETTINGS
                 else:
                     data = {
-                        "messageType": "initial",
+                        "messageType": "subscription",
                         "ownId": nuser.facebook_id,
                         "data": {
                             "friendId": self.facebook_id,
-                            "friendStatus": nuser.get_status(),
-                            "ownStatus": self.get_status()
+                            "friendStatus": self.get_status(),
+                            "ownStatus": nuser.get_status()
                         }
                     }
                     gcmNotification(data, [nuser.regId])

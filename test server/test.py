@@ -155,8 +155,6 @@ def reset_fixture():
     print response
     return response
 
-#fid = '666900613'
-#fid = '1'
 
 print 'reset_fixture'
 reset_fixture()
@@ -248,17 +246,50 @@ response = match('c','b', "38.5817", "-121.4933")
 assert response == {"worked": "1"}, 'matching failed'
 print 'User b starts chat with user c'
 response = chat('b','c','how are you?',{})
+print 'user c set up meeting location'
 location = {'meetingLocation':{'latitude':43.2181385, 'longitude':-121.7839748}, 'meetingName':'R & D Market'}
-assert response == {"msg": [[""]], "senderID": "c", "connected": False, "current_meetup_location":location}, 'chat not sent'
+assert response == {"msg": [[""]], "senderID": "c", "connected": False,
+                     "current_meetup_location":location}, 'chat not sent'
 print 'User b polls server for chats and changes location'
-nlocation = {'meetingLocation':{'latitude':43.0805962853446, 'longitude':-121.824914216995}, 'meetingName':'Diamond Lake Junction Cafe & Quick Mart'}
+nlocation = {'meetingLocation':{'latitude':43.0805962853446, 'longitude':-121.824914216995}, 
+             'meetingName':'Diamond Lake Junction Cafe & Quick Mart'}
 response = chat('c','b','', nlocation)
 assert response['msg'][0][0] == "how are you?", 'chat received'
 print 'User c polls server for chats and get new location'
 response = chat('c','b','', {})
-assert response == {"msg": [[""]], "senderID": "b", "connected": True, "current_meetup_location":nlocation}, 'chat not sent'
+assert response == {"msg": [[""]], "senderID": "b", "connected": True, 
+                    "current_meetup_location":nlocation}, 'chat not sent'
 
 
 print "user c requests for events"
 response  = get_events('c','42.477', '-122.087')
-assert response == {"data": [{"location_name": "Rocky Point Resort", "longitude": -122.0876528, "match_age": "1439 minutes", "latitude": 42.4782955, "attendees": ["b", "a"], "statuses": ["test status3", "status3"]}]}
+assert response == {"data": [{"location_name": "Rocky Point Resort", 
+                    "longitude": -122.0876528, "match_age": "1439 minutes", "latitude": 
+                    42.4782955, "attendees": ["b", "a"], "statuses": ["test status3", "status3"]}]}, 'event could not create'
+print "user b requests for events"
+response  = get_events('b','42.471826','-122.090115')
+assert response == {"data": [{"location_name": "Rocky Point Resort", "longitude": -122.0876528, 
+                    "match_age": "1439 minutes", "latitude": 42.4782955, "attendees": ["b", "a"], 
+                    "statuses": ["test status3", "status3"]}]},'event could not create'
+
+print 'User a sets status'
+response  = set_status('a', 'is a test a', 'true')
+print 'User b sets status'
+response = set_status('b', 'test a', 'true')
+assert response == {"data": {"a": "is a test a"}}, 'status was not set correctly'
+print 'User a requesting match with user b'
+response = match('a','b', '37.808655','-122.413465')
+assert response == {"worked": "1"}, 'matching failed'
+print 'User b confirms match with user a'
+response = match('b','a', '37.807638','-122.411298')
+assert response == {"worked": "1"}, 'matching failed'
+meeting = {'meetingLocation':{'latitude':37.80885, 'longitude':-122.410171},
+           'meetingName':'Fog Harbor Fish Housemore'}
+print 'user b request meeting location'
+response  = get_events('b','37.80885','-122.410171')
+assert response == {"data": [{"location_name": "Forbes Island", 
+                "longitude": -122.412350177765, "match_age": "1439 minutes", "latitude":
+                 37.8104281505643, "attendees": ["b", "a"], "statuses": 
+                 ["test a", "is a test a"]}]}, 'event could not create'
+            
+
