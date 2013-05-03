@@ -92,15 +92,8 @@ class UserTest(unittest.TestCase):
         models.User.objects.create_user('anh1', ['hongle1'],'26091', '66666')
         self.assertEqual(models.Appeal.objects.notify('hongle1','anh1'), None)
         self.assertFalse(models.Appeal.objects.appeal_exists('hongle1','anh1'), 'exists')
-        data44 = {
-            "messageType": "initial",
-            "ownId": 'hongle1',
-            "data": {
-                "friendId": 'anh1',
-                "friendStatus": 'hello 1',
-                "ownStatus": 'hello 2'
-            }}
-
+    
+    
     def test_appeal(self):
         models.User.objects.create_user('user_a', ['some', 'list', 'items'],'123', '1234567')
         models.User.objects.create_user('user_b', ['someaa', 'rrrr', 'items'],'333', '523253523')
@@ -121,7 +114,6 @@ class UserTest(unittest.TestCase):
         a.friendid = 'user_b'
         a.latitude = 37.879719
         a.longitude = -122.260744
-        #         self.assertIsNone(a.notify(37.879719, -122.260744), 'aaaaaa')
         self.assertEqual(a.get_data('user_b', 37.879719, -122.260744), {'userLocation': {'latitude': 37.879719,
                          'longitude': -122.260744}, 'suggested_meetups': [{'meetingLocation': {'latitude': 37.8795938,
                                                                           'longitude': -122.2689348}, 'meetingName': u'Chez Panisse'}, {'meetingLocation': {'latitude': 37.8754053,
@@ -210,6 +202,10 @@ class UserTest(unittest.TestCase):
         user5.status.set_status('123', True)
         self.assertNotEqual(user5.status.get_status(), '456')
     
+    def test_status_from_user2(self):
+        a = models.User.objects.create_user('user1', ['some', 'list', 'items'],'123','1234567')
+        self.assertEqual(a.set_status('hi',True), {'data': {}})
+        self.assertEqual(a.get_status(), 'hi')
     
     def test_fbID(self):
         user = models.User()
@@ -432,7 +428,7 @@ class TestLocation(unittest.TestCase):
         self.assertEqual(chating1.messages[0][2], 'user22')
         a = chating1.get_updates('user33')
         self.assertEqual(a[0][0], 'hi')
-        chating1.visited('user22')
+        self.assertIsNone(chating1.visited('user22'), 'user have not visited')
         today = dt.date.today()
         self.assertEqual(chating1.user1lastvisit.year, today.year)
         self.assertEqual(chating1.user1lastvisit.month,today.month)
@@ -512,7 +508,7 @@ class TestLocation(unittest.TestCase):
     def test_meeting5(self):
         data = {'userId': 'bbb', 'friendId': '123',
             'suggested_meetups': [{'meetingName': 'Soda Hall',
-                                  'meetingLocation': { 'latitude': 344, 'longitude': 433 }},] # end of suggested_meetups
+                                  'meetingLocation': { 'latitude': 344, 'longitude': 433 }},]
             }#end of data
         models.Meeting.objects.create_meeting(data)
         self.assertEqual(models.Meeting.objects.get_meeting('bbb', '123'), False)
