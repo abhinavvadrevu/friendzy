@@ -1,8 +1,8 @@
 import json
 import urllib2
 
-#burl = "http://friendzy.herokuapp.com"
-burl = "http://127.0.0.1:8000"
+burl = "http://friendzy.herokuapp.com"
+#burl = "http://127.0.0.1:8000"
 
 def login(user, friends, regId, pn):
     data = json.dumps({"userID":user, "facebookFriends":friends, "regId":regId, "phone_number":pn})
@@ -176,7 +176,7 @@ set_status(timmy, "Time to study :(", 'true')
 set_status(steven, "study :(", "true")
 match(timmy, steven, "37.8", "-122.25")
 match(steven, timmy, "37.76", "-122.42")
-login(abhinav, [timmy, hong, steven], frid, "+5106045058")
+login(abhinav, [timmy, hong, steven], frid, "+15106045058")
 login(hong, [timmy, abhinav, steven], frid, "test_num")
 set_status(abhinav, "I wanna work out!", 'true')
 sms(abhinav, 'true')

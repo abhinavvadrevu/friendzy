@@ -4,8 +4,8 @@ import urllib2
 #burl = "http://friendzy.herokuapp.com"
 burl = "http://127.0.0.1:8000"
 
-def login(user, friends, regId, pn):
-    data = json.dumps({"userID":user, "facebookFriends":friends, "regId":regId, "phone_number":pn})
+def login(user, username, friends, regId, pn):
+    data = json.dumps({"userID":user, "username":username, "facebookFriends":friends, "regId":regId, "phone_number":pn})
     url = burl + '/login'
     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
     response=None
@@ -139,7 +139,6 @@ def get_events(userid, latitude, longitude):
     print response
     return json.loads(response)
 
-
 def reset_fixture():
     url = burl + '/resetFixture'
     req = urllib2.Request(url)
@@ -163,7 +162,7 @@ print ''
 print 'Logging in first user'
 fid, pn = 'a', "testnum"#"+19162762760"
 print 'login'
-response = login(fid, ['b','c','d','e'], fid, pn)
+response = login(fid, "test_username", ['b','c','d','e'], fid, pn)
 assert response == {"data": {}}, "login failed!"
 print 'set_status'
 response = set_status(fid, 'this is a test status1', 'true')
@@ -174,7 +173,7 @@ print ''
 print 'Logging in second user'
 fid = 'b'
 print 'login'
-response = login(fid, ['a','c','d', 'e'], fid, fid)
+response = login(fid, "test_username", ['a','c','d', 'e'], fid, fid)
 assert response == {"data": {"a": "this is a test status1"}}, 'login failed!'
 print 'set_status'
 response = set_status(fid, 'this is a test status1', 'false')
@@ -202,7 +201,7 @@ assert response == {"msg": [[""]], "senderID": "a", "connected": True, "current_
 print 'Logging in third user'
 fid = 'c'
 print 'login'
-response = login(fid, ['a','b','d'], fid, fid)
+response = login(fid, "test_username", ['a','b','d'], fid, fid)
 assert response == {"data": {"a": "this is a test status1", "b": "this is a test status1"}}, 'login failed'
 print 'set_status'
 response  = set_status(fid, 'is a test', 'true')
@@ -263,13 +262,15 @@ assert response == {"msg": [[""]], "senderID": "b", "connected": True,
 
 print "user c requests for events"
 response  = get_events('c','42.477', '-122.087')
+response['data'][0].pop("match_age")
 assert response == {"data": [{"location_name": "Rocky Point Resort", 
-                    "longitude": -122.0876528, "match_age": "1439 minutes", "latitude": 
+                    "longitude": -122.0876528, "latitude": 
                     42.4782955, "attendees": ["b", "a"], "statuses": ["test status3", "status3"]}]}, 'event could not create'
 print "user b requests for events"
 response  = get_events('b','42.471826','-122.090115')
+response['data'][0].pop("match_age")
 assert response == {"data": [{"location_name": "Rocky Point Resort", "longitude": -122.0876528, 
-                    "match_age": "1439 minutes", "latitude": 42.4782955, "attendees": ["b", "a"], 
+                    "latitude": 42.4782955, "attendees": ["b", "a"], 
                     "statuses": ["test status3", "status3"]}]},'event could not create'
 
 print 'User a sets status'
@@ -287,8 +288,9 @@ meeting = {'meetingLocation':{'latitude':37.80885, 'longitude':-122.410171},
            'meetingName':'Fog Harbor Fish Housemore'}
 print 'user b request meeting location'
 response  = get_events('b','37.80885','-122.410171')
+response['data'][0].pop("match_age")
 assert response == {"data": [{"location_name": "Forbes Island", 
-                "longitude": -122.412350177765, "match_age": "1439 minutes", "latitude":
+                "longitude": -122.412350177765, "latitude":
                  37.8104281505643, "attendees": ["b", "a"], "statuses": 
                  ["test a", "is a test a"]}]}, 'event could not create'
             

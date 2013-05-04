@@ -13,10 +13,10 @@ from gcm import GCM
 @csrf_exempt
 def login(request):
     postrequest = json.loads(request.body)
-    userID, facebookFriends, regId, pn = postrequest['userID'], postrequest['facebookFriends'], postrequest['regId'], postrequest['phone_number']
+    userID, username, facebookFriends, regId, pn = postrequest['userID'], postrequest['username'], postrequest['facebookFriends'], postrequest['regId'], postrequest['phone_number']
     myuser = None
     if not User.objects.user_exists(userID):
-        myuser = User.objects.create_user(userID, facebookFriends, regId, pn)
+        myuser = User.objects.create_user(userID, username, facebookFriends, regId, pn)
     else:
         myuser = User.objects.get_user(userID)
     friendStatuses = myuser.login(facebookFriends, regId)

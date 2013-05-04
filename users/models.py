@@ -32,10 +32,10 @@ import yelp
 
 
 class UserManager(models.Manager):
-    def create_user(self, fid, friends, regId, pn):
+    def create_user(self, fid, username, friends, regId, pn):
         status = Status.objects.create_status()
         followers = Dicty.objects.create_dicty(fid+"'s followers")
-        user = self.create(facebook_id=fid, friends=friends, status=status, regId=regId, phone_number = pn, followers=followers)
+        user = self.create(facebook_id=fid, username=username, friends=friends, status=status, regId=regId, phone_number = pn, followers=followers)
         user.sms=False
         #user.followers.name = fid+"'s followers"
         #user.followers.save()
@@ -263,6 +263,7 @@ class User(models.Model):
     User class
     """
     facebook_id = models.CharField(max_length=200)
+    username = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=15)
     friends = ListField()
     followers = models.OneToOneField(Dicty)
@@ -352,7 +353,8 @@ class User(models.Model):
                     gcmNotification(data, [nuser.regId])
     
     def notification_message(self, userid, status, topic):
-        message = "user " + userid + " posted a message about '" + topic + "':  "
+        username = User.objects.get_user(userid).username
+        message = "user " + username + " posted a message about '" + topic + "':  "
         message += '"' + status + '"'
         return message
     
@@ -471,8 +473,8 @@ class Meeting(models.Model):
         if ageinseconds>60:
             age = str(ageinseconds//60) + " minutes"
         else:
-            age = ageinseconds + " seconds"
-        age += "ago"
+            age = str(ageinseconds) + " seconds"
+        age += " ago"
         out = {}
         out['latitude'] = self.latitude
         out['longitude'] = self.longitude
