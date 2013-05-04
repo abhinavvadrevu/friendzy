@@ -472,6 +472,7 @@ class Meeting(models.Model):
             age = str(ageinseconds//60) + " minutes"
         else:
             age = ageinseconds + " seconds"
+        age += "ago"
         out = {}
         out['latitude'] = self.latitude
         out['longitude'] = self.longitude

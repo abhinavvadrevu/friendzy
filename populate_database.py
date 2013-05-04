@@ -154,9 +154,33 @@ def reset_fixture():
     print response
     return response
 
+timmy = "666900613"
+abhinav = "517899094"
+hong = "588985867"
+steven = "100000924356267"
 
-#print 'reset_fixture'
-#reset_fixture()
+frid = "this is a fake regID"
+
+
+print 'reset_fixture'
+reset_fixture()
 print ''
 
-response  = get_events('c','42.477', '-122.087')
+login(timmy, [abhinav, hong, steven], frid, "+17146866380")
+set_status(timmy, "I want asian food!", 'true')
+login(steven, [abhinav, hong, timmy], frid, "test_num")
+set_status(steven, "asian food!", "true")
+match(timmy, steven, '37.75','-122.4')
+match(steven, timmy, '37.8717', '-122.2728')
+set_status(timmy, "Time to study :(", 'true')
+set_status(steven, "study :(", "true")
+match(timmy, steven, "37.8", "-122.25")
+match(steven, timmy, "37.76", "-122.42")
+login(abhinav, [timmy, hong, steven], frid, "+5106045058")
+login(hong, [timmy, abhinav, steven], frid, "test_num")
+set_status(abhinav, "I wanna work out!", 'true')
+sms(abhinav, 'true')
+subscribe_update(abhinav, 'add', 'work out', [hong])
+set_status(hong, "wanna work out", "true")
+match(abhinav, hong, "37.75", "-122.47")
+match(hong, abhinav, "37.78", "-122.49")
