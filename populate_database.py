@@ -1,11 +1,11 @@
 import json
 import urllib2
 
-burl = "http://friendzy.herokuapp.com"
-#burl = "http://127.0.0.1:8000"
+#burl = "http://friendzy.herokuapp.com"
+burl = "http://127.0.0.1:8000"
 
-def login(user, friends, regId, pn):
-    data = json.dumps({"userID":user, "facebookFriends":friends, "regId":regId, "phone_number":pn})
+def login(user, username, friends, regId, pn):
+    data = json.dumps({"userID":user, "username":username, "facebookFriends":friends, "regId":regId, "phone_number":pn})
     url = burl + '/login'
     req = urllib2.Request(url, data, {'Content-Type': 'application/json'})
     response=None
@@ -15,7 +15,7 @@ def login(user, friends, regId, pn):
         f.close()
     except urllib2.HTTPError, error:
         #print error.read()
-        k= open('population_error.html','w')
+        k= open('test.html','w')
         k.write(error.read())
         k.close()
     print response
@@ -161,14 +161,10 @@ steven = "100000924356267"
 
 frid = "this is a fake regID"
 
-
-print 'reset_fixture'
 reset_fixture()
-print ''
-
-login(timmy, [abhinav, hong, steven], frid, "+17146866380")
+login(timmy, "Timmy", [abhinav, hong, steven], frid, "+17146866380")
 set_status(timmy, "I want asian food!", 'true')
-login(steven, [abhinav, hong, timmy], frid, "test_num")
+login(steven, "Steven", [abhinav, hong, timmy], frid, "test_num")
 set_status(steven, "asian food!", "true")
 match(timmy, steven, '37.75','-122.4')
 match(steven, timmy, '37.8717', '-122.2728')
@@ -176,8 +172,8 @@ set_status(timmy, "Time to study :(", 'true')
 set_status(steven, "study :(", "true")
 match(timmy, steven, "37.8", "-122.25")
 match(steven, timmy, "37.76", "-122.42")
-login(abhinav, [timmy, hong, steven], frid, "+15106045058")
-login(hong, [timmy, abhinav, steven], frid, "test_num")
+login(abhinav, "Abhinav", [timmy, hong, steven], frid, "+15106045058")
+login(hong, "Hong", [timmy, abhinav, steven], frid, "test_num")
 set_status(abhinav, "I wanna work out!", 'true')
 sms(abhinav, 'true')
 subscribe_update(abhinav, 'add', 'work out', [hong])
